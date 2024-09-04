@@ -1,7 +1,8 @@
 #include "MenuUIShow.h"
 
-void MenuUIShow::ScenesHome(void)
+MenuUIShow::MenuUIShow()
 {
+
 }
 
 void MenuUIShow::ScenesPlayerDataLoad(void)

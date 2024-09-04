@@ -4,7 +4,7 @@
 class MenuUIShow
 {
 public:
-	void ScenesHome(void);
+	MenuUIShow();
 	void ScenesPlayerDataLoad(void);
 	void ScenesGameRotateDisplay(void);
 	void ScenesCardFunctionUsing(void);
