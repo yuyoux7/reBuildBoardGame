@@ -272,7 +272,11 @@
 				"CardFunctionUsing": {
 					"DisplayProportion": 1
 				}
-			} 
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
 		}
 	},
 	"BackGround": {
