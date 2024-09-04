@@ -6,7 +6,6 @@ int main(void)
 	int GameRound = AppData->GetGameRound();
 	delete AppData;
 	MenuUIShow* Display = new MenuUIShow;
-	Display->ScenesHome();
 	int PlayerTotal = Display->GetPlayerTotal();
 	Display->ScenesPlayerDataLoad();
 	for (auto i = 0; GameRun; i++)
