@@ -1,0 +1,54 @@
+{
+	"Number": {
+		"Number1": {
+			"Path": "./Image/Number/1.png",
+			"Scenes": {
+				"Home": {
+					"DidplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DidplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		}
+	},
+	"EffectText": {
+		"F0003": {
+			"Path": "./Image/EffectText/F0003,png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				}
+			} 
+		}
+	},
+	"BackGround": {
+		"HomeBG": {
+			"Path": "./Image/Background/HomeBG.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 0,
+					"DisplayHight": 0
+				}
+			}
+		},
+		"OtherBG": {
+			"Path": "./Image/Background/OtherBG.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 0,
+					"DisplayHight": 0
+				}
+			}
+		}
+	}
+}

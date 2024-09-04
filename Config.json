@@ -1,0 +1,109 @@
+{
+	"WindowSize":{
+		"Width": 1920,
+		"Height": 1080,
+		"CmdShow": 0
+	},
+	"Map":{
+		"01": {
+			"effect": "",
+			"step": 3
+		},
+		"02": {
+			"effect": "",
+			"step": 3
+		},
+		"03": {
+			"effect": "",
+			"step": 5
+		},
+		"04": {
+			"effect": "",
+			"step": 5
+		},
+		"05": {
+			"effect": "",
+			"step": 2
+		},
+		"06": {
+			"effect": "",
+			"step": 4
+		},
+		"07": {
+			"effect": "",
+			"step": 3
+		},
+		"08": {
+			"effect": "",
+			"step": 3
+		},
+		"09": {
+			"effect": "",
+			"step": 5
+		},
+		"10": {
+			"effect": "",
+			"step": 7
+		},
+			"11": {
+			"effect": "",
+			"step": 3
+		},
+		"12": {
+			"effect": "",
+			"step": 9
+		},
+		"13": {
+			"effect": "",
+			"step": 8
+		},
+		"14": {
+			"effect": "",
+			"step": 5
+		},
+		"15": {
+			"effect": "",
+			"step": 3
+		},
+		"16": {
+			"effect": "",
+			"step": 2
+		},
+		"17": {
+			"effect": "",
+			"step": 2
+		},
+		"18": {
+			"effect": "",
+			"step": 3
+		},
+		"19": {
+			"effect": "",
+			"step": 6
+		},
+		"20": {
+			"effect": "",
+			"step": 6
+		},
+		"21": {
+			"effect": "",
+			"step": 4
+		},
+		"22": {
+			"effect": "",
+			"step": 3
+		},
+		"23": {
+			"effect": "",
+			"step": 2
+		},
+		"24": {
+			"effect": "",
+			"step": 2
+		},
+		"25": {
+			"effect": "",
+			"step": 2
+		}
+	}
+}

@@ -1,0 +1,12 @@
+#pragma once
+#undef UNICODE
+#include <easyx.h>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <nlohmann/json.hpp>
+#include <math.h>
+using std::string;
+using nlohmann::json;
+using std::ifstream;
+using std::ofstream;
