@@ -1,27 +1,19 @@
 #include "AppDataRegister.h"
 
-void AppDataRegister::RegisterConfigData(string Path)
+AppDataRegister::AppDataRegister()
 {
-	ifstream *Data = new ifstream;
-	Data->open(Path);
+	ifstream* Data = new ifstream;
+	Data->open("./Config.json");
 	*Data >> ConfigData;
 	Data->close();
 	delete Data;
-}
-
-void AppDataRegister::RegisterImageData(string Path)
-{
 	ifstream* Data = new ifstream;
-	Data->open(Path);
+	Data->open("./ImageConfig.json");
 	*Data >> ImageData;
 	Data->close();
 	delete Data;
-}
-
-void AppDataRegister::RegisterDefaultData(string Path)
-{
 	ifstream* Data = new ifstream;
-	Data->open(Path);
+	Data->open("./DefaultConfig.json");
 	*Data >> DefaultData;
 	Data->close();
 	delete Data;
@@ -47,23 +39,11 @@ json AppDataRegister::AppDataSent(string type, string Class)
 	return NULL;
 }
 
-void AppDataRegister::UnRegisterConfigData(void)
+AppDataRegister::~AppDataRegister()
 {
 	ifstream* Data = new ifstream;
 	*Data >> ConfigData;
-	delete Data;
-}
-
-void AppDataRegister::UnRegisterImageData(void)
-{
-	ifstream* Data = new ifstream;
 	*Data >> ImageData;
-	delete Data;
-}
-
-void AppDataRegister::UnRegisterDefaultData(void)
-{
-	ifstream* Data = new ifstream;
 	*Data >> DefaultData;
 	delete Data;
 }

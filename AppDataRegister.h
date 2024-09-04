@@ -6,13 +6,9 @@
 class AppDataRegister
 {
 public:
-	void RegisterConfigData(string Path);
-	void RegisterImageData(string Path);
-	void RegisterDefaultData(string Path);
+	AppDataRegister();
 	json AppDataSent(string type, string Class);	//type = TYPE_IMG || TYPE_CFG || TYPE_DET
-	void UnRegisterConfigData(void);
-	void UnRegisterImageData(void);
-	void UnRegisterDefaultData(void);
+	~AppDataRegister();
 private:
 	json ConfigData{};
 	json ImageData{};
