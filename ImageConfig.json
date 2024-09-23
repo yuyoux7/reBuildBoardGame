@@ -276,7 +276,8 @@
 			"Button": {
 				"Type": "Text",
 				"ButtonID": 0
-			}
+			},
+			"Effect": "none"
 		}
 	},
 	"BackGround": {
@@ -294,6 +295,21 @@
 			"Path": "./Image/Background/OtherBG.png",
 			"Scenes": {
 				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 0,
+					"DisplayHight": 0
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 0,
+					"DisplayHight": 0
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 0,
+					"DisplayHight": 0
+				},
+				"Attack": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
 					"DisplayHight": 0
