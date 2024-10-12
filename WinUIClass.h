@@ -6,7 +6,7 @@ public:
 	BOOL WinUICreat(unsigned int Width, unsigned int Height, unsigned int CmdShow = 0);
 	void WinUIUnRegister(void);
 	void WinUITitleSet(const string title) const;
-	bool LoadIMG(string ID, double dp = 1, IMAGE* img = NULL) const;
+	bool LoadIMG(string ID, double dp = 1, IMAGE* img = nullptr) const;
 	bool PutIMG(string ID) const;
 private:
 	HWND WinUIhWnd{};

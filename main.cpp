@@ -13,7 +13,7 @@ int main(void)
 		Display->ScenesGameRotateDisplay();
 		Display->ScenesCardFunctionUsing();
 		Display->ScenesAttack();
-		if (i == PlayerTotal)
+		if (i == PlayerTotal - 1)
 		{
 			i = 0;
 			GameRound--;
@@ -23,4 +23,5 @@ int main(void)
 			}
 		}
 	}
+	delete Display;
 };

@@ -10,8 +10,11 @@ BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned in
 
 void WinUIClass::WinUIUnRegister(void)
 {
-	::closegraph();
-	WINDOWUISTATE = false;
+	if (WINDOWUISTATE)
+	{
+		::closegraph();
+		WINDOWUISTATE = false;
+	}
 }
 
 void WinUIClass::WinUITitleSet(const string title) const
@@ -29,7 +32,7 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img) const
 		int ImageHeight = AppDataImage->GetImageHeight(ID);
 		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID);
 		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID);
-		if (img == NULL)
+		if (img == nullptr)
 		{
 			IMAGE *FlashData = new IMAGE;
 			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
