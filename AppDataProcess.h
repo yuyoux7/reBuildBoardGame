@@ -9,5 +9,6 @@ public:
 	int DisplayHeight(string ID);
 	string GetPath(string ID);
 	int GetGameRound(void);
+	double GetDisplayProportion();
 };
 

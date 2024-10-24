@@ -29,3 +29,8 @@ int AppDataProcess::GetGameRound()
 {
     return 0;
 }
+
+double AppDataProcess::GetDisplayProportion()
+{
+    return 0.0;
+}
