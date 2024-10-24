@@ -8,6 +8,7 @@ public:
 	void WinUITitleSet(const string title) const;
 	bool LoadIMG(string ID, double dp = 1, IMAGE* img = nullptr) const;
 	bool PutIMG(string ID) const;
+	bool PutIMG(IMAGE* img = nullptr) const;
 private:
 	HWND WinUIhWnd{};
 	bool WINDOWUISTATE{};

@@ -43,7 +43,6 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img) const
 		}
 		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
 		delete AppDataImage;
-		return WINDOWUISTATE;
 	}
 	return WINDOWUISTATE;
 }
@@ -53,11 +52,29 @@ bool WinUIClass::PutIMG(string ID) const
 	if (WINDOWUISTATE)
 	{
 		AppDataProcess* AppDataImage = new AppDataProcess;
+		int ImageWidth = AppDataImage->GetImageWidth(ID);
+		int ImageHeight = AppDataImage->GetImageHeight(ID);
 		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID);
 		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID);
-		//::putimage(ImageShowLocalWidth, ImageShowLocalHeight, );
+		double dp = AppDataImage->GetDisplayProportion();
+		IMAGE* FlashData = new IMAGE;
+		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
+		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
+		delete FlashData;
 		delete AppDataImage;
-		return WINDOWUISTATE;
+	}
+	return WINDOWUISTATE;
+}
+
+bool WinUIClass::PutIMG(IMAGE* img) const
+{
+	if (WINDOWUISTATE)
+	{
+		if (img == nullptr)
+		{
+			return false;
+		}
+		::putimage(img->getwidth(), img->getheight(), img);
 	}
 	return WINDOWUISTATE;
 }
