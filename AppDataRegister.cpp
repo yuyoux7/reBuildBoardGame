@@ -6,13 +6,9 @@ AppDataRegister::AppDataRegister()
 	Data->open("./Config.json");
 	*Data >> ConfigData;
 	Data->close();
-	delete Data;
-	ifstream* Data = new ifstream;
 	Data->open("./ImageConfig.json");
 	*Data >> ImageData;
 	Data->close();
-	delete Data;
-	ifstream* Data = new ifstream;
 	Data->open("./DefaultConfig.json");
 	*Data >> DefaultData;
 	Data->close();
@@ -41,9 +37,7 @@ json AppDataRegister::AppDataSent(string type, string Class)
 
 AppDataRegister::~AppDataRegister()
 {
-	ifstream* Data = new ifstream;
-	*Data >> ConfigData;
-	*Data >> ImageData;
-	*Data >> DefaultData;
-	delete Data;
+	ConfigData = NULL;
+	ImageData = NULL;
+	DefaultData = NULL;
 }
