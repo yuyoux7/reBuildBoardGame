@@ -23,25 +23,37 @@ void WinUIClass::WinUITitleSet(const string title) const
 	::SetWindowText(WinUIhWnd, title.c_str());
 }
 
+void WinUIClass::SetClass(string Class)
+{
+	this->ClassType = Class;
+}
+
+void WinUIClass::SetScenes(string Scenes)
+{
+	this->ScenesT = Scenes;
+}
+
 bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img) const
 {
 	if (WINDOWUISTATE)
 	{
 		AppDataProcess *AppDataImage = new AppDataProcess;
-		int ImageWidth = AppDataImage->GetImageWidth(ID);
-		int ImageHeight = AppDataImage->GetImageHeight(ID);
-		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID);
-		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID);
+		AppDataImage->setClass(this->ClassType);
+		AppDataImage->setScenes(this->ScenesT);
+		int ImageWidth = AppDataImage->GetImageWidth(ID) * WindowZoomRatio;
+		int ImageHeight = AppDataImage->GetImageHeight(ID) * WindowZoomRatio;
 		if (img == nullptr)
 		{
+			int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID) * WindowZoomRatio;
+			int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID) * WindowZoomRatio;
 			IMAGE *FlashData = new IMAGE;
-			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
+			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
 			::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 			delete FlashData;
 			delete AppDataImage;
 			return WINDOWUISTATE;
 		}
-		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
+		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
 		delete AppDataImage;
 	}
 	return WINDOWUISTATE;
@@ -52,13 +64,15 @@ bool WinUIClass::PutIMG(string ID) const
 	if (WINDOWUISTATE)
 	{
 		AppDataProcess* AppDataImage = new AppDataProcess;
+		AppDataImage->setClass(this->ClassType);
+		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID);
 		int ImageHeight = AppDataImage->GetImageHeight(ID);
-		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID);
-		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID);
-		double dp = AppDataImage->GetDisplayProportion();
+		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID) * WindowZoomRatio;
+		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID) * WindowZoomRatio;
+		double dp = AppDataImage->GetDisplayProportion(ID) * WindowZoomRatio;
 		IMAGE* FlashData = new IMAGE;
-		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * WindowZoomRatio * dp, ImageHeight * WindowZoomRatio * dp, true);
+		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 		delete FlashData;
 		delete AppDataImage;
@@ -66,7 +80,7 @@ bool WinUIClass::PutIMG(string ID) const
 	return WINDOWUISTATE;
 }
 
-bool WinUIClass::PutIMG(IMAGE* img) const
+bool WinUIClass::PutIMG(int Width, int Height, IMAGE* img) const
 {
 	if (WINDOWUISTATE)
 	{
@@ -74,7 +88,7 @@ bool WinUIClass::PutIMG(IMAGE* img) const
 		{
 			return false;
 		}
-		::putimage(img->getwidth(), img->getheight(), img);
+		::putimage(Width * WindowZoomRatio, Height * WindowZoomRatio, img);
 	}
 	return WINDOWUISTATE;
 }

@@ -16,7 +16,7 @@ class ButtonClass : ButtonData
 {
 public:
 	bool GetRegisterData(void);
-	bool UnRegisterData(void) const;
+	bool UnRegisterData(void);
 	void SetScenes(string Scenes);
 	void ButtonProcess(int width_local,int height_local, string ID);
 	bool ButtonState(string ID) const;

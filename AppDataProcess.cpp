@@ -1,36 +1,71 @@
 #include "AppDataProcess.h"
 
+void AppDataProcess::setClass(string Class)
+{
+	this->ClassType = Class;
+}
+
+void AppDataProcess::setScenes(string Scenes)
+{
+	this->ScenesT = Scenes;
+}
+
 int AppDataProcess::GetImageWidth(string ID)
 {
-    return 0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	IMAGE* FlashIMG = new IMAGE;
+	::loadimage(FlashIMG, GetPath(ID).c_str());
+	int width = FlashIMG->getwidth();
+	delete FlashIMG;
+	delete FlashData;
+	return width;
 }
 
 int AppDataProcess::GetImageHeight(string ID)
 {
-    return 0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	IMAGE* FlashIMG = new IMAGE;
+	::loadimage(FlashIMG, GetPath(ID).c_str());
+	int height = FlashIMG->getheight();
+	delete FlashIMG;
+	delete FlashData;
+	return height;
 }
 
 int AppDataProcess::DisplayWidth(string ID)
 {
-    return 0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
+	delete FlashData;
+	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
 }
 
 int AppDataProcess::DisplayHeight(string ID)
 {
-    return 0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
+	delete FlashData;
+	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
 }
 
 string AppDataProcess::GetPath(string ID)
 {
-    return string();
+	AppDataRegister FlashData;
+	return ((string)FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID]["Path"]);
 }
 
 int AppDataProcess::GetGameRound()
 {
-    return 0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	int game = FlashData->AppDataSent(TYPE_DFT, "GameRound");
+	return game;
 }
 
-double AppDataProcess::GetDisplayProportion()
+double AppDataProcess::GetDisplayProportion(string ID)
 {
-    return 0.0;
+	AppDataRegister* FlashData = new AppDataRegister;
+	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
+	delete FlashData;
+	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+	return 0.0;
 }

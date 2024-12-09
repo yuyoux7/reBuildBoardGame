@@ -12,11 +12,11 @@ bool ButtonClass::GetRegisterData(void)
     return false;
 }
 
-bool ButtonClass::UnRegisterData(void) const
+bool ButtonClass::UnRegisterData(void)
 {
     if (this->Data)
     {
-        NULL >> this->Data;
+        this->Data = NULL;
         return true;
     }
     return false;
