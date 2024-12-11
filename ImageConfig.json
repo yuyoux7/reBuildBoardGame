@@ -317,7 +317,73 @@
 			}
 		}
 	},
+	"Name": {
+		"Name01": {
+
+		},
+		"Name02": {
+
+		}
+	},
+	"Box": {
+		"PlayerTotalBox": {
+
+		},
+		"SetNameBox": {
+
+		},
+		"NameBox": {
+
+		},
+		"ExistValueBox": {
+
+		},
+		"IntellectValueBox": {
+
+		},
+		"AnchoredValueBox": {
+
+		},
+		"EffectValueBox": {
+
+		},
+		"UnderstandValueBox": {
+
+		},
+		"ObservatuonValueBox": {
+
+		},
+		"FourDiceValueBox": {
+
+		},
+		"SixDiceValueBox": {
+
+		},
+		"NowRoundBox": {
+
+		},
+		"HaveEffectBox": {
+
+		},
+		"TagEffectBox": {
+
+		},
+		"AttackEffectBox": {
+
+		}
+	},
+	"Text": {
+		"PlayerOrder": {
+
+		},
+		"NextPlayer": {
+
+		},
+		"PlayerAttack": {
+
+		}
+	},
 	"Button": {
-		
+
 	}
 }
