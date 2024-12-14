@@ -319,15 +319,696 @@
 	},
 	"Name": {
 		"Name01": {
-
+			"Path": "./Image/PlayerNameData/name01.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
 		},
 		"Name02": {
-
+			"Path": "./Image/PlayerNameData/name02.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name03": {
+			"Path": "./Image/PlayerNameData/name03.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name04": {
+			"Path": "./Image/PlayerNameData/name04.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name05": {
+			"Path": "./Image/PlayerNameData/name05.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name06": {
+			"Path": "./Image/PlayerNameData/name06.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name07": {
+			"Path": "./Image/PlayerNameData/name07.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name08": {
+			"Path": "./Image/PlayerNameData/name08.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name09": {
+			"Path": "./Image/PlayerNameData/name09.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name10": {
+			"Path": "./Image/PlayerNameData/name10.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name11": {
+			"Path": "./Image/PlayerNameData/name11.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name12": {
+			"Path": "./Image/PlayerNameData/name12.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name13": {
+			"Path": "./Image/PlayerNameData/name13.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name14": {
+			"Path": "./Image/PlayerNameData/name14.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name15": {
+			"Path": "./Image/PlayerNameData/name15.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name16": {
+			"Path": "./Image/PlayerNameData/name16.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name17": {
+			"Path": "./Image/PlayerNameData/name17.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name18": {
+			"Path": "./Image/PlayerNameData/name18.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name19": {
+			"Path": "./Image/PlayerNameData/name19.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name20": {
+			"Path": "./Image/PlayerNameData/name20.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name21": {
+			"Path": "./Image/PlayerNameData/name21.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name22": {
+			"Path": "./Image/PlayerNameData/name22.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name23": {
+			"Path": "./Image/PlayerNameData/name23.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name24": {
+			"Path": "./Image/PlayerNameData/name24.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name25": {
+			"Path": "./Image/PlayerNameData/name25.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name26": {
+			"Path": "./Image/PlayerNameData/name26.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name27": {
+			"Path": "./Image/PlayerNameData/name27.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name28": {
+			"Path": "./Image/PlayerNameData/name28.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name29": {
+			"Path": "./Image/PlayerNameData/name29.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name30": {
+			"Path": "./Image/PlayerNameData/name30.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name31": {
+			"Path": "./Image/PlayerNameData/name31.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name32": {
+			"Path": "./Image/PlayerNameData/name32.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name33": {
+			"Path": "./Image/PlayerNameData/name33.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name34": {
+			"Path": "./Image/PlayerNameData/name34.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name35": {
+			"Path": "./Image/PlayerNameData/name35.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name36": {
+			"Path": "./Image/PlayerNameData/name36.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name37": {
+			"Path": "./Image/PlayerNameData/name37.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name38": {
+			"Path": "./Image/PlayerNameData/name38.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name39": {
+			"Path": "./Image/PlayerNameData/name39.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
+		},
+		"Name40": {
+			"Path": "./Image/PlayerNameData/name40.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DidplayProportion": 1
+				},
+				"GameRotateDisplay": {
+					"DidplayProportion": 1
+				},
+				"CardFunctionUsing": {
+					"DidplayProportion": 1
+				},
+				"Attack": {
+					"DidplayProportion": 1
+				}
+			}
 		}
 	},
 	"Box": {
 		"PlayerTotalBox": {
-
+			"Path": "./Image/Scenes/Home/playercount.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayWidth": 782,
+					"DisplayHight": 622
+				}
+			}
 		},
 		"SetNameBox": {
 
