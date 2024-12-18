@@ -2,6 +2,7 @@
 #include "AppDataRegister.h"
 #include "AppDataProcess.h"
 #include "WinUIClass.h"
+#include "ButtonClass.h"
 class MenuUIShow
 {
 public:

@@ -67,5 +67,4 @@ double AppDataProcess::GetDisplayProportion(string ID)
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
 	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
-	return 0.0;
 }

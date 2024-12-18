@@ -1,46 +1,26 @@
 #include "ButtonClass.h"
 
-bool ButtonClass::GetRegisterData(void)
-{
-    AppDataRegister* File = new AppDataRegister;
-    this->Data = File->AppDataSent(TYPE_IMG, "Button");
-    delete File;
-    if (this->Data)
-    {
-        return true;
-    }
-    return false;
-}
-
-bool ButtonClass::UnRegisterData(void)
-{
-    if (this->Data)
-    {
-        this->Data = NULL;
-        return true;
-    }
-    return false;
-}
-
 void ButtonClass::SetScenes(string Scenes)
 {
     this->Scenes = Scenes;
 }
 
-void ButtonClass::ButtonProcess(int width_local /*key in*/, int height_local /*key in*/, string ID)
+bool ButtonClass::ButtonProcess(unsigned int width_local /*key in*/, unsigned int height_local /*key in*/, string ID)
 {
     AppDataProcess* FlashData = new AppDataProcess;
-    this->ID = this->Data[ID];
-    this->hlocal = FlashData->DisplayHeight(this->ID);
-    this->wlocal = FlashData->DisplayWidth(this->ID);
+    FlashData->setClass();
+    FlashData->setScenes(this->Scenes);
+    this->hlocal = FlashData->DisplayHeight(ID);
+    this->wlocal = FlashData->DisplayWidth(ID);
+    this->Height = FlashData->GetImageHeight(ID);
+    this->Width = FlashData->GetImageWidth(ID);
     delete FlashData;
-}
-
-bool ButtonClass::ButtonState(string ID) const
-{
-    if (this->ID == ID)
+    if (width_local > this->hlocal && width_local < this->hlocal + this->Height)
     {
-        return this->stat;
+        if (height_local > this->hlocal && height_local < this->hlocal + this->Height)
+        {
+            return true;
+        }
     }
-    return NULL;
+    return false;
 }
