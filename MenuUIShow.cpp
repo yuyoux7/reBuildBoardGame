@@ -11,6 +11,7 @@ MenuUIShow::MenuUIShow()
 	this->WindowSet = AppData->AppDataSent(TYPE_CFG, "WindowSize");
 	UI->WinUICreat(this->WindowSet["Width"], this->WindowSet["Height"], this->WindowSet["CmdShow"]);
 	UI->WinUITitleSet("BoardGame");
+	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
 	UI->SetScenes("Home");
 	Button->SetScenes("Home");
 	UI->SetClass("BackGround");
@@ -20,29 +21,47 @@ MenuUIShow::MenuUIShow()
 	UI->SetClass();
 	UI->PutIMG("AddPlayerCount");
 	UI->PutIMG("ReducePlayerCount");
+	UI->PutIMG("Start");
 	while (!NextScenes)
 	{
-		if (Button->ButtonProcess((UI->DispatchMSG()).x, (UI->DispatchMSG()).y, "ReducePlayerCount"))
+		if (Button->ButtonProcess("ReducePlayerCount"))
 		{
 			if (this->PlayrTotal > AppData->AppDataSent(TYPE_DFT, "MinPlayer"))
 			{
 				this->PlayrTotal--;
 			}
 		}
-		if (Button->ButtonProcess((UI->DispatchMSG()).x, (UI->DispatchMSG()).y, "AddPlayerCount"))
+		if (Button->ButtonProcess("AddPlayerCount"))
 		{
 			if (this->PlayrTotal < AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
 			{
 				this->PlayrTotal++;
 			}
 		}
-		if (Button->ButtonProcess((UI->DispatchMSG()).x, (UI->DispatchMSG()).y, "Start"))
+		if (Button->ButtonProcess("Start"))
 		{
+			UI->SetClass("BackGround");
+			UI->PutIMG("HomeBG");
+			UI->SetClass("Box");
+			UI->PutIMG("PlayerTotalBox");
+			UI->SetClass();
+			UI->PutIMG("AddPlayerCount");
+			UI->PutIMG("ReducePlayerCount");
+			UI->PutIMG("Start_Put");
 			while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
-			if (Button->ButtonProcess((UI->DispatchMSG()).x, (UI->DispatchMSG()).y, "Start"))
+			if (Button->ButtonProcess("Start"))
 			{
 				NextScenes = !NextScenes;
+				break;
 			}
+			UI->SetClass("BackGround");
+			UI->PutIMG("HomeBG");
+			UI->SetClass("Box");
+			UI->PutIMG("PlayerTotalBox");
+			UI->SetClass();
+			UI->PutIMG("AddPlayerCount");
+			UI->PutIMG("ReducePlayerCount");
+			UI->PutIMG("Start");
 		}
 		Sleep(1);
 	}

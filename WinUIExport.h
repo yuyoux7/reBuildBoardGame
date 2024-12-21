@@ -4,7 +4,8 @@ class WinUIExport
 {
 public:
 	bool PeekMSG(void);
-	ExMessage DispatchMSG(void) const; 
+	ExMessage DispatchMSG(void); 
+	string DispatchString(void);
 private:
 	ExMessage msg;
 };

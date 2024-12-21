@@ -5,22 +5,28 @@ void ButtonClass::SetScenes(string Scenes)
     this->Scenes = Scenes;
 }
 
-bool ButtonClass::ButtonProcess(unsigned int width_local /*key in*/, unsigned int height_local /*key in*/, string ID)
+void ButtonClass::SetWindowZoomRatio(int Width, int Height)
+{
+    this->ZoomRatio = ((double)((double)(Width / (int)1920) + (double)(Height / (int)1080)) / 2);
+}
+
+bool ButtonClass::ButtonProcess(string ID)
 {
     AppDataProcess* FlashData = new AppDataProcess;
+    WinUIExport* MSG = new WinUIExport;
+    MSG->PeekMSG();
     FlashData->setClass();
     FlashData->setScenes(this->Scenes);
-    this->hlocal = FlashData->DisplayHeight(ID);
-    this->wlocal = FlashData->DisplayWidth(ID);
-    this->Height = FlashData->GetImageHeight(ID);
-    this->Width = FlashData->GetImageWidth(ID);
-    delete FlashData;
-    if (width_local > this->hlocal && width_local < this->hlocal + this->Height)
+    if (MSG->DispatchMSG().x > FlashData->DisplayWidth(ID) * FlashData->GetDisplayProportion(ID) * this->ZoomRatio && MSG->DispatchMSG().x < FlashData->DisplayWidth(ID) + FlashData->GetImageWidth(ID) * FlashData->GetDisplayProportion(ID) * this->ZoomRatio)
     {
-        if (height_local > this->hlocal && height_local < this->hlocal + this->Height)
+        if (MSG->DispatchMSG().y > FlashData->DisplayHeight(ID) * FlashData->GetDisplayProportion(ID) * this->ZoomRatio && MSG->DispatchMSG().y < FlashData->DisplayHeight(ID) + FlashData->GetImageHeight(ID) * FlashData->GetDisplayProportion(ID) * this->ZoomRatio)
         {
+            delete MSG;
+            delete FlashData;
             return true;
         }
     }
+    delete MSG;
+    delete FlashData;
     return false;
 }
