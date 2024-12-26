@@ -287,7 +287,7 @@
 				"Home": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
-					"DisplayHight": 0
+					"DisplayHeight": 0
 				}
 			}
 		},
@@ -297,22 +297,22 @@
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
-					"DisplayHight": 0
+					"DisplayHeight": 0
 				},
 				"GameRotateDisplay": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
-					"DisplayHight": 0
+					"DisplayHeight": 0
 				},
 				"CardFunctionUsing": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
-					"DisplayHight": 0
+					"DisplayHeight": 0
 				},
 				"Attack": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 0,
-					"DisplayHight": 0
+					"DisplayHeight": 0
 				}
 			}
 		}
@@ -1006,7 +1006,7 @@
 				"Home": {
 					"DisplayProportion": 1,
 					"DisplayWidth": 782,
-					"DisplayHight": 622
+					"DisplayHeight": 622
 				}
 			}
 		},

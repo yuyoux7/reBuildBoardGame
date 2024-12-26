@@ -8,8 +8,10 @@ public:
 	void SetScenes(string Scenes);
 	void SetWindowZoomRatio(int Width, int Height);
 	bool ButtonProcess(string ID);
+	void ButtonInput(ExMessage Msg);
 private:
 	double ZoomRatio{};
 	string Scenes{};
+	ExMessage Message{};
 };
 

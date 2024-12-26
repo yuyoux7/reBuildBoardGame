@@ -45,7 +45,7 @@ int AppDataProcess::DisplayHeight(string ID)
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
-	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
+	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
 }
 
 string AppDataProcess::GetPath(string ID)

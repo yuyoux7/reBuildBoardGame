@@ -3,7 +3,7 @@
 BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned int CmdShow)
 {
 		WinUIhWnd = ::initgraph(Width, Height, CmdShow);
-		WindowZoomRatio = ((double)((double)(Width / (int)1920) + (double)(Height / (int)1080)) / 2);
+		WindowZoomRatio = ((double)((double)(Width / (double)1920) + (double)(Height / (double)1080)) / 2);
 		WINDOWUISTATE = true;
 		return WINDOWUISTATE;
 }
