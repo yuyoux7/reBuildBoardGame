@@ -58,6 +58,7 @@ int AppDataProcess::GetGameRound()
 {
 	AppDataRegister* FlashData = new AppDataRegister;
 	int game = FlashData->AppDataSent(TYPE_DFT, "GameRound");
+	delete FlashData;
 	return game;
 }
 
@@ -66,5 +67,5 @@ double AppDataProcess::GetDisplayProportion(string ID)
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
-	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+	return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
 }

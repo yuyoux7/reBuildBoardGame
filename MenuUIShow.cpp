@@ -24,44 +24,34 @@ MenuUIShow::MenuUIShow()
 	UI->PutIMG("Start");
 	while (!NextScenes)
 	{
-		if (Button->ButtonProcess("ReducePlayerCount"))
+		if (UI->DispatchMSG().message == 0x00000201)
 		{
-			if (this->PlayrTotal > AppData->AppDataSent(TYPE_DFT, "MinPlayer"))
+			if (Button->ButtonProcess("ReducePlayerCount"))
 			{
-				this->PlayrTotal--;
+				if (this->PlayrTotal > AppData->AppDataSent(TYPE_DFT, "MinPlayer"))
+				{
+					this->PlayrTotal--;
+				}
 			}
-		}
-		if (Button->ButtonProcess("AddPlayerCount"))
-		{
-			if (this->PlayrTotal < AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
+			if (Button->ButtonProcess("AddPlayerCount"))
 			{
-				this->PlayrTotal++;
+				if (this->PlayrTotal < AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
+				{
+					this->PlayrTotal++;
+				}
 			}
-		}
-		if (Button->ButtonProcess("Start"))
-		{
-			UI->SetClass("BackGround");
-			UI->PutIMG("HomeBG");
-			UI->SetClass("Box");
-			UI->PutIMG("PlayerTotalBox");
-			UI->SetClass();
-			UI->PutIMG("AddPlayerCount");
-			UI->PutIMG("ReducePlayerCount");
-			UI->PutIMG("Start_Put");
-			while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 			if (Button->ButtonProcess("Start"))
 			{
-				NextScenes = !NextScenes;
-				break;
+				UI->PutIMG("Block_Mask");
+				UI->PutIMG("Start_Put");
+				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
+				if (Button->ButtonProcess("Start"))
+				{
+					NextScenes = !NextScenes;
+					break;
+				}
+				UI->PutIMG("Start");
 			}
-			UI->SetClass("BackGround");
-			UI->PutIMG("HomeBG");
-			UI->SetClass("Box");
-			UI->PutIMG("PlayerTotalBox");
-			UI->SetClass();
-			UI->PutIMG("AddPlayerCount");
-			UI->PutIMG("ReducePlayerCount");
-			UI->PutIMG("Start");
 		}
 		Sleep(1);
 	}
