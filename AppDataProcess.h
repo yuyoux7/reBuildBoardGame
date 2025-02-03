@@ -3,7 +3,7 @@
 class AppDataProcess : AppDataRegister
 {
 public:
-	void setClass(string Class = "Button");
+	void setClass(string Class = "ButtonFont");
 	void setScenes(string Scenes);
 	int GetImageWidth(string ID);
 	int GetImageHeight(string ID);

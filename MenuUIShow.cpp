@@ -26,6 +26,7 @@ MenuUIShow::MenuUIShow()
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
 		{
+			Button->ButtonInput(UI->DispatchMSG());
 			if (Button->ButtonProcess("ReducePlayerCount"))
 			{
 				if (this->PlayrTotal > AppData->AppDataSent(TYPE_DFT, "MinPlayer"))
@@ -45,6 +46,7 @@ MenuUIShow::MenuUIShow()
 				UI->PutIMG("Block_Mask");
 				UI->PutIMG("Start_Put");
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
+				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
 				{
 					NextScenes = !NextScenes;

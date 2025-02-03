@@ -4,19 +4,19 @@
 			"Path": "./Image/Number/1.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -28,19 +28,19 @@
 			"Path": "./Image/Number/2.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -52,19 +52,19 @@
 			"Path": "./Image/Number/3.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -76,19 +76,19 @@
 			"Path": "./Image/Number/4.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -100,19 +100,19 @@
 			"Path": "./Image/Number/5.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -124,19 +124,19 @@
 			"Path": "./Image/Number/6.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -148,19 +148,19 @@
 			"Path": "./Image/Number/7.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -172,19 +172,19 @@
 			"Path": "./Image/Number/8.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -196,19 +196,19 @@
 			"Path": "./Image/Number/9.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -220,19 +220,19 @@
 			"Path": "./Image/Number/0.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -244,19 +244,19 @@
 			"Path": "./Image/Number/dash.png",
 			"Scenes": {
 				"Home": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"PlayerDataLoad": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				},
 				"Attack": {
-					"DidplayProportion": 0.78
+					"DisplayProportion": 0.78
 				}
 			},
 			"Button": {
@@ -267,7 +267,46 @@
 	},
 	"EffectText": {
 		"F0003": {
-			"Path": "./Image/EffectText/F0003,png",
+			"Path": "./Image/EffectText/F0003.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F0A03": {
+			"Path": "./Image/EffectText/F0A03.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F0B05": {
+			"Path": "./Image/EffectText/F0B05.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F0C07": {
+			"Path": "./Image/EffectText/F0C07.png",
 			"Scenes": {
 				"CardFunctionUsing": {
 					"DisplayProportion": 1
@@ -322,16 +361,16 @@
 			"Path": "./Image/PlayerNameData/name01.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -339,16 +378,16 @@
 			"Path": "./Image/PlayerNameData/name02.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -356,16 +395,16 @@
 			"Path": "./Image/PlayerNameData/name03.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -373,16 +412,16 @@
 			"Path": "./Image/PlayerNameData/name04.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -390,16 +429,16 @@
 			"Path": "./Image/PlayerNameData/name05.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -407,16 +446,16 @@
 			"Path": "./Image/PlayerNameData/name06.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -424,16 +463,16 @@
 			"Path": "./Image/PlayerNameData/name07.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -441,16 +480,16 @@
 			"Path": "./Image/PlayerNameData/name08.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -458,16 +497,16 @@
 			"Path": "./Image/PlayerNameData/name09.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -475,16 +514,16 @@
 			"Path": "./Image/PlayerNameData/name10.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -492,16 +531,16 @@
 			"Path": "./Image/PlayerNameData/name11.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -509,16 +548,16 @@
 			"Path": "./Image/PlayerNameData/name12.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -526,16 +565,16 @@
 			"Path": "./Image/PlayerNameData/name13.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -543,16 +582,16 @@
 			"Path": "./Image/PlayerNameData/name14.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -560,16 +599,16 @@
 			"Path": "./Image/PlayerNameData/name15.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -577,16 +616,16 @@
 			"Path": "./Image/PlayerNameData/name16.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -594,16 +633,16 @@
 			"Path": "./Image/PlayerNameData/name17.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -611,16 +650,16 @@
 			"Path": "./Image/PlayerNameData/name18.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -628,16 +667,16 @@
 			"Path": "./Image/PlayerNameData/name19.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -645,16 +684,16 @@
 			"Path": "./Image/PlayerNameData/name20.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -662,16 +701,16 @@
 			"Path": "./Image/PlayerNameData/name21.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -679,16 +718,16 @@
 			"Path": "./Image/PlayerNameData/name22.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -696,16 +735,16 @@
 			"Path": "./Image/PlayerNameData/name23.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -713,16 +752,16 @@
 			"Path": "./Image/PlayerNameData/name24.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -730,16 +769,16 @@
 			"Path": "./Image/PlayerNameData/name25.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -747,16 +786,16 @@
 			"Path": "./Image/PlayerNameData/name26.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -764,16 +803,16 @@
 			"Path": "./Image/PlayerNameData/name27.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -781,16 +820,16 @@
 			"Path": "./Image/PlayerNameData/name28.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -798,16 +837,16 @@
 			"Path": "./Image/PlayerNameData/name29.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -815,16 +854,16 @@
 			"Path": "./Image/PlayerNameData/name30.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -832,16 +871,16 @@
 			"Path": "./Image/PlayerNameData/name31.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -849,16 +888,16 @@
 			"Path": "./Image/PlayerNameData/name32.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -866,16 +905,16 @@
 			"Path": "./Image/PlayerNameData/name33.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -883,16 +922,16 @@
 			"Path": "./Image/PlayerNameData/name34.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -900,16 +939,16 @@
 			"Path": "./Image/PlayerNameData/name35.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -917,16 +956,16 @@
 			"Path": "./Image/PlayerNameData/name36.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -934,16 +973,16 @@
 			"Path": "./Image/PlayerNameData/name37.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -951,16 +990,16 @@
 			"Path": "./Image/PlayerNameData/name38.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -968,16 +1007,16 @@
 			"Path": "./Image/PlayerNameData/name39.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		},
@@ -985,16 +1024,16 @@
 			"Path": "./Image/PlayerNameData/name40.png",
 			"Scenes": {
 				"PlayerDataLoad": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"GameRotateDisplay": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"CardFunctionUsing": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				},
 				"Attack": {
-					"DidplayProportion": 1
+					"DisplayProportion": 1
 				}
 			}
 		}
@@ -1064,7 +1103,76 @@
 
 		}
 	},
-	"Button": {
-
+	"ButtonFont": {
+		"AddPlayerCount": {
+			"Path": "./Image/Scenes/Home/up.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 619,
+					"DisplayWidth": 1117
+				}
+			},
+			"Button": {
+				"Type" : "button",
+				"ButtonID" : "0xA420"
+			}
+		},
+		"ReducePlayerCount": {
+			"Path": "./Image/Scenes/Home/down.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 659,
+					"DisplayWidth": 1151
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": "0xA430"
+			}
+		},
+		"Start": {
+			"Path": "./Image/Scenes/Home/startbutton.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 780,
+					"DisplayWidth": 702
+				}	
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": "0xA450"
+			}
+		},
+		"Start_Put": {
+			"Path": "./Image/Scenes/Home/startbutton_down.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 780,
+					"DisplayWidth": 702
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": "0xA450"
+			}
+		},
+		"Block_Mask": {
+			"Path": "./Image/Scenes/Home/Mask.png",
+			"Scenes": {
+				"Home":	{
+					"DisplayProportion": 1,
+					"DisplayHeight": 950,
+					"DisplayWidth": 500
+				}
+			},
+			"Button": {
+				"Type": "image",
+				"ButtonID": 0
+			}
+		}
 	}
 }
