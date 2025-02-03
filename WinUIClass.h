@@ -12,6 +12,7 @@ public:
 	bool LoadIMG(string ID, double dp = 1, IMAGE* img = nullptr) const;
 	bool PutIMG(string ID) const;
 	bool PutIMG(int Width, int Height,IMAGE* img = nullptr) const;
+	double GetWindowZoomRatio(void) const;
 private:
 	HWND WinUIhWnd{};
 	bool WINDOWUISTATE{};

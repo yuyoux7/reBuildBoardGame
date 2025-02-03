@@ -92,3 +92,8 @@ bool WinUIClass::PutIMG(int Width, int Height, IMAGE* img) const
 	}
 	return WINDOWUISTATE;
 }
+
+double WinUIClass::GetWindowZoomRatio(void) const
+{
+	return WindowZoomRatio;
+}
