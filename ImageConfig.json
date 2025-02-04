@@ -1050,57 +1050,251 @@
 			}
 		},
 		"SetNameBox": {
-
+			"Path": "./Image/Scenes/PlayerDataLoad/playername.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 400,
+					"DisplayWidth": 1340
+				}
+			}
 		},
 		"NameBox": {
-
+			"Path": "./Image/Scenes/CardFunctionUsing/palyer_name.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"ExistValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/exist.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 370,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"IntellectValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/intellect.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 774,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"AnchoredValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/anchored.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 471,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"EffectValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/affect.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 572,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"UnderstandValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/understand.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 874,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"ObservatuonValueBox": {
-
+			"Path":"./Image/Scenes/CardFunctionUsing/observatuon.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 673,
+					"DisplayWidth": 830
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"FourDiceValueBox": {
-
+			"Path": "./Image/Scenes/PlayerDataLoad/4dice.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 610,
+					"DisplayWidth": 1340
+				}
+			}
 		},
 		"SixDiceValueBox": {
-
+			"Path": "./Image/Scenes/PlayerDataLoad/6dice.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 720,
+					"DisplayWidth": 1340
+				}
+			}
 		},
 		"NowRoundBox": {
-
+			"Path": "./Image/Scenes/CardFunctionUsing/round.png",
+			"Scenes": {
+				"GameRotateDisplay": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				},
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"HaveEffectBox": {
-
+			"Path": "./Image/Scenes/CardFunctionUsing/effect.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"TagEffectBox": {
-
+			"Path": "./Image/Scenes/Attack/tageffect.png",
+			"Scenes": {
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"AttackEffectBox": {
-
+			"Path": "./Image/Scenes/Attack/atkeffect.png",
+			"Scenes": {
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		}
 	},
 	"Text": {
 		"PlayerOrder": {
-
+			"Path": "./Image/Scenes/GameRotatoDisplay/player_order.png",
+			"Scenes": {
+				"GameRotateDisplay": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"NextPlayer": {
-
+			"Path": "./Image/Scenes/GameRotatoDisplay/next_player.png",
+			"Scenes": {
+				"GameRotateDisplay": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		},
 		"PlayerAttack": {
-
+			"Path": "./Image/Scenes/Attack/playeratk.png",
+			"Scenes": {
+				"Attack": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			}
 		}
 	},
 	"ButtonFont": {

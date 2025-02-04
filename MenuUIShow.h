@@ -3,6 +3,7 @@
 #include "AppDataProcess.h"
 #include "WinUIClass.h"
 #include "ButtonClass.h"
+#include "Player.h"
 class MenuUIShow
 {
 public:

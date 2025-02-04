@@ -22,6 +22,7 @@ int main(void)
 				GameRun = false;
 			}
 		}
+		Sleep(1);
 	}
 	delete Display;
 };

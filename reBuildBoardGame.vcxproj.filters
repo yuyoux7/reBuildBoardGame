@@ -36,6 +36,9 @@
     <ClCompile Include="AppDataProcess.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinUIClass.h">
@@ -57,6 +60,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="ExampleH.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

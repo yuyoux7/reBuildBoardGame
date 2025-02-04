@@ -4,6 +4,7 @@ WinUIClass* UI = new WinUIClass;
 AppDataRegister* AppData = new AppDataRegister;
 AppDataProcess* tool = new AppDataProcess;
 ButtonClass* Button = new ButtonClass;
+Player* player = nullptr;
 
 MenuUIShow::MenuUIShow()
 {
@@ -11,7 +12,7 @@ MenuUIShow::MenuUIShow()
 	IMAGE imgg;
 	this->PlayrTotal = AppData->AppDataSent(TYPE_DFT, "MinPlayer");
 	this->WindowSet = AppData->AppDataSent(TYPE_CFG, "WindowSize");
-	std::string Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
+	string Number_t;
 	UI->WinUICreat(this->WindowSet["Width"], this->WindowSet["Height"], this->WindowSet["CmdShow"]);
 	UI->WinUITitleSet("BoardGame");
 	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
@@ -26,8 +27,23 @@ MenuUIShow::MenuUIShow()
 	UI->PutIMG("ReducePlayerCount");
 	UI->PutIMG("Start");
 	UI->SetClass("Number");
-	UI->LoadIMG(Number_t, 1, &imgg);
-	UI->PutIMG(952, 643, &imgg);
+	if (this->PlayrTotal >= 10)
+	{
+		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
+		UI->LoadIMG(Number_t, 1, &imgg);
+		UI->PutIMG(952, 643, &imgg);
+		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
+		UI->LoadIMG(Number_t, 1, &imgg);
+		tool->setClass("Number");
+		tool->setScenes("Home");
+		UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
+	}
+	else
+	{
+		Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
+		UI->LoadIMG(Number_t, 1, &imgg);
+		UI->PutIMG(952, 643, &imgg);
+	}
 	while (!NextScenes)
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
@@ -41,9 +57,23 @@ MenuUIShow::MenuUIShow()
 					UI->SetClass("Box");
 					UI->PutIMG("PlayerTotalBox");
 					UI->SetClass("Number");
-					Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
-					UI->LoadIMG(Number_t, 1, &imgg);
-					UI->PutIMG(952, 643, &imgg);
+					if ((this->PlayrTotal) < 10)
+					{
+						Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
+						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->PutIMG(952, 643, &imgg);
+					}
+					else
+					{
+						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
+						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->PutIMG(952, 643, &imgg);
+						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
+						UI->LoadIMG(Number_t, 1, &imgg);
+						tool->setClass("Number");
+						tool->setScenes("Home");
+						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
+					}
 				}
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 			}
@@ -85,6 +115,7 @@ MenuUIShow::MenuUIShow()
 				if (Button->ButtonProcess("Start"))
 				{
 					NextScenes = !NextScenes;
+					player = (Player*)malloc(sizeof(Player) * this->PlayrTotal);
 					break;
 				}
 				UI->PutIMG("Start");
@@ -110,6 +141,7 @@ void MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->PutIMG("ObservatuonValueBox");
 	UI->PutIMG("FourDiceValueBox");
 	UI->PutIMG("SixDiceValueBox");
+	while (1);
 }
 
 void MenuUIShow::ScenesGameRotateDisplay(void)
@@ -169,7 +201,9 @@ int MenuUIShow::GetPlayerTotal(void) const
 MenuUIShow::~MenuUIShow()
 {
 	UI->WinUIUnRegister();
+	free(player);
 	delete AppData;
 	delete UI;
 	delete Button;
+	delete tool;
 }

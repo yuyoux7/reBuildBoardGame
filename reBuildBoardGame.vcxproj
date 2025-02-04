@@ -136,6 +136,7 @@
     <ClCompile Include="ButtonClass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuUIShow.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="WinUIClass.cpp" />
     <ClCompile Include="WinUIExport.cpp" />
   </ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="ButtonClass.h" />
     <ClInclude Include="ExampleH.h" />
     <ClInclude Include="MenuUIShow.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="WinUIClass.h" />
     <ClInclude Include="WinUIExport.h" />
   </ItemGroup>
