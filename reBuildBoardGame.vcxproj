@@ -134,6 +134,7 @@
     <ClCompile Include="AppDataProcess.cpp" />
     <ClCompile Include="AppDataRegister.cpp" />
     <ClCompile Include="ButtonClass.cpp" />
+    <ClCompile Include="log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuUIShow.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="AppDataRegister.h" />
     <ClInclude Include="ButtonClass.h" />
     <ClInclude Include="ExampleH.h" />
+    <ClInclude Include="log.h" />
     <ClInclude Include="MenuUIShow.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="WinUIClass.h" />

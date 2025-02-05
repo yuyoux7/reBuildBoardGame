@@ -4,6 +4,7 @@
 #include "WinUIClass.h"
 #include "ButtonClass.h"
 #include "Player.h"
+#include "log.h"
 class MenuUIShow
 {
 public:
@@ -13,9 +14,11 @@ public:
 	void ScenesCardFunctionUsing(void);
 	void ScenesAttack(void);
 	int GetPlayerTotal(void) const;
+	void LogMix(Log_T *T);
 	~MenuUIShow();
 private:
 	int PlayrTotal{};
 	json WindowSet{};
+	string TimeToString(time_t t);
 };
 

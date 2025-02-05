@@ -5,6 +5,7 @@ AppDataRegister* AppData = new AppDataRegister;
 AppDataProcess* tool = new AppDataProcess;
 ButtonClass* Button = new ButtonClass;
 Player* player = nullptr;
+Log_T TL;
 
 MenuUIShow::MenuUIShow()
 {
@@ -15,6 +16,7 @@ MenuUIShow::MenuUIShow()
 	string Number_t;
 	UI->WinUICreat(this->WindowSet["Width"], this->WindowSet["Height"], this->WindowSet["CmdShow"]);
 	UI->WinUITitleSet("BoardGame");
+	TL.Text += (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
 	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
 	UI->SetScenes("Home");
 	Button->SetScenes("Home");
@@ -32,17 +34,20 @@ MenuUIShow::MenuUIShow()
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
 		UI->LoadIMG(Number_t, 1, &imgg);
 		UI->PutIMG(952, 643, &imgg);
+		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 		UI->LoadIMG(Number_t, 1, &imgg);
 		tool->setClass("Number");
 		tool->setScenes("Home");
 		UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
+		TL.Text += ((char)((this->PlayrTotal % 10) ^ 48) + (string)"\n");
 	}
 	else
 	{
 		Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
 		UI->LoadIMG(Number_t, 1, &imgg);
 		UI->PutIMG(952, 643, &imgg);
+		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
 	while (!NextScenes)
 	{
@@ -74,8 +79,9 @@ MenuUIShow::MenuUIShow()
 						tool->setScenes("Home");
 						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 					}
+					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
+					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
-				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 			}
 			if (Button->ButtonProcess("AddPlayerCount"))
 			{
@@ -102,6 +108,7 @@ MenuUIShow::MenuUIShow()
 						tool->setScenes("Home");
 						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 					}
+					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
 			}
@@ -110,17 +117,20 @@ MenuUIShow::MenuUIShow()
 				UI->SetClass();
 				UI->PutIMG("Block_Mask");
 				UI->PutIMG("Start_Put");
+				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
 				{
 					NextScenes = !NextScenes;
+					TL.Text += (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
+					std::cout << TimeToString(this->PlayrTotal);
 					player = (Player*)malloc(sizeof(Player) * this->PlayrTotal);
 					break;
 				}
+				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
 				UI->PutIMG("Start");
 			}
-			std::cout << this->PlayrTotal << std::endl;
 		}
 		Sleep(1);
 	}
@@ -198,6 +208,13 @@ int MenuUIShow::GetPlayerTotal(void) const
 	return this->PlayrTotal;
 }
 
+void MenuUIShow::LogMix(Log_T *T)
+{
+	T->Text += TL.Text;
+	TL.Text = T->Text;
+	TL.LogPath = T->LogPath;
+}
+
 MenuUIShow::~MenuUIShow()
 {
 	UI->WinUIUnRegister();
@@ -206,4 +223,19 @@ MenuUIShow::~MenuUIShow()
 	delete UI;
 	delete Button;
 	delete tool;
+}
+
+string MenuUIShow::TimeToString(time_t t)
+{
+	string ft, rt;
+	for (; t > 0; t /= 10)
+	{
+		ft += ((t % 10) ^ 48);
+	}
+	for (auto i = ft.size() - 1; i > 0; i--)
+	{
+		rt += ft[i];
+	}
+	rt += ft[0];
+	return rt;
 }
