@@ -20,7 +20,7 @@ MenuUIShow::MenuUIShow()
 	UI->WinUITitleSet("BoardGame");
 	UI->MixLog(&TL);
 	BeginBatchDraw();
-	TL.Text += (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
+	TL.Text += " " + (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
 	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
 	UI->SetScenes("Home");
 	UI->MixLog(&TL);
@@ -50,7 +50,7 @@ MenuUIShow::MenuUIShow()
 		UI->MixLog(&TL);
 		UI->PutIMG(952, 643, &imgg);
 		UI->MixLog(&TL);
-		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
+		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 		UI->LoadIMG(Number_t, 1, &imgg);
 		UI->MixLog(&TL);
@@ -67,7 +67,7 @@ MenuUIShow::MenuUIShow()
 		UI->MixLog(&TL);
 		UI->PutIMG(952, 643, &imgg);
 		UI->MixLog(&TL);
-		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
+		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
 	FlushBatchDraw();
 	while (!NextScenes)
@@ -109,7 +109,7 @@ MenuUIShow::MenuUIShow()
 						UI->MixLog(&TL);
 						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 					}
-					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
+					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
 					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
@@ -146,7 +146,7 @@ MenuUIShow::MenuUIShow()
 						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 						UI->MixLog(&TL);
 					}
-					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
+					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
 					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
@@ -159,18 +159,18 @@ MenuUIShow::MenuUIShow()
 				UI->MixLog(&TL);
 				UI->PutIMG("Start_Put");
 				UI->MixLog(&TL);
-				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
+				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
 				FlushBatchDraw();
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
 				{
 					NextScenes = !NextScenes;
-					TL.Text += (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
+					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
 					player = (Player*)malloc(sizeof(Player) * this->PlayrTotal);
 					break;
 				}
-				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
+				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
 				UI->PutIMG("Start");
 				UI->MixLog(&TL);
 			}
@@ -189,6 +189,7 @@ void MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->SetClass("BackGround");
 	UI->PutIMG("OtherBG");
 	UI->SetClass("Box");
+	Button->SetScenes("PlayerDataLoad");
 	UI->PutIMG("SetNameBox");
 	UI->PutIMG("ExistValueBox");
 	UI->PutIMG("IntellectValueBox");
@@ -198,8 +199,61 @@ void MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->PutIMG("ObservatuonValueBox");
 	UI->PutIMG("FourDiceValueBox");
 	UI->PutIMG("SixDiceValueBox");
+	UI->SetClass();
+	UI->PutIMG("Race_People");
+	UI->PutIMG("Race_God");
+	UI->PutIMG("Race_Monster");
+	UI->PutIMG("Race_OutPeople");
+	UI->PutIMG("Race_ThinkingPeople");
+	UI->PutIMG("Race_Elf");
+	UI->PutIMG("Race_Bug");
+	UI->PutIMG("Race_NoSaveMonster");
+	UI->PutIMG("Rand");
 	FlushBatchDraw();
-	while (1) { Sleep(1); };
+	while (1) 
+	{
+		if (UI->DispatchMSG().message == 0x00000201)
+		{
+			Button->ButtonInput(UI->DispatchMSG());
+			if (Button->ButtonProcess("Race_People"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_God"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_Monster"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_OutPeople"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_ThinkingPeople"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_Elf"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_Bug"))
+			{
+
+			}
+			if (Button->ButtonProcess("Race_NoSaveMonster"))
+			{
+
+			}
+			if (Button->ButtonProcess("Rand"))
+			{
+
+			}
+		}
+		Sleep(1);
+	};
 	EndBatchDraw();
 }
 

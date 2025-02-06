@@ -263,6 +263,150 @@
 				"Type": "Text",
 				"ButtonID": 0
 			}
+		},
+		"NumberA": {
+			"Path": "./Image/Number/A.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		},
+		"NumberB": {
+			"Path": "./Image/Number/B.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		},
+		"NumberC": {
+			"Path": "./Image/Number/C.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		},
+		"NumberD": {
+			"Path": "./Image/Number/D.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		},
+		"NumberE": {
+			"Path": "./Image/Number/E.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
+		},
+		"NumberF": {
+			"Path": "./Image/Number/F.png",
+			"Scenes": {
+				"Home": {
+					"DisplayProportion": 1
+				},
+				"PlayerDataLoad": {
+					"DisplayProportion": 0.78
+				},
+				"GameRotateDisplay": {
+					"DisplayProportion": 0.78
+				},
+				"CardFunctionUsing": {
+					"DisplayProportion": 0.78
+				},
+				"Attack": {
+					"DisplayProportion": 0.78
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			}
 		}
 	},
 	"EffectText": {
@@ -1367,6 +1511,275 @@
 				"Type": "image",
 				"ButtonID": 0
 			}
+		},
+		"Race_People": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button1.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_God": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button2.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Monster": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button3.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_OutPeople":{
+			"Path": "./Image/Scenes/PlayerDataLoad/button4.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_ThinkingPeople": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button5.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Elf": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button6.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Bug": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button7.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_NoSaveMonster": {
+			"Path": "./Image/Scenes/PlayerDataLoad/button8.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_People_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown1.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_God_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown2.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Monster_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown3.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_OutPeople_Put":{
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown4.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_ThinkingPeople_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown5.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Elf_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown6.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_Bug_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown7.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Race_NoSaveMonster_Put": {
+			"Path": "./Image/Scenes/PlayerDataLoad/buttondown8.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"DicePointUp": {
+			"Path": "./Image/Scenes/PlayerDataLoad/up.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"DicePointDown": {
+			"Path": "./Image/Scenes/PlayerDataLoad/down.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Rand": {
+			"Path": "./Image/Scenes/PlayerDataLoad/rand.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
+		},
+		"Next": {
+
 		}
 	}
 }

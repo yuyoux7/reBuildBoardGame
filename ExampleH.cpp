@@ -2,6 +2,10 @@
 
 string TimeToString(time_t t)
 {
+	if (t == 0)
+	{
+		return "0";
+	}
 	string ft, rt;
 	for (; t > 0; t /= 10)
 	{

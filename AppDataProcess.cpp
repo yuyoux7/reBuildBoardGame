@@ -37,7 +37,18 @@ int AppDataProcess::DisplayWidth(string ID)
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
-	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
+	if (Data.contains(ID))
+	{
+		if (Data[ID].contains("Scenes")) 
+		{
+			if (Data[ID]["Scenes"].contains(this->ScenesT))
+			{
+				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayWidth"))
+					return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
+			}
+		}
+	}
+	return NULL;
 }
 
 int AppDataProcess::DisplayHeight(string ID)
@@ -45,13 +56,51 @@ int AppDataProcess::DisplayHeight(string ID)
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
-	return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
+	if (Data.contains(ID))
+	{
+		if (Data[ID].contains("Scenes"))
+		{
+			if (Data[ID]["Scenes"].contains(this->ScenesT))
+			{
+				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayHeight"))
+					return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
+			}
+		}
+	}
+	return NULL;
 }
 
 string AppDataProcess::GetPath(string ID)
 {
 	AppDataRegister FlashData;
-	return ((string)FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID]["Path"]);
+	if (FlashData.AppDataSent(TYPE_IMG, this->ClassType).contains(ID))
+	{
+		if(FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID].contains("Path"))
+			return ((string)FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID]["Path"]);
+	}
+	ifstream Login("./Log/errorLog");
+	string T{};
+	if (Login.is_open())
+	{
+		char c{};
+		while (!Login.eof())
+		{
+			Login.get(c);
+			T += c;
+		}
+	}
+	T[T.size() - 1] = '\0';
+	Login.close();
+	ofstream errLog(("./Log/errorLog" + TimeToString(time(NULL)) + ".log"));
+	if (errLog.is_open())
+	{
+		errLog << TimeToString(time(NULL)) << ": Can't find \"" << ID << "\" Path";
+	}
+	errLog.close();
+	errLog.open("./Log/errorLog");
+	errLog << T << TimeToString(time(NULL)) << ": Can't find \"" << ID << "\" Path\n";
+	errLog.close();
+	exit(-1);
 }
 
 int AppDataProcess::GetGameRound()
@@ -67,5 +116,16 @@ double AppDataProcess::GetDisplayProportion(string ID)
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
 	delete FlashData;
-	return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+	if (Data.contains(ID))
+	{
+		if (Data[ID].contains("Scenes"))
+		{
+			if (Data[ID]["Scenes"].contains(this->ScenesT))
+			{
+				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayProportion"))
+					return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+			}
+		}
+	}
+	return NULL;
 }
