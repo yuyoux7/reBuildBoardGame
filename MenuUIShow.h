@@ -19,6 +19,5 @@ public:
 private:
 	int PlayrTotal{};
 	json WindowSet{};
-	string TimeToString(time_t t);
 };
 

@@ -13,10 +13,10 @@ typedef struct _tagl
 class Log_t
 {
 public:
+	Log_t();
 	Log_t(Log_T *T);
 	void LoadLog(Log_T *T, string LogT);
 	~Log_t();
 private:
-	string TimeToString(time_t t);
 };
 

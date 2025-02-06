@@ -2,6 +2,19 @@
 
 void Log_t::LoadLog(Log_T* T, string LogT)
 {
+	ifstream Login(T->LogPath);
+	if (Login.is_open())
+	{
+		char c{};
+		T->Text.clear();
+		while (!Login.eof())
+		{
+			Login.get(c);
+			T->Text += c;
+		}
+	}
+	Login.close();
+	T->Text[T->Text.size() - 1] = '\0';
 	T->Text += TimeToString(time(NULL)) + ": " + LogT + "\n";
 	ofstream LogFile(T->LogPath);
 	if (LogFile.is_open())
@@ -12,25 +25,15 @@ void Log_t::LoadLog(Log_T* T, string LogT)
 		}
 	}
 	LogFile.close();
+	std::cout << T->Text;
 }
 
 Log_t::~Log_t()
 {
 }
 
-string Log_t::TimeToString(time_t t)
+Log_t::Log_t()
 {
-	string ft, rt;
-	for (; t > 0; t /= 10)
-	{
-		ft += ((t % 10) ^ 48);
-	}
-	for (auto i = ft.size() - 1; i > 0; i--)
-	{
-		rt += ft[i];
-	}
-	rt += ft[0];
-	return rt;
 }
 
 Log_t::Log_t(Log_T* T)

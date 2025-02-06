@@ -12,3 +12,4 @@ using std::string;
 using nlohmann::json;
 using std::ifstream;
 using std::ofstream;
+string TimeToString(time_t t);

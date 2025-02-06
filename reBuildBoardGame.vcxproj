@@ -134,6 +134,7 @@
     <ClCompile Include="AppDataProcess.cpp" />
     <ClCompile Include="AppDataRegister.cpp" />
     <ClCompile Include="ButtonClass.cpp" />
+    <ClCompile Include="ExampleH.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuUIShow.cpp" />

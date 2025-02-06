@@ -10,10 +10,16 @@ int main(void)
 	delete AppData;
 	MenuUIShow* Display = new MenuUIShow;
 	Display->LogMix(LT);
+	ofstream f(LT->LogPath);
+	if (f.is_open())
+	{
+		f << LT->Text;
+	}
+	f.close();
 	L.LoadLog(LT, "TurnNextScenes");
 	int PlayerTotal = Display->GetPlayerTotal();
-	L.LoadLog(LT, "TurnNextScenes");
 	Display->ScenesPlayerDataLoad();
+	L.LoadLog(LT, "TurnNextScenes");
 	for (auto i = 0; GameRun; i++)
 	{
 		Display->ScenesGameRotateDisplay();
@@ -36,5 +42,6 @@ int main(void)
 		}
 		Sleep(1);
 	}
+	delete LT;
 	delete Display;
 };
