@@ -19,6 +19,7 @@ MenuUIShow::MenuUIShow()
 	UI->MixLog(&TL);
 	UI->WinUITitleSet("BoardGame");
 	UI->MixLog(&TL);
+	BeginBatchDraw();
 	TL.Text += (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
 	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
 	UI->SetScenes("Home");
@@ -68,6 +69,7 @@ MenuUIShow::MenuUIShow()
 		UI->MixLog(&TL);
 		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
+	FlushBatchDraw();
 	while (!NextScenes)
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
@@ -108,6 +110,7 @@ MenuUIShow::MenuUIShow()
 						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 					}
 					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
+					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
 			}
@@ -144,6 +147,7 @@ MenuUIShow::MenuUIShow()
 						UI->MixLog(&TL);
 					}
 					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
+					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
 			}
@@ -156,6 +160,7 @@ MenuUIShow::MenuUIShow()
 				UI->PutIMG("Start_Put");
 				UI->MixLog(&TL);
 				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
+				FlushBatchDraw();
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
@@ -171,11 +176,14 @@ MenuUIShow::MenuUIShow()
 			}
 		}
 		Sleep(1);
+		FlushBatchDraw();
 	}
+	EndBatchDraw();
 }
 
 void MenuUIShow::ScenesPlayerDataLoad(void)
 {
+	BeginBatchDraw();
 	UI->SetLog(&TL);
 	UI->SetScenes("PlayerDataLoad");
 	UI->SetClass("BackGround");
@@ -190,11 +198,14 @@ void MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->PutIMG("ObservatuonValueBox");
 	UI->PutIMG("FourDiceValueBox");
 	UI->PutIMG("SixDiceValueBox");
-	while (1);
+	FlushBatchDraw();
+	while (1) { Sleep(1); };
+	EndBatchDraw();
 }
 
 void MenuUIShow::ScenesGameRotateDisplay(void)
 {
+	BeginBatchDraw();
 	UI->SetScenes("GameRotateDisplay");
 	UI->SetClass("BackGround");
 	UI->PutIMG("OtherBG");
@@ -203,10 +214,14 @@ void MenuUIShow::ScenesGameRotateDisplay(void)
 	UI->PutIMG("PlayerOrder");
 	UI->SetClass("Box");
 	UI->PutIMG("NowRoundBox");
+	FlushBatchDraw();
+	while (1) { Sleep(1); };
+	EndBatchDraw();
 }
 
 void MenuUIShow::ScenesCardFunctionUsing(void)
 {
+	BeginBatchDraw();
 	UI->SetScenes("CardFunctionUsing");
 	UI->SetClass("BackGround");
 	UI->PutIMG("OtherBG");
@@ -220,10 +235,14 @@ void MenuUIShow::ScenesCardFunctionUsing(void)
 	UI->PutIMG("ObservatuonValueBox");
 	UI->PutIMG("HaveEffectBox");
 	UI->PutIMG("NowRoundBox");
+	FlushBatchDraw();
+	while (1) { Sleep(1); };
+	EndBatchDraw();
 }
 
 void MenuUIShow::ScenesAttack(void)
 {
+	BeginBatchDraw();
 	UI->SetScenes("Attack");
 	UI->SetClass("BackGround");
 	UI->PutIMG("OtherBG");
@@ -240,6 +259,9 @@ void MenuUIShow::ScenesAttack(void)
 	UI->PutIMG("NowRoundBox");
 	UI->SetClass("Text");
 	UI->PutIMG("PlayerAttack");
+	FlushBatchDraw();
+	while (1) { Sleep(1); };
+	EndBatchDraw();
 }
 
 int MenuUIShow::GetPlayerTotal(void) const
