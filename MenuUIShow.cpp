@@ -4,7 +4,8 @@ WinUIClass* UI = new WinUIClass;
 AppDataRegister* AppData = new AppDataRegister;
 AppDataProcess* tool = new AppDataProcess;
 ButtonClass* Button = new ButtonClass;
-Player* player = nullptr;
+Player::PlayerData* player = nullptr;
+Player* PlayCtrlTool = new Player;
 Log_T TL;
 
 MenuUIShow::MenuUIShow()
@@ -167,7 +168,7 @@ MenuUIShow::MenuUIShow()
 				{
 					NextScenes = !NextScenes;
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
-					player = (Player*)malloc(sizeof(Player) * this->PlayrTotal);
+					player = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * this->PlayrTotal);
 					break;
 				}
 				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");

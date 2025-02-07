@@ -2,6 +2,7 @@
 #include "ExampleH.h"
 class Player
 {
+public:
 	typedef struct _tagv
 	{
 		short Exist{};
@@ -11,10 +12,10 @@ class Player
 		short Understand{};
 		short Observatuon{};
 	}PlayerValue;
-	typedef struct _tagc 
+	typedef struct _tagc
 	{
-		unsigned short *Type = nullptr;
-		unsigned int *ID = nullptr;
+		unsigned short* Type = nullptr;
+		unsigned int* ID = nullptr;
 	}PlayerCard;
 	typedef struct _tag
 	{
@@ -25,7 +26,6 @@ class Player
 		unsigned short Map{};
 		unsigned short AttackType{};
 	}PlayerData;
-public:
 	Player();
 	void SetPlayerRace(PlayerData *player);
 	~Player();

@@ -6,7 +6,7 @@ typedef struct _tagl
 {
 	time_t Date{};
 	string Text{};
-	Player* player = nullptr;
+	Player::PlayerData* player = nullptr;
 	string LogPath{};
 }Log_T;
 
