@@ -1,6 +1,6 @@
 #pragma once
 #include "AppDataRegister.h"
-class AppDataProcess : AppDataRegister
+class AppDataProcess : public AppDataRegister
 {
 public:
 	void setClass(string Class = "ButtonFont");
@@ -15,5 +15,9 @@ public:
 private:
 	string ClassType{};
 	string ScenesT{};
+	void ErrorLog(string ELT, string LV = ": warning");
+	bool ELS = false;
+	string ELPT;
+	void exit(int i, string ET = "");
 };
 

@@ -1,8 +1,7 @@
 #include "MenuUIShow.h"
 
 WinUIClass* UI = new WinUIClass;
-AppDataRegister* AppData = new AppDataRegister;
-AppDataProcess* tool = new AppDataProcess;
+AppDataProcess* AppData = new AppDataProcess;
 ButtonClass* Button = new ButtonClass;
 Player::PlayerData* player = nullptr;
 Player* PlayCtrlTool = new Player;
@@ -11,8 +10,11 @@ Log_T TL;
 MenuUIShow::MenuUIShow()
 {
 	UI->SetLog(&TL);
-	bool NextScenes = false;
 	IMAGE imgg;
+	if (AppData->AppDataSent(TYPE_DFT, "MinPlayer") > AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
+	{
+		exit(-2, "Player Count Break");
+	}
 	this->PlayrTotal = AppData->AppDataSent(TYPE_DFT, "MinPlayer");
 	this->WindowSet = AppData->AppDataSent(TYPE_CFG, "WindowSize");
 	string Number_t;
@@ -44,34 +46,34 @@ MenuUIShow::MenuUIShow()
 	UI->MixLog(&TL);
 	UI->SetClass("Number");
 	UI->MixLog(&TL);
+	AppData->setClass("Number");
+	AppData->setScenes("Home");
 	if (this->PlayrTotal >= 10)
 	{
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
-		UI->LoadIMG(Number_t, 1, &imgg);
+		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
 		UI->PutIMG(952, 643, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
-		UI->LoadIMG(Number_t, 1, &imgg);
+		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		tool->setClass("Number");
-		tool->setScenes("Home");
-		UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
+		UI->PutIMG((955 + AppData->GetImageWidth(Number_t)), 643, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += ((char)((this->PlayrTotal % 10) ^ 48) + (string)"\n");
 	}
 	else
 	{
 		Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
-		UI->LoadIMG(Number_t, 1, &imgg);
+		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
 		UI->PutIMG(952, 643, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
 	FlushBatchDraw();
-	while (!NextScenes)
+	while (true)
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
 		{
@@ -90,7 +92,7 @@ MenuUIShow::MenuUIShow()
 					if ((this->PlayrTotal) < 10)
 					{
 						Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
 						UI->PutIMG(952, 643, &imgg);
 						UI->MixLog(&TL);
@@ -98,17 +100,15 @@ MenuUIShow::MenuUIShow()
 					else
 					{
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
 						UI->PutIMG(952, 643, &imgg);
 						UI->MixLog(&TL);
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
-						tool->setClass("Number");
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						tool->setScenes("Home");
+						UI->PutIMG(955 + AppData->GetImageWidth(Number_t), 643, &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
 					}
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
 					FlushBatchDraw();
@@ -129,22 +129,20 @@ MenuUIShow::MenuUIShow()
 					if ((this->PlayrTotal) < 10)
 					{
 						Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->PutIMG(952, 643, &imgg);
 					}
 					else
 					{
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
 						UI->PutIMG(952, 643, &imgg);
 						UI->MixLog(&TL);
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
-						UI->LoadIMG(Number_t, 1, &imgg);
+						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						tool->setClass("Number");
-						tool->setScenes("Home");
-						UI->PutIMG(955 + (int)((double)tool->GetImageWidth(Number_t) * (double)tool->GetDisplayProportion(Number_t) * (double)UI->GetWindowZoomRatio()), 643, &imgg);
+						UI->PutIMG(955 + AppData->GetImageWidth(Number_t), 643, &imgg);
 						UI->MixLog(&TL);
 					}
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
@@ -166,9 +164,8 @@ MenuUIShow::MenuUIShow()
 				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
 				{
-					NextScenes = !NextScenes;
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
-					player = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * this->PlayrTotal);
+					player = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * (static_cast<unsigned long long>(this->PlayrTotal) + 1));
 					break;
 				}
 				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
@@ -338,5 +335,27 @@ MenuUIShow::~MenuUIShow()
 	delete AppData;
 	delete UI;
 	delete Button;
-	delete tool;
+}
+
+void MenuUIShow::exit(int i, string ET)
+{
+	ifstream Login("./Log/ELF.err");
+	string T{};
+	if (Login.is_open())
+	{
+		char c{};
+		while (!Login.eof())
+		{
+			Login.get(c);
+			T += c;
+		}
+	}
+	T[T.size() - 1] = ' ';
+	Login.close();
+	ofstream errLog;
+	errLog.open("./Log/ELF.err");
+	errLog << T << TimeToString(time(NULL)) << " " << ET << "\n";
+	errLog.close();
+	MessageBoxA(NULL, ET.c_str(), NULL, MB_OK | MB_ICONERROR);
+	::exit(i);
 }

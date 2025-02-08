@@ -7,7 +7,7 @@ BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned in
 {
 		WinUIhWnd = ::initgraph(Width, Height, CmdShow);
 		WindowZoomRatio = ((double)((double)(Width / (double)1920) + (double)(Height / (double)1080)) / 2);
-		//LogWrite("WindowZoomRatio:" + TimeToString(this->WindowZoomRatio) + (string)"." + TimeToString((this->WindowZoomRatio * 10000)));
+		LogWrite("WindowZoomRatio: " + TimeToString(this->WindowZoomRatio) + (string)"." + TimeToString((this->WindowZoomRatio * 10000)));
 		WINDOWUISTATE = true;
 		return WINDOWUISTATE;
 }
@@ -56,15 +56,15 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img)
 			int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID) * WindowZoomRatio;
 			IMAGE *FlashData = new IMAGE;
 			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
-			LogWrite("Success Load Image: " + ID);
+			LogWrite("Load Image: " + ID);
 			::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
-			LogWrite("Success Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
+			LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 			delete FlashData;
 			delete AppDataImage;
 			return WINDOWUISTATE;
 		}
 		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
-		LogWrite("Success Load Image: " + ID);
+		LogWrite("Load Image: " + ID);
 		delete AppDataImage;
 	}
 	return WINDOWUISTATE;
@@ -84,9 +84,9 @@ bool WinUIClass::PutIMG(string ID)
 		double dp = AppDataImage->GetDisplayProportion(ID) * WindowZoomRatio;
 		IMAGE* FlashData = new IMAGE;
 		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
-		LogWrite("Success Load Image: " + ID);
+		LogWrite("Load Image: " + ID);
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
-		LogWrite("Success Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
+		LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 		delete FlashData;
 		delete AppDataImage;
 	}
@@ -102,7 +102,7 @@ bool WinUIClass::PutIMG(int Width, int Height, IMAGE* img)
 			return false;
 		}
 		::putimage(Width * WindowZoomRatio, Height * WindowZoomRatio, img);
-		LogWrite("Success Put Image" + (string)" [" + TimeToString(Width * WindowZoomRatio) + (string)", " + TimeToString(Height * WindowZoomRatio) + (string)"] ");
+		LogWrite("Put Image" + (string)" [" + TimeToString(Width * WindowZoomRatio) + (string)", " + TimeToString(Height * WindowZoomRatio) + (string)"] ");
 	}
 	return WINDOWUISTATE;
 }

@@ -19,5 +19,6 @@ public:
 private:
 	int PlayrTotal{};
 	json WindowSet{};
+	void exit(int i, string ET);
 };
 
