@@ -136,7 +136,7 @@
 		"FE902": "",
 		"FE001": ""
 	},
-	"PlayerBaseValue": {
+	"PlayerBasicValue": {
 		"Anchored": 100,
 		"Intellect": 100,
 		"Observatuon": 0,
@@ -144,7 +144,7 @@
 		"Understand": 0,
 		"Exist": 0
 	},
-	"RaceBaseValue": {
+	"RaceBasicValue": {
 		"Human": {
 			"Exist": 0,
 			"Intellect": 0,
@@ -171,7 +171,7 @@
 		},
 		"OutPeople": {
 			"Exist": 0,
-			"Intellect": -50,
+			"Intellect": "=50",
 			"Anchored": 0,
 			"Effect": 0,
 			"Understand": 0,
@@ -180,7 +180,7 @@
 		"ThinkingPeople": {
 			"Exist": 0,
 			"Intellect": 0,
-			"Anchored": -50,
+			"Anchored": "=50",
 			"Effect": 0,
 			"Understand": 0,
 			"Observatuon": 0
@@ -196,7 +196,7 @@
 		"Bug": {
 			"Exist": 5,
 			"Intellect": 0,
-			"Anchored": -25,
+			"Anchored": "=75",
 			"Effect": 5,
 			"Understand": 0,
 			"Observatuon": 0

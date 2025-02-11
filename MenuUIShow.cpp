@@ -3,12 +3,15 @@
 WinUIClass* UI = new WinUIClass;
 AppDataProcess* AppData = new AppDataProcess;
 ButtonClass* Button = new ButtonClass;
-Player::PlayerData* player = nullptr;
+Player::PlayerData* player = new Player::PlayerData;
 Player* PlayCtrlTool = new Player;
 Log_T TL;
+AppDataProcess::Link LinkToken;
+int rd = time(NULL);
 
 MenuUIShow::MenuUIShow()
 {
+	srand(rd);
 	UI->SetLog(&TL);
 	IMAGE imgg;
 	if (AppData->AppDataSent(TYPE_DFT, "MinPlayer") > AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
@@ -51,15 +54,18 @@ MenuUIShow::MenuUIShow()
 	if (this->PlayrTotal >= 10)
 	{
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
+		LinkToken.LinkID = "NumberLink";
+		LinkToken.LinkSourceLocal = 0;
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		UI->PutIMG(952, 643, &imgg);
+		AppData->LinkIMG(&LinkToken);
+		UI->PutIMG(LinkToken.DisplayHeight, LinkToken.DisplayWidth, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		UI->PutIMG((955 + AppData->GetImageWidth(Number_t)), 643, &imgg);
+		UI->PutIMG((LinkToken.DisplayHeight + AppData->GetImageWidth(Number_t)), LinkToken.DisplayWidth, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += ((char)((this->PlayrTotal % 10) ^ 48) + (string)"\n");
 	}
@@ -165,7 +171,6 @@ MenuUIShow::MenuUIShow()
 				if (Button->ButtonProcess("Start"))
 				{
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
-					player = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * (static_cast<unsigned long long>(this->PlayrTotal) + 1));
 					break;
 				}
 				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
@@ -179,8 +184,9 @@ MenuUIShow::MenuUIShow()
 	EndBatchDraw();
 }
 
-void MenuUIShow::ScenesPlayerDataLoad(void)
+Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 {
+	Player::PlayerData FlashPlayerData;
 	BeginBatchDraw();
 	UI->SetLog(&TL);
 	UI->SetScenes("PlayerDataLoad");
@@ -215,44 +221,45 @@ void MenuUIShow::ScenesPlayerDataLoad(void)
 			Button->ButtonInput(UI->DispatchMSG());
 			if (Button->ButtonProcess("Race_People"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::People);
 			}
 			if (Button->ButtonProcess("Race_God"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God);
 			}
 			if (Button->ButtonProcess("Race_Monster"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster);
 			}
 			if (Button->ButtonProcess("Race_OutPeople"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople);
 			}
 			if (Button->ButtonProcess("Race_ThinkingPeople"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople);
 			}
 			if (Button->ButtonProcess("Race_Elf"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf);
 			}
 			if (Button->ButtonProcess("Race_Bug"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug);
 			}
 			if (Button->ButtonProcess("Race_NoSaveMonster"))
 			{
-
+				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster);
 			}
 			if (Button->ButtonProcess("Rand"))
 			{
-
+				FlashPlayerData.Name[0] = (rand() % 41);
 			}
 		}
 		Sleep(1);
 	};
 	EndBatchDraw();
+	return FlashPlayerData;
 }
 
 void MenuUIShow::ScenesGameRotateDisplay(void)

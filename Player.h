@@ -1,5 +1,6 @@
 #pragma once
 #include "ExampleH.h"
+#include "AppDataProcess.h"
 class Player
 {
 public:
@@ -25,9 +26,21 @@ public:
 		unsigned short Name[2]{};
 		unsigned short Map{};
 		unsigned short AttackType{};
+		unsigned short Race{};
 	}PlayerData;
+	enum RaceList : unsigned short
+	{
+		People,
+		God,
+		Mosnster,
+		OutPeople,
+		ThinkingPeople,
+		Elf,
+		Bug,
+		NoSaveMonster
+	};
 	Player();
-	void SetPlayerRace(PlayerData *player);
+	void SetPlayerRace(PlayerData *player, unsigned short Race);
 	~Player();
 private:
 	void CardUsing(PlayerData *player, int CardID = 0);

@@ -9,7 +9,7 @@ class MenuUIShow
 {
 public:
 	MenuUIShow();
-	void ScenesPlayerDataLoad(void);
+	Player::PlayerData ScenesPlayerDataLoad(void);
 	void ScenesGameRotateDisplay(void);
 	void ScenesCardFunctionUsing(void);
 	void ScenesAttack(void);

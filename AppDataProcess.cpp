@@ -130,6 +130,37 @@ double AppDataProcess::GetDisplayProportion(string ID)
 	exit(-1, string(ID + " Lost"));
 }
 
+void AppDataProcess::LinkIMG(Link* ID)
+{
+	AppDataRegister* FlashData = new AppDataRegister;
+	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
+	delete FlashData;
+	if (Data.contains(ID->LinkID))
+	{
+		if (Data[ID->LinkID].contains("Scenes"))
+		{
+			if (Data[ID->LinkID]["Scenes"].contains(this->ScenesT))
+			{
+				ID->LinkClass = this->ClassType;
+				setClass(ID->LinkSourceClass);
+				double fdp = GetDisplayProportion(ID->LinkSource);
+				ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
+				ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
+				setClass(ID->LinkClass);
+				fdp = GetDisplayProportion(ID->LinkID);
+				ID->DisplayWidth += (DisplayWidth(ID->LinkID) * fdp);
+				ID->DisplayHeight += (DisplayHeight(ID->LinkID) * fdp);
+			}
+			ErrorLog(string(ID->LinkID + "\" " + ScenesT));
+		}
+		ErrorLog(string(ID->LinkID + "\" Scenes"));
+	}
+	else {
+		ErrorLog(string(ID->LinkID + "\""), ": error");
+		exit(-1, string(ID->LinkID + " Lost"));
+	}
+}
+
 void AppDataProcess::ErrorLog(string ELT, string LV)
 {
 	ifstream Login("./Log/ELF.err");

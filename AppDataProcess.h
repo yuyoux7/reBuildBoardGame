@@ -3,6 +3,16 @@
 class AppDataProcess : public AppDataRegister
 {
 public:
+	typedef struct _token
+	{
+		int DisplayWidth{};
+		int DisplayHeight{};
+		int LinkSourceLocal{};
+		string LinkSource{};
+		string LinkSourceClass = "Box";
+		string LinkID{};
+		string LinkClass{};
+	}Link;
 	void setClass(string Class = "ButtonFont");
 	void setScenes(string Scenes);
 	int GetImageWidth(string ID);
@@ -12,6 +22,7 @@ public:
 	string GetPath(string ID);
 	int GetGameRound(void);
 	double GetDisplayProportion(string ID);
+	void LinkIMG(Link *ID);
 private:
 	string ClassType{};
 	string ScenesT{};

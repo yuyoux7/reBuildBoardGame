@@ -18,7 +18,15 @@ int main(void)
 	f.close();
 	L.LoadLog(LT, "TurnNextScenes");
 	int PlayerTotal = Display->GetPlayerTotal();
-	Display->ScenesPlayerDataLoad();
+	Player::PlayerData* Player_Data = (Player::PlayerData*)malloc(sizeof(Player::PlayerData*) * (static_cast<unsigned long long>(PlayerTotal) + 3));
+	if (Player_Data != nullptr)
+	{
+		for (auto i = 1; i <= PlayerTotal; i++)
+		{
+			Player_Data[i] = Display->ScenesPlayerDataLoad();
+			Player_Data[i].ID = i;
+		}
+	}
 	L.LoadLog(LT, "TurnNextScenes");
 	for (auto i = 0; GameRun; i++)
 	{
