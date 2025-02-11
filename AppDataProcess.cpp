@@ -143,13 +143,18 @@ void AppDataProcess::LinkIMG(Link* ID)
 			{
 				ID->LinkClass = this->ClassType;
 				setClass(ID->LinkSourceClass);
-				double fdp = GetDisplayProportion(ID->LinkSource);
-				ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
-				ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
-				setClass(ID->LinkClass);
-				fdp = GetDisplayProportion(ID->LinkID);
-				ID->DisplayWidth += (DisplayWidth(ID->LinkID) * fdp);
-				ID->DisplayHeight += (DisplayHeight(ID->LinkID) * fdp);
+				if(Data[ID->LinkID]["Scenes"][this->ScenesT].contains("LinkBox"))
+				{
+					ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+					double fdp = GetDisplayProportion(ID->LinkSource);
+					ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
+					ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
+					setClass(ID->LinkClass);
+					fdp = GetDisplayProportion(ID->LinkID);
+					ID->DisplayWidth += (DisplayWidth(ID->LinkID) * fdp);
+					ID->DisplayHeight += (DisplayHeight(ID->LinkID) * fdp);
+				}
+				ErrorLog(string(ID->LinkID) + "\" LinkBox");
 			}
 			ErrorLog(string(ID->LinkID + "\" " + ScenesT));
 		}
