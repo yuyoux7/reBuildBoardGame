@@ -26,7 +26,7 @@ public:
 private:
 	string ClassType{};
 	string ScenesT{};
-	void ErrorLog(string ELT, string LV = ": warning");
+	__declspec(noreturn) void ErrorLog(string ELT, string LV = ": warning");
 	string ELPT;
 	size_t JsonArraySize(json j);
 	void exit(int i, string ET = "");

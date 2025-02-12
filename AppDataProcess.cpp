@@ -67,10 +67,10 @@ int AppDataProcess::DisplayHeight(string ID)
 			{
 				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayHeight"))
 					return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
-				ErrorLog(string(ID + "\" " + ScenesT));
+				ErrorLog(string(ID + "\" " + "DisplayHeight"));
 				return NULL;
 			}
-			ErrorLog(string(ID + "\" " + "DisplayHeight"));
+			ErrorLog(string(ID + "\" " + ScenesT));
 			return NULL;
 		}
 		ErrorLog(string(ID + "\" Scenes"));
@@ -143,18 +143,19 @@ void AppDataProcess::LinkIMG(Link* ID)
 			{
 				ID->LinkClass = this->ClassType;
 				setClass(ID->LinkSourceClass);
-				if(Data[ID->LinkID]["Scenes"][this->ScenesT].contains("LinkBox"))
+				if (Data[ID->LinkID]["Scenes"][this->ScenesT].contains("BoxName"))
 				{
-					if (ID->LinkSourceLocal == 0 && !Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].is_array())
-						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"];
-					else if (Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].is_array())
-						if (JsonArraySize(Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"]) >= ID->LinkSourceLocal)
-							ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+					if (ID->LinkSourceLocal == 0 && !Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"].is_array())
+						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"];
+					else if (Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"].is_array()) {
+						if (JsonArraySize(Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"]) >= ID->LinkSourceLocal)
+							ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"][ID->LinkSourceLocal];
 						else
 						{
 							MessageBox(NULL, string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)).c_str(), NULL, MB_OK | MB_ICONERROR);
 							ErrorLog(string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)));
 						}
+					}
 					else
 					{
 						MessageBox(NULL, string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)).c_str(), NULL, MB_OK | MB_ICONERROR);
@@ -168,11 +169,14 @@ void AppDataProcess::LinkIMG(Link* ID)
 					ID->DisplayWidth += (DisplayWidth(ID->LinkID) * fdp);
 					ID->DisplayHeight += (DisplayHeight(ID->LinkID) * fdp);
 				}
-				ErrorLog(string(ID->LinkID) + "\" LinkBox");
+				else
+					ErrorLog(string(ID->LinkID) + "\" BoxName");
 			}
-			ErrorLog(string(ID->LinkID + "\" " + ScenesT));
+			else
+				ErrorLog(string(ID->LinkID + "\" " + ScenesT));
 		}
-		ErrorLog(string(ID->LinkID + "\" Scenes"));
+		else
+			ErrorLog(string(ID->LinkID + "\" Scenes"));
 	}
 	else {
 		ErrorLog(string(ID->LinkID + "\""), ": error");
@@ -180,7 +184,7 @@ void AppDataProcess::LinkIMG(Link* ID)
 	}
 }
 
-void AppDataProcess::ErrorLog(string ELT, string LV)
+__declspec(noreturn) void AppDataProcess::ErrorLog(string ELT, string LV)
 {
 	ifstream Login("./Log/ELF.err");
 	string T{}, ZT{};
@@ -193,7 +197,10 @@ void AppDataProcess::ErrorLog(string ELT, string LV)
 			T += c;
 		}
 	}
-	T[T.size() - 1] = ' ';
+	if (T.size() == 0)
+		T[0] = ' ';
+	else
+		T[T.size() - 1] = ' ';
 	Login.close();
 	if (!ELS) {
 		ELPT = TimeToString(time(NULL));

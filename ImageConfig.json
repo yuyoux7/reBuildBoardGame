@@ -411,32 +411,24 @@
 		"NumberLink": {
 			"Scenes": {
 				"Home": {
-					"LinkBox": {
-						"BoxName": "PlayerTotalBox",
-						"DisplayHeight": 0,
-						"DisplayWidth": 0
-					}
+					"BoxName": "PlayerTotalBox",
+					"DisplayHeight": 0,
+					"DisplayWidth": 0
 				},
 				"PlayerDataLoad": {
-					"LinkBox": {
-						"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox"],
-						"DisplayHeight": [0, 0, 0, 0, 0, 0],
-						"DisplayWidth": [0, 0, 0, 0, 0, 0]
-					}
+					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox"],
+					"DisplayHeight": [0, 0, 0, 0, 0, 0],
+					"DisplayWidth": [0, 0, 0, 0, 0, 0]
 				},
 				"CardFunctionUsing": {
-					"LinkBox": {
-						"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
-						"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
-						"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
-					}
+					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
+					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
+					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
 				},
 				"Attack": {
-					"LinkBox": {
-						"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
-						"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
-						"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
-					}
+					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
+					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
+					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
 				}
 			}
 		}
@@ -2452,25 +2444,19 @@
 		"NameLink": {
 			"Scenes": {
 				"PlayerDataLoad": {
-					"LinkBox": {
-						"BoxName": ["SetNameBox", "SetNameBox"],
-						"DisplayHeight": [0, 0],
-						"DisplayWidth": [0, 0]
-					}
+					"BoxName": ["SetNameBox", "SetNameBox"],
+					"DisplayHeight": [0, 0],
+					"DisplayWidth": [0, 0]
 				},
 				"CardFunctionUsing": {
-					"LinkBox": {
-						"BoxName": ["NameBox", "NameBox"],
-						"DisplayHeight": [0, 0],
-						"DisplayWidth": [0, 0]
-					}
+					"BoxName": ["NameBox", "NameBox"],
+					"DisplayHeight": [0, 0],
+					"DisplayWidth": [0, 0]
 				},
 				"Attack": {
-					"LinkBox": {
-						"BoxName": ["NameBox", "NameBox"],
-						"DisplayHeight": [0, 0],
-						"DisplayWidth": [0, 0]
-					}
+					"BoxName": ["NameBox", "NameBox"],
+					"DisplayHeight": [0, 0],
+					"DisplayWidth": [0, 0]
 				}
 			}
 		}
