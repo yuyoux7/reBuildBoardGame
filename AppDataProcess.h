@@ -27,8 +27,9 @@ private:
 	string ClassType{};
 	string ScenesT{};
 	void ErrorLog(string ELT, string LV = ": warning");
-	bool ELS = false;
 	string ELPT;
+	size_t JsonArraySize(json j);
 	void exit(int i, string ET = "");
+	bool ELS = false;
 };
 

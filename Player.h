@@ -21,9 +21,9 @@ public:
 	typedef struct _tag
 	{
 		PlayerValue Value{};
+		unsigned short Name[2]{};
 		PlayerCard Card{};
 		unsigned short ID{};
-		unsigned short Name[2]{};
 		unsigned short Map{};
 		unsigned short AttackType{};
 		unsigned short Race{};

@@ -145,10 +145,21 @@ void AppDataProcess::LinkIMG(Link* ID)
 				setClass(ID->LinkSourceClass);
 				if(Data[ID->LinkID]["Scenes"][this->ScenesT].contains("LinkBox"))
 				{
-					if(Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].contains(ID->LinkSourceLocal))
-						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+					if (ID->LinkSourceLocal == 0 && !Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].is_array())
+						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"];
+					else if (Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].is_array())
+						if (JsonArraySize(Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"]) >= ID->LinkSourceLocal)
+							ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+						else
+						{
+							MessageBox(NULL, string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)).c_str(), NULL, MB_OK | MB_ICONERROR);
+							ErrorLog(string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)));
+						}
 					else
+					{
 						MessageBox(NULL, string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)).c_str(), NULL, MB_OK | MB_ICONERROR);
+						ErrorLog(string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)));
+					}
 					double fdp = GetDisplayProportion(ID->LinkSource);
 					ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
 					ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
@@ -199,7 +210,8 @@ void AppDataProcess::ErrorLog(string ELT, string LV)
 			ZT += c;
 		}
 	}
-	ZT[ZT.size() - 1] = ' ';
+	if(ZT.size() != 0)
+		ZT[ZT.size() - 1] = ' ';
 	Login.close();
 	ofstream errLog(("./Log/ELF" + ELPT + ".log"));
 	if (errLog.is_open())
@@ -210,6 +222,16 @@ void AppDataProcess::ErrorLog(string ELT, string LV)
 	errLog.open("./Log/ELF.err");
 	errLog << T << TimeToString(time(NULL)) << LV << ": Can't find \"" << ELT;
 	errLog.close();
+}
+
+size_t AppDataProcess::JsonArraySize(json j)
+{
+	auto sz = 0;
+	for (auto& i : j)
+	{
+		sz++;
+	}
+	return size_t(sz);
 }
 
 void AppDataProcess::exit(int i, string ET)
