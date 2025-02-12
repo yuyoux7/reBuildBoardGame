@@ -145,7 +145,10 @@ void AppDataProcess::LinkIMG(Link* ID)
 				setClass(ID->LinkSourceClass);
 				if(Data[ID->LinkID]["Scenes"][this->ScenesT].contains("LinkBox"))
 				{
-					ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+					if(Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"].contains(ID->LinkSourceLocal))
+						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["LinkBox"][ID->LinkSourceLocal];
+					else
+						MessageBox(NULL, string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)).c_str(), NULL, MB_OK | MB_ICONERROR);
 					double fdp = GetDisplayProportion(ID->LinkSource);
 					ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
 					ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);

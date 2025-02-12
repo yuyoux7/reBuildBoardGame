@@ -447,6 +447,9 @@
 			"Scenes": {
 				"CardFunctionUsing": {
 					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
 				}
 			},
 			"Button": {
@@ -459,6 +462,9 @@
 			"Path": "./Image/EffectText/F0A03.png",
 			"Scenes": {
 				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
 					"DisplayProportion": 1
 				}
 			},
@@ -473,6 +479,9 @@
 			"Scenes": {
 				"CardFunctionUsing": {
 					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
 				}
 			},
 			"Button": {
@@ -485,6 +494,281 @@
 			"Path": "./Image/EffectText/F0C07.png",
 			"Scenes": {
 				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F0D05": {
+			"Path": "./Image/EffectText/F0D05.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F0E09": {
+			"Path": "./Image/EffectText/F0E09.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F1016": {
+			"Path": "./Image/EffectText/F1016.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F1A05": {
+			"Path": "./Image/EffectText/F1A05.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F1B06": {
+			"Path": "./Image/EffectText/F1B06.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F2010": {
+			"Path": "./Image/EffectText/F2010.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F2A20": {
+			"Path": "./Image/EffectText/F2A20.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F2B12": {
+			"Path": "./Image/EffectText/F2B12.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F2C06": {
+			"Path": "./Image/EffectText/F2C06.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F3013": {
+			"Path": "./Image/EffectText/F3013.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F3A13": {
+			"Path": "./Image/EffectText/F3A13.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F3B09": {
+			"Path": "./Image/EffectText/F3B09.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F3C06": {
+			"Path": "./Image/EffectText/F3C06.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F4010": {
+			"Path": "./Image/EffectText/F4010.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F4A06": {
+			"Path": "./Image/EffectText/F4A06.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F4B10": {
+			"Path": "./Image/EffectText/F4B10.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
+					"DisplayProportion": 1
+				}
+			},
+			"Button": {
+				"Type": "Text",
+				"ButtonID": 0
+			},
+			"Effect": "none"
+		},
+		"F4C06": {
+			"Path": "./Image/EffectText/F4C06.png",
+			"Scenes": {
+				"CardFunctionUsing": {
+					"DisplayProportion": 1
+				},
+				"Attack": {
 					"DisplayProportion": 1
 				}
 			},
