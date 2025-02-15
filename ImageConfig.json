@@ -412,8 +412,8 @@
 			"Scenes": {
 				"Home": {
 					"BoxName": "PlayerTotalBox",
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 21,
+					"DisplayWidth": 170
 				},
 				"PlayerDataLoad": {
 					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox"],
@@ -1082,7 +1082,7 @@
 	},
 	"Name": {
 		"Name01": {
-			"Path": "./Image/PlayerNameData/name01.png",
+			"Path": "./Image/PlayerNameData/name1.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1099,7 +1099,7 @@
 			}
 		},
 		"Name02": {
-			"Path": "./Image/PlayerNameData/name02.png",
+			"Path": "./Image/PlayerNameData/name2.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1116,7 +1116,7 @@
 			}
 		},
 		"Name03": {
-			"Path": "./Image/PlayerNameData/name03.png",
+			"Path": "./Image/PlayerNameData/name3.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1133,7 +1133,7 @@
 			}
 		},
 		"Name04": {
-			"Path": "./Image/PlayerNameData/name04.png",
+			"Path": "./Image/PlayerNameData/name4.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1150,7 +1150,7 @@
 			}
 		},
 		"Name05": {
-			"Path": "./Image/PlayerNameData/name05.png",
+			"Path": "./Image/PlayerNameData/name5.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1167,7 +1167,7 @@
 			}
 		},
 		"Name06": {
-			"Path": "./Image/PlayerNameData/name06.png",
+			"Path": "./Image/PlayerNameData/name6.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1184,7 +1184,7 @@
 			}
 		},
 		"Name07": {
-			"Path": "./Image/PlayerNameData/name07.png",
+			"Path": "./Image/PlayerNameData/name7.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1201,7 +1201,7 @@
 			}
 		},
 		"Name08": {
-			"Path": "./Image/PlayerNameData/name08.png",
+			"Path": "./Image/PlayerNameData/name8.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1218,7 +1218,7 @@
 			}
 		},
 		"Name09": {
-			"Path": "./Image/PlayerNameData/name09.png",
+			"Path": "./Image/PlayerNameData/name9.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1762,7 +1762,7 @@
 			}
 		},
 		"Adj01": {
-			"Path": "./Image/PlayerNameData/adj01.png",
+			"Path": "./Image/PlayerNameData/adj1.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1779,7 +1779,7 @@
 			}
 		},
 		"Adj02": {
-			"Path": "./Image/PlayerNameData/adj02.png",
+			"Path": "./Image/PlayerNameData/adj2.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1796,7 +1796,7 @@
 			}
 		},
 		"Adj03": {
-			"Path": "./Image/PlayerNameData/adj03.png",
+			"Path": "./Image/PlayerNameData/adj3.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1813,7 +1813,7 @@
 			}
 		},
 		"Adj04": {
-			"Path": "./Image/PlayerNameData/adj04.png",
+			"Path": "./Image/PlayerNameData/adj4.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1830,7 +1830,7 @@
 			}
 		},
 		"Adj05": {
-			"Path": "./Image/PlayerNameData/adj05.png",
+			"Path": "./Image/PlayerNameData/adj5.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1847,7 +1847,7 @@
 			}
 		},
 		"Adj06": {
-			"Path": "./Image/PlayerNameData/adj06.png",
+			"Path": "./Image/PlayerNameData/adj6.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1864,7 +1864,7 @@
 			}
 		},
 		"Adj07": {
-			"Path": "./Image/PlayerNameData/adj07.png",
+			"Path": "./Image/PlayerNameData/adj7.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1881,7 +1881,7 @@
 			}
 		},
 		"Adj08": {
-			"Path": "./Image/PlayerNameData/adj08.png",
+			"Path": "./Image/PlayerNameData/adj8.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -1898,7 +1898,7 @@
 			}
 		},
 		"Adj09": {
-			"Path": "./Image/PlayerNameData/adj09.png",
+			"Path": "./Image/PlayerNameData/adj9.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1
@@ -2446,7 +2446,7 @@
 				"PlayerDataLoad": {
 					"BoxName": ["SetNameBox", "SetNameBox"],
 					"DisplayHeight": [0, 0],
-					"DisplayWidth": [0, 0]
+					"DisplayWidth": [0, 30]
 				},
 				"CardFunctionUsing": {
 					"BoxName": ["NameBox", "NameBox"],

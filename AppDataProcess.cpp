@@ -28,7 +28,7 @@ int AppDataProcess::GetImageHeight(string ID)
 	return height;
 }
 
-int AppDataProcess::DisplayWidth(string ID)
+int AppDataProcess::DisplayWidth(string ID, int ArrayLocal)
 {
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
@@ -40,7 +40,34 @@ int AppDataProcess::DisplayWidth(string ID)
 			if (Data[ID]["Scenes"].contains(this->ScenesT))
 			{
 				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayWidth"))
-					return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
+				{
+					if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"].is_number())
+					{
+						return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]);
+					}
+					else if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"].is_array()) 
+					{
+						if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal].is_number() && JsonArraySize(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]) >= ArrayLocal)
+						{
+							return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal]);
+						}
+						else if(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal].is_number())
+						{
+							ErrorLog(string(ID + "\" " + "DisplayWidth Array Lost: " + TimeToString(ArrayLocal)));
+							return NULL;
+						}
+						else
+						{
+							ErrorLog(string(ID + "\" " + "TypeError"));
+							exit(-1, string(ID + " TypeError"));
+						}
+					}
+					else 
+					{
+						ErrorLog(string(ID + "\" " + "TypeError"));
+						exit(-1, string(ID + " TypeError"));
+					}
+				}
 				ErrorLog(string(ID + "\" " + "DisplayWidth"));
 				return NULL;
 			}
@@ -54,7 +81,7 @@ int AppDataProcess::DisplayWidth(string ID)
 	exit(-1, string(ID + " Lost"));
 }
 
-int AppDataProcess::DisplayHeight(string ID)
+int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 {
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
@@ -65,8 +92,35 @@ int AppDataProcess::DisplayHeight(string ID)
 		{
 			if (Data[ID]["Scenes"].contains(this->ScenesT))
 			{
-				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayHeight"))
-					return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
+				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayHeight")) 
+				{
+					if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"].is_number())
+					{
+						return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]);
+					}
+					else if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"].is_array())
+					{
+						if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal].is_number() && JsonArraySize(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]) >= ArrayLocal)
+						{
+							return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal]);
+						}
+						else if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal].is_number())
+						{
+							ErrorLog(string(ID + "\" " + "DisplayHeight Array Lost: " + TimeToString(ArrayLocal)));
+							return NULL;
+						}
+						else
+						{
+							ErrorLog(string(ID + "\" " + "TypeError"));
+							exit(-1, string(ID + " TypeError"));
+						}
+					}
+					else
+					{
+						ErrorLog(string(ID + "\" " + "TypeError"));
+						exit(-1, string(ID + " TypeError"));
+					}
+				}
 				ErrorLog(string(ID + "\" " + "DisplayHeight"));
 				return NULL;
 			}
@@ -104,7 +158,7 @@ int AppDataProcess::GetGameRound()
 	return game;
 }
 
-double AppDataProcess::GetDisplayProportion(string ID)
+double AppDataProcess::GetDisplayProportion(string ID, int ArrayLocal)
 {
 	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
@@ -165,9 +219,9 @@ void AppDataProcess::LinkIMG(Link* ID)
 					ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
 					ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
 					setClass(ID->LinkClass);
-					fdp = GetDisplayProportion(ID->LinkID);
-					ID->DisplayWidth += (DisplayWidth(ID->LinkID) * fdp);
-					ID->DisplayHeight += (DisplayHeight(ID->LinkID) * fdp);
+					fdp = GetDisplayProportion(ID->LinkID, ID->LinkSourceLocal);
+					ID->DisplayWidth += (DisplayWidth(ID->LinkID, ID->LinkSourceLocal) * fdp);
+					ID->DisplayHeight += (DisplayHeight(ID->LinkID, ID->LinkSourceLocal) * fdp);
 				}
 				else
 					ErrorLog(string(ID->LinkID) + "\" BoxName");
@@ -184,7 +238,7 @@ void AppDataProcess::LinkIMG(Link* ID)
 	}
 }
 
-__declspec(noreturn) void AppDataProcess::ErrorLog(string ELT, string LV)
+void AppDataProcess::ErrorLog(string ELT, string LV)
 {
 	ifstream Login("./Log/ELF.err");
 	string T{}, ZT{};

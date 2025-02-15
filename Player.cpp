@@ -8,7 +8,7 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
 	AppDataRegister tool{};
 	string rc{};
-	if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue"))
+	if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
 	{
 		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Exist"))
 		{

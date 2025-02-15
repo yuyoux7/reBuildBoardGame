@@ -17,16 +17,16 @@ public:
 	void setScenes(string Scenes);
 	int GetImageWidth(string ID);
 	int GetImageHeight(string ID);
-	int DisplayWidth(string ID);
-	int DisplayHeight(string ID);
+	int DisplayWidth(string ID, int ArrayLocal = 0);
+	int DisplayHeight(string ID, int ArrayLocal = 0);
 	string GetPath(string ID);
 	int GetGameRound(void);
-	double GetDisplayProportion(string ID);
+	double GetDisplayProportion(string ID, int ArrayLocal = 0);
 	void LinkIMG(Link *ID);
 private:
 	string ClassType{};
 	string ScenesT{};
-	__declspec(noreturn) void ErrorLog(string ELT, string LV = ": warning");
+	void ErrorLog(string ELT, string LV = ": warning");
 	string ELPT;
 	size_t JsonArraySize(json j);
 	void exit(int i, string ET = "");

@@ -7,7 +7,7 @@ Player::PlayerData* player = new Player::PlayerData;
 Player* PlayCtrlTool = new Player;
 Log_T TL;
 AppDataProcess::Link LinkToken;
-int rd = time(NULL);
+int rd = static_cast<int>(time(NULL));
 
 MenuUIShow::MenuUIShow()
 {
@@ -51,21 +51,21 @@ MenuUIShow::MenuUIShow()
 	UI->MixLog(&TL);
 	AppData->setClass("Number");
 	AppData->setScenes("Home");
+	LinkToken.LinkID = "NumberLink";
+	LinkToken.LinkSourceLocal = 0;
+	AppData->LinkIMG(&LinkToken);
 	if (this->PlayrTotal >= 10)
 	{
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
-		LinkToken.LinkID = "NumberLink";
-		LinkToken.LinkSourceLocal = 0;
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		AppData->LinkIMG(&LinkToken);
-		UI->PutIMG(LinkToken.DisplayHeight, LinkToken.DisplayWidth, &imgg);
+		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		UI->PutIMG((LinkToken.DisplayHeight + AppData->GetImageWidth(Number_t)), LinkToken.DisplayWidth, &imgg);
+		UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Number_t)), LinkToken.DisplayHeight, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += ((char)((this->PlayrTotal % 10) ^ 48) + (string)"\n");
 	}
@@ -74,7 +74,7 @@ MenuUIShow::MenuUIShow()
 		Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
-		UI->PutIMG(952, 643, &imgg);
+		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 		UI->MixLog(&TL);
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
@@ -100,7 +100,7 @@ MenuUIShow::MenuUIShow()
 						Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(952, 643, &imgg);
+						UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 					}
 					else
@@ -108,12 +108,12 @@ MenuUIShow::MenuUIShow()
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(952, 643, &imgg);
+						UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(955 + AppData->GetImageWidth(Number_t), 643, &imgg);
+						UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Number_t)), LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 					}
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
@@ -136,19 +136,19 @@ MenuUIShow::MenuUIShow()
 					{
 						Number_t = ((std::string)"Number" + (char)(this->PlayrTotal ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
-						UI->PutIMG(952, 643, &imgg);
+						UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 					}
 					else
 					{
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal / 10) ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(952, 643, &imgg);
+						UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 						Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 						UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 						UI->MixLog(&TL);
-						UI->PutIMG(955 + AppData->GetImageWidth(Number_t), 643, &imgg);
+						UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Number_t)), LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 					}
 					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
@@ -213,6 +213,39 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->PutIMG("Race_Bug");
 	UI->PutIMG("Race_NoSaveMonster");
 	UI->PutIMG("Rand");
+	FlashPlayerData.Name[0] = ((rand() % 40) + 1);
+	FlashPlayerData.Name[1] = ((rand() % 40) + 1);
+	UI->SetClass("Name");
+	AppData->setClass("Name");
+	AppData->setScenes("PlayerDataLoad");
+	LinkToken.LinkID = "NameLink";
+	LinkToken.LinkSourceLocal = 0;
+	AppData->LinkIMG(&LinkToken);
+	IMAGE FlashIMG{};
+	string Name_t{};
+	string Adj_t{};
+	if (FlashPlayerData.Name[0] < 10)
+	{
+		Adj_t = string("Adj0" + TimeToString(FlashPlayerData.Name[0]));
+	}
+	else
+	{
+		Adj_t = string("Adj" + TimeToString(FlashPlayerData.Name[0]));
+	}
+	if (FlashPlayerData.Name[1] < 10)
+	{
+		Name_t = string("Name0" + TimeToString(FlashPlayerData.Name[1]));
+	}
+	else
+	{
+		Name_t = string("Name" + TimeToString(FlashPlayerData.Name[1]));
+	}
+	UI->LoadIMG(Adj_t, AppData->GetDisplayProportion(Adj_t), &FlashIMG);
+	UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &FlashIMG);
+	LinkToken.LinkSourceLocal = 1;
+	AppData->LinkIMG(&LinkToken);
+	UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
+	UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 	FlushBatchDraw();
 	while (1) 
 	{
@@ -253,10 +286,36 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			}
 			if (Button->ButtonProcess("Rand"))
 			{
-				FlashPlayerData.Name[0] = (rand() % 41);
+				FlashPlayerData.Name[0] = ((rand() % 40) + 1);
+				FlashPlayerData.Name[1] = ((rand() % 40) + 1);
+				LinkToken.LinkSourceLocal = 0;
+				AppData->LinkIMG(&LinkToken);
+				if (FlashPlayerData.Name[0] < 10)
+				{
+					Adj_t = string("Adj0" + TimeToString(FlashPlayerData.Name[0]));
+				}
+				else
+				{
+					Adj_t = string("Adj" + TimeToString(FlashPlayerData.Name[0]));
+				}
+				if (FlashPlayerData.Name[1] < 10)
+				{
+					Name_t = string("Name0" + TimeToString(FlashPlayerData.Name[1]));
+				}
+				else
+				{
+					Name_t = string("Name" + TimeToString(FlashPlayerData.Name[1]));
+				}
+				UI->LoadIMG(Adj_t, AppData->GetDisplayProportion(Adj_t), &FlashIMG);
+				UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &FlashIMG);
+				LinkToken.LinkSourceLocal = 1;
+				AppData->LinkIMG(&LinkToken);
+				UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
+				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
 		}
 		Sleep(1);
+		FlushBatchDraw();
 	};
 	EndBatchDraw();
 	return FlashPlayerData;
