@@ -188,31 +188,33 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 {
 	Player::PlayerData FlashPlayerData;
 	BeginBatchDraw();
-	UI->SetLog(&TL);
-	UI->SetScenes("PlayerDataLoad");
-	UI->SetClass("BackGround");
-	UI->PutIMG("OtherBG");
-	UI->SetClass("Box");
-	Button->SetScenes("PlayerDataLoad");
-	UI->PutIMG("SetNameBox");
-	UI->PutIMG("ExistValueBox");
-	UI->PutIMG("IntellectValueBox");
-	UI->PutIMG("AnchoredValueBox");
-	UI->PutIMG("EffectValueBox");
-	UI->PutIMG("UnderstandValueBox");
-	UI->PutIMG("ObservatuonValueBox");
-	UI->PutIMG("FourDiceValueBox");
-	UI->PutIMG("SixDiceValueBox");
-	UI->SetClass();
-	UI->PutIMG("Race_People");
-	UI->PutIMG("Race_God");
-	UI->PutIMG("Race_Monster");
-	UI->PutIMG("Race_OutPeople");
-	UI->PutIMG("Race_ThinkingPeople");
-	UI->PutIMG("Race_Elf");
-	UI->PutIMG("Race_Bug");
-	UI->PutIMG("Race_NoSaveMonster");
-	UI->PutIMG("Rand");
+	UI->SetLog(&TL); 
+	{
+		UI->SetScenes("PlayerDataLoad");
+		UI->SetClass("BackGround");
+		UI->PutIMG("OtherBG");
+		UI->SetClass("Box");
+		Button->SetScenes("PlayerDataLoad");
+		UI->PutIMG("SetNameBox");
+		UI->PutIMG("ExistValueBox");
+		UI->PutIMG("IntellectValueBox");
+		UI->PutIMG("AnchoredValueBox");
+		UI->PutIMG("EffectValueBox");
+		UI->PutIMG("UnderstandValueBox");
+		UI->PutIMG("ObservatuonValueBox");
+		UI->PutIMG("FourDiceValueBox");
+		UI->PutIMG("SixDiceValueBox");
+		UI->SetClass();
+		UI->PutIMG("Race_People");
+		UI->PutIMG("Race_God");
+		UI->PutIMG("Race_Monster");
+		UI->PutIMG("Race_OutPeople");
+		UI->PutIMG("Race_ThinkingPeople");
+		UI->PutIMG("Race_Elf");
+		UI->PutIMG("Race_Bug");
+		UI->PutIMG("Race_NoSaveMonster");
+		UI->PutIMG("Rand");
+	}
 	FlashPlayerData.Name[0] = ((rand() % 40) + 1);
 	FlashPlayerData.Name[1] = ((rand() % 40) + 1);
 	UI->SetClass("Name");
@@ -247,45 +249,57 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 	UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 	UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 	FlushBatchDraw();
+	UI->SetClass();
 	while (1) 
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
 		{
+			UI->SetClass();
+			while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 			Button->ButtonInput(UI->DispatchMSG());
 			if (Button->ButtonProcess("Race_People"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::People);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::People));
+				UI->PutIMG("Race_People_Put");
 			}
 			if (Button->ButtonProcess("Race_God"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God));
+				UI->PutIMG("Race_God_Put");
 			}
 			if (Button->ButtonProcess("Race_Monster"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster));
+				UI->PutIMG("Race_Monster_Put");
 			}
 			if (Button->ButtonProcess("Race_OutPeople"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople));
+				UI->PutIMG("Race_OutPeople_Put");
 			}
 			if (Button->ButtonProcess("Race_ThinkingPeople"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople));
+				UI->PutIMG("Race_ThinkingPeople_Put");
 			}
 			if (Button->ButtonProcess("Race_Elf"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf));
+				UI->PutIMG("Race_Elf_Put");
 			}
 			if (Button->ButtonProcess("Race_Bug"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug));
+				UI->PutIMG("Race_Bug_Put");
 			}
 			if (Button->ButtonProcess("Race_NoSaveMonster"))
 			{
-				PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster);
+				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster));
+				UI->PutIMG("Race_NoSaveMonster_Put");
 			}
 			if (Button->ButtonProcess("Rand"))
 			{
+				UI->SetClass("Name");
 				FlashPlayerData.Name[0] = ((rand() % 40) + 1);
 				FlashPlayerData.Name[1] = ((rand() % 40) + 1);
 				LinkToken.LinkSourceLocal = 0;
@@ -314,8 +328,8 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
 		}
-		Sleep(1);
 		FlushBatchDraw();
+		Sleep(1);
 	};
 	EndBatchDraw();
 	return FlashPlayerData;

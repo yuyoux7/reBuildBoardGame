@@ -40,7 +40,7 @@ public:
 		NoSaveMonster
 	};
 	Player();
-	void SetPlayerRace(PlayerData *player, unsigned short Race);
+	string SetPlayerRace(PlayerData *player, unsigned short Race);
 	~Player();
 private:
 	void CardUsing(PlayerData *player, int CardID = 0);

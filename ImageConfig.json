@@ -2796,8 +2796,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 370,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2810,8 +2810,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 520,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2824,8 +2824,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 670,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2838,8 +2838,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 820,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2852,8 +2852,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 370,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2866,8 +2866,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 520,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2880,8 +2880,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 670,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2894,8 +2894,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 820,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2908,8 +2908,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 370,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2922,8 +2922,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 520,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2936,8 +2936,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 670,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2950,8 +2950,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 820,
+					"DisplayWidth": 50
 				}
 			},
 			"Button": {
@@ -2964,8 +2964,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 370,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2978,8 +2978,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 520,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -2992,8 +2992,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 670,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -3006,8 +3006,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 820,
+					"DisplayWidth": 430
 				}
 			},
 			"Button": {
@@ -3048,8 +3048,8 @@
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 385,
+					"DisplayWidth": 1645
 				}
 			},
 			"Button": {

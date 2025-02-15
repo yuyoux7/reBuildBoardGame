@@ -4,10 +4,10 @@ Player::Player()
 {
 }
 
-void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
+string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
 	AppDataRegister tool{};
-	string rc{};
+	string rc{}, fcc{};
 	if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
 	{
 		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Exist"))
@@ -172,10 +172,10 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 		MessageBox(NULL, string("No Have Player Basic Value").c_str(), NULL, MB_OK | MB_ICONERROR);
 		exit(-1);
 	}
-	switch (Race)
+	switch (player->Race)
 	{
 	case Player::People:
-		rc = "Human";
+		rc = "People";
 		break;
 	case Player::God:
 		rc = "God";
@@ -201,16 +201,45 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 	default:
 		break;
 	}
-	if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue").contains(rc))
+	switch (Race)
 	{
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Exist"))
+	case Player::People:
+		fcc = "Human";
+		break;
+	case Player::God:
+		fcc = "God";
+		break;
+	case Player::Mosnster:
+		fcc = "Monster";
+		break;
+	case Player::OutPeople:
+		fcc = "OutPeople";
+		break;
+	case Player::ThinkingPeople:
+		fcc = "ThinkingPeople";
+		break;
+	case Player::Elf:
+		fcc = "Elf";
+		break;
+	case Player::Bug:
+		fcc = "Bug";
+		break;
+	case Player::NoSaveMonster:
+		fcc = "NoSaveMonster";
+		break;
+	default:
+		break;
+	}
+	if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue").contains(fcc))
+	{
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Exist"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Exist"] == "*0")
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"] == "*0")
 			{
 				player->Value.Exist = 0;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Exist"].is_number())
-				player->Value.Exist += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Exist"];
+			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"].is_number())
+				player->Value.Exist += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"];
 		}
 		else
 		{
@@ -262,14 +291,14 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Intellect"))
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Intellect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Intellect"] == "=50")
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"] == "=50")
 			{
 				player->Value.Intellect = 50;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Intellect"].is_number())
-				player->Value.Intellect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Intellect"];
+			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"].is_number())
+				player->Value.Intellect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"];
 		}
 		else
 		{
@@ -321,18 +350,18 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Anchored"))
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Anchored"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Anchored"] == "=50")
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=50")
 			{
 				player->Value.Anchored = 50;
 			}
-			else if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Anchored"] == "=75")
+			else if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=75")
 			{
 				player->Value.Anchored = 75;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Anchored"].is_number())
-				player->Value.Anchored += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Anchored"];
+			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"].is_number())
+				player->Value.Anchored += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"];
 		}
 		else
 		{
@@ -384,10 +413,10 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Effect"))
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Effect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Effect"].is_number())
-				player->Value.Effect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Effect"];
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"].is_number())
+				player->Value.Effect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"];
 		}
 		else
 		{
@@ -438,10 +467,10 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Understand"))
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Understand"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Understand"].is_number())
-				player->Value.Understand += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Understand"];
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"].is_number())
+				player->Value.Understand += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"];
 		}
 		else
 		{
@@ -493,10 +522,10 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc].contains("Observatuon"))
+		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Observatuon"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Observatuon"].is_number())
-				player->Value.Observatuon += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[rc]["Observatuon"];
+			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"].is_number())
+				player->Value.Observatuon += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"];
 		}
 		else
 		{
@@ -555,6 +584,7 @@ void Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 		MessageBox(NULL, string("No Have Race: " + rc).c_str(), NULL, MB_OK | MB_ICONERROR);
 		exit(-1);
 	}
+	return string("Race_" + rc);
 }
 
 Player::~Player()
