@@ -136,12 +136,12 @@ int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 
 string AppDataProcess::GetPath(string ID)
 {
-	AppDataRegister FlashData;
-	if (FlashData.AppDataSent(TYPE_IMG, this->ClassType).contains(ID))
+	unique_ptr<AppDataRegister> FlashData(new AppDataRegister);
+	if (FlashData->AppDataSent(TYPE_IMG, this->ClassType).contains(ID))
 	{
-		if (FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID].contains("Path"))
+		if (FlashData->AppDataSent(TYPE_IMG, this->ClassType)[ID].contains("Path"))
 		{
-			return ((string)FlashData.AppDataSent(TYPE_IMG, this->ClassType)[ID]["Path"]);
+			return ((string)FlashData->AppDataSent(TYPE_IMG, this->ClassType)[ID]["Path"]);
 		}
 		ErrorLog(string(ID + "\" Path"));
 		exit(-1, string(ID + " Path Lost"));
@@ -152,10 +152,8 @@ string AppDataProcess::GetPath(string ID)
 
 int AppDataProcess::GetGameRound()
 {
-	AppDataRegister* FlashData = new AppDataRegister;
-	int game = FlashData->AppDataSent(TYPE_DFT, "GameRound");
-	delete FlashData;
-	return game;
+	unique_ptr<AppDataRegister> FlashData(new AppDataRegister);
+	return FlashData->AppDataSent(TYPE_DFT, "GameRound");
 }
 
 double AppDataProcess::GetDisplayProportion(string ID, int ArrayLocal)

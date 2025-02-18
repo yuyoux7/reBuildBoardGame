@@ -2,7 +2,7 @@
 
 AppDataRegister::AppDataRegister()
 {
-	ifstream* Data = new ifstream;
+	unique_ptr<ifstream> Data(new ifstream);
 	Data->open("./Config.json");
 	*Data >> ConfigData;
 	Data->close();
@@ -12,7 +12,6 @@ AppDataRegister::AppDataRegister()
 	Data->open("./DefaultConfig.json");
 	*Data >> DefaultData;
 	Data->close();
-	delete Data;
 }
 
 json AppDataRegister::AppDataSent(string type, string Class)

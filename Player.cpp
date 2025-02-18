@@ -6,14 +6,14 @@ Player::Player()
 
 string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
-	AppDataRegister tool{};
+	unique_ptr<AppDataRegister> tool(new AppDataRegister);
 	string rc{}, fcc{};
-	if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
+	if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
 	{
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Exist"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Exist"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"].is_number())
-				player->Value.Exist = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"];
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"].is_number())
+				player->Value.Exist = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -36,10 +36,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Exist = 0;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Intellect"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Intellect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"].is_number())
-				player->Value.Intellect = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"];
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"].is_number())
+				player->Value.Intellect = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -62,10 +62,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Intellect = 100;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Anchored"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Anchored"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"].is_number())
-				player->Value.Anchored = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"];
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"].is_number())
+				player->Value.Anchored = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -88,10 +88,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Anchored = 100;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Effect"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Effect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"].is_number())
-				player->Value.Effect = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"]; 
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"].is_number())
+				player->Value.Effect = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"]; 
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -114,10 +114,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Effect = 0;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Understand"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Understand"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"].is_number())
-				player->Value.Understand = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"];
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"].is_number())
+				player->Value.Understand = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -140,10 +140,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Understand = 0;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Observatuon"))
+		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Observatuon"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"].is_number())
-				player->Value.Observatuon = tool.AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"];
+			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"].is_number())
+				player->Value.Observatuon = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -230,16 +230,16 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 	default:
 		break;
 	}
-	if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue").contains(fcc))
+	if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue").contains(fcc))
 	{
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Exist"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Exist"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"] == "*0")
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"] == "*0")
 			{
 				player->Value.Exist = 0;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"].is_number())
-				player->Value.Exist += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"];
+			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"].is_number())
+				player->Value.Exist += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"];
 		}
 		else
 		{
@@ -291,14 +291,14 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Intellect"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Intellect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"] == "=50")
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"] == "=50")
 			{
 				player->Value.Intellect = 50;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"].is_number())
-				player->Value.Intellect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"];
+			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"].is_number())
+				player->Value.Intellect += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"];
 		}
 		else
 		{
@@ -350,18 +350,18 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Anchored"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Anchored"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=50")
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=50")
 			{
 				player->Value.Anchored = 50;
 			}
-			else if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=75")
+			else if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=75")
 			{
 				player->Value.Anchored = 75;
 			}
-			else if(tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"].is_number())
-				player->Value.Anchored += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"];
+			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"].is_number())
+				player->Value.Anchored += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"];
 		}
 		else
 		{
@@ -413,10 +413,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Effect"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Effect"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"].is_number())
-				player->Value.Effect += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"];
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"].is_number())
+				player->Value.Effect += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"];
 		}
 		else
 		{
@@ -467,10 +467,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Understand"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Understand"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"].is_number())
-				player->Value.Understand += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"];
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"].is_number())
+				player->Value.Understand += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"];
 		}
 		else
 		{
@@ -522,10 +522,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Observatuon"))
+		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Observatuon"))
 		{
-			if (tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"].is_number())
-				player->Value.Observatuon += tool.AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"];
+			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"].is_number())
+				player->Value.Observatuon += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"];
 		}
 		else
 		{

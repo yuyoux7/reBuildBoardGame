@@ -45,7 +45,7 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img)
 {
 	if (WINDOWUISTATE)
 	{
-		AppDataProcess *AppDataImage = new AppDataProcess;
+		unique_ptr<AppDataProcess> AppDataImage(new AppDataProcess);
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID) * WindowZoomRatio;
@@ -60,12 +60,10 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img)
 			::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 			LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 			delete FlashData;
-			delete AppDataImage;
 			return WINDOWUISTATE;
 		}
 		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
 		LogWrite("Load Image: " + ID);
-		delete AppDataImage;
 	}
 	return WINDOWUISTATE;
 }
@@ -74,7 +72,7 @@ bool WinUIClass::PutIMG(string ID)
 {
 	if (WINDOWUISTATE)
 	{
-		AppDataProcess* AppDataImage = new AppDataProcess;
+		unique_ptr<AppDataProcess> AppDataImage(new AppDataProcess);
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID);
@@ -88,7 +86,6 @@ bool WinUIClass::PutIMG(string ID)
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 		LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 		delete FlashData;
-		delete AppDataImage;
 	}
 	return WINDOWUISTATE;
 }

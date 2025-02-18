@@ -4,11 +4,10 @@ int main(void)
 	Log_T *LT = new Log_T;
 	Log_t L(LT);
 	bool GameRun = true;
-	AppDataProcess* AppData = new AppDataProcess;
+	unique_ptr<AppDataProcess> AppData(new AppDataProcess);
 	L.LoadLog(LT, "DataReadSuccess");
 	int GameRound = AppData->GetGameRound();
-	delete AppData;
-	MenuUIShow* Display = new MenuUIShow;
+	unique_ptr<MenuUIShow> Display(new MenuUIShow);
 	Display->LogMix(LT);
 	ofstream f(LT->LogPath);
 	if (f.is_open())
@@ -18,7 +17,7 @@ int main(void)
 	f.close();
 	L.LoadLog(LT, "TurnNextScenes");
 	int PlayerTotal = Display->GetPlayerTotal();
-	Player::PlayerData* Player_Data = (Player::PlayerData*)malloc(sizeof(Player::PlayerData*) * (static_cast<unsigned long long>(PlayerTotal) + 3));
+	Player::PlayerData* Player_Data = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * (static_cast<unsigned long long>(PlayerTotal) + 3));
 	if (Player_Data != nullptr)
 	{
 		for (auto i = 1; i <= PlayerTotal; i++)
@@ -50,6 +49,6 @@ int main(void)
 		}
 		Sleep(1);
 	}
+	free(Player_Data);
 	delete LT;
-	delete Display;
 };
