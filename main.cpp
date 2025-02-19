@@ -4,7 +4,7 @@ int main(void)
 	Log_T *LT = new Log_T;
 	Log_t L(LT);
 	bool GameRun = true;
-	unique_ptr<AppDataProcess> AppData(new AppDataProcess);
+	unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
 	L.LoadLog(LT, "DataReadSuccess");
 	int GameRound = AppData->GetGameRound();
 	unique_ptr<MenuUIShow> Display(new MenuUIShow);

@@ -7,7 +7,7 @@ class ButtonClass
 public:
 	void SetScenes(string Scenes);
 	void SetWindowZoomRatio(int Width, int Height);
-	bool ButtonProcess(string ID);
+	bool ButtonProcess(string ID) const;
 	void ButtonInput(ExMessage Msg);
 private:
 	double ZoomRatio{};

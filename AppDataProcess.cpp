@@ -136,7 +136,7 @@ int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 
 string AppDataProcess::GetPath(string ID)
 {
-	unique_ptr<AppDataRegister> FlashData(new AppDataRegister);
+	unique_ptr<AppDataRegister> FlashData = make_unique<AppDataRegister>();
 	if (FlashData->AppDataSent(TYPE_IMG, this->ClassType).contains(ID))
 	{
 		if (FlashData->AppDataSent(TYPE_IMG, this->ClassType)[ID].contains("Path"))
@@ -152,7 +152,7 @@ string AppDataProcess::GetPath(string ID)
 
 int AppDataProcess::GetGameRound()
 {
-	unique_ptr<AppDataRegister> FlashData(new AppDataRegister);
+	unique_ptr<AppDataRegister> FlashData = make_unique<AppDataRegister>();
 	return FlashData->AppDataSent(TYPE_DFT, "GameRound");
 }
 
@@ -214,12 +214,12 @@ void AppDataProcess::LinkIMG(Link* ID)
 						ErrorLog(string("Fail Link Source Link to: " + ID->LinkID + " ID: " + TimeToString(ID->LinkSourceLocal)));
 					}
 					double fdp = GetDisplayProportion(ID->LinkSource);
-					ID->DisplayWidth = (DisplayWidth(ID->LinkSource) * fdp);
-					ID->DisplayHeight = (DisplayHeight(ID->LinkSource) * fdp);
+					ID->DisplayWidth = static_cast<int>(DisplayWidth(ID->LinkSource) * fdp);
+					ID->DisplayHeight = static_cast<int>(DisplayHeight(ID->LinkSource) * fdp);
 					setClass(ID->LinkClass);
 					fdp = GetDisplayProportion(ID->LinkID, ID->LinkSourceLocal);
-					ID->DisplayWidth += (DisplayWidth(ID->LinkID, ID->LinkSourceLocal) * fdp);
-					ID->DisplayHeight += (DisplayHeight(ID->LinkID, ID->LinkSourceLocal) * fdp);
+					ID->DisplayWidth += static_cast<int>(DisplayWidth(ID->LinkID, ID->LinkSourceLocal) * fdp);
+					ID->DisplayHeight += static_cast<int>(DisplayHeight(ID->LinkID, ID->LinkSourceLocal) * fdp);
 				}
 				else
 					ErrorLog(string(ID->LinkID) + "\" BoxName");

@@ -7,7 +7,7 @@ BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned in
 {
 		WinUIhWnd = ::initgraph(Width, Height, CmdShow);
 		WindowZoomRatio = ((double)((double)(Width / (double)1920) + (double)(Height / (double)1080)) / 2);
-		LogWrite("WindowZoomRatio: " + TimeToString(this->WindowZoomRatio) + (string)"." + TimeToString((this->WindowZoomRatio * 10000)));
+		LogWrite("WindowZoomRatio: " + TimeToString(static_cast<time_t>(this->WindowZoomRatio)) + (string)"." + TimeToString(static_cast<time_t>(this->WindowZoomRatio * 10000)));
 		WINDOWUISTATE = true;
 		return WINDOWUISTATE;
 }
@@ -45,24 +45,24 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img)
 {
 	if (WINDOWUISTATE)
 	{
-		unique_ptr<AppDataProcess> AppDataImage(new AppDataProcess);
+		unique_ptr<AppDataProcess> AppDataImage = make_unique<AppDataProcess>();
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
-		int ImageWidth = AppDataImage->GetImageWidth(ID) * WindowZoomRatio;
-		int ImageHeight = AppDataImage->GetImageHeight(ID) * WindowZoomRatio;
+		int ImageWidth = static_cast<int>(AppDataImage->GetImageWidth(ID) * WindowZoomRatio);
+		int ImageHeight = static_cast<int>(AppDataImage->GetImageHeight(ID) * WindowZoomRatio);
 		if (img == nullptr)
 		{
-			int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID) * WindowZoomRatio;
-			int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID) * WindowZoomRatio;
+			int ImageShowLocalWidth = static_cast<int>(AppDataImage->DisplayWidth(ID) * WindowZoomRatio);
+			int ImageShowLocalHeight = static_cast<int>(AppDataImage->DisplayHeight(ID) * WindowZoomRatio);
 			IMAGE *FlashData = new IMAGE;
-			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
+			::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), static_cast<int>(ImageWidth * dp), static_cast<int>(ImageHeight * dp), true);
 			LogWrite("Load Image: " + ID);
 			::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 			LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 			delete FlashData;
 			return WINDOWUISTATE;
 		}
-		::loadimage(img, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
+		::loadimage(img, AppDataImage->GetPath(ID).c_str(), static_cast<int>(ImageWidth * dp), static_cast<int>(ImageHeight * dp), true);
 		LogWrite("Load Image: " + ID);
 	}
 	return WINDOWUISTATE;
@@ -72,16 +72,16 @@ bool WinUIClass::PutIMG(string ID)
 {
 	if (WINDOWUISTATE)
 	{
-		unique_ptr<AppDataProcess> AppDataImage(new AppDataProcess);
+		unique_ptr<AppDataProcess> AppDataImage = make_unique<AppDataProcess>();
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID);
 		int ImageHeight = AppDataImage->GetImageHeight(ID);
-		int ImageShowLocalWidth = AppDataImage->DisplayWidth(ID) * WindowZoomRatio;
-		int ImageShowLocalHeight = AppDataImage->DisplayHeight(ID) * WindowZoomRatio;
+		int ImageShowLocalWidth = static_cast<int>(AppDataImage->DisplayWidth(ID) * WindowZoomRatio);
+		int ImageShowLocalHeight = static_cast<int>(AppDataImage->DisplayHeight(ID) * WindowZoomRatio);
 		double dp = AppDataImage->GetDisplayProportion(ID) * WindowZoomRatio;
 		IMAGE* FlashData = new IMAGE;
-		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), ImageWidth * dp, ImageHeight * dp, true);
+		::loadimage(FlashData, AppDataImage->GetPath(ID).c_str(), static_cast<int>(ImageWidth * dp), static_cast<int>(ImageHeight * dp), true);
 		LogWrite("Load Image: " + ID);
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 		LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
@@ -98,8 +98,8 @@ bool WinUIClass::PutIMG(int Width, int Height, IMAGE* img)
 		{
 			return false;
 		}
-		::putimage(Width * WindowZoomRatio, Height * WindowZoomRatio, img);
-		LogWrite("Put Image" + (string)" [" + TimeToString(Width * WindowZoomRatio) + (string)", " + TimeToString(Height * WindowZoomRatio) + (string)"] ");
+		::putimage(static_cast<int>(Width * WindowZoomRatio), static_cast<int>(Height * WindowZoomRatio), img);
+		LogWrite("Put Image" + (string)" [" + TimeToString(static_cast<time_t>(Width * WindowZoomRatio)) + (string)", " + TimeToString(static_cast<time_t>(Height * WindowZoomRatio)) + (string)"] ");
 	}
 	return WINDOWUISTATE;
 }

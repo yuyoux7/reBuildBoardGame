@@ -13,4 +13,5 @@ using nlohmann::json;
 using std::ifstream;
 using std::ofstream;
 using std::unique_ptr;
+using std::make_unique;
 string TimeToString(time_t t);

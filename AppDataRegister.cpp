@@ -2,7 +2,7 @@
 
 AppDataRegister::AppDataRegister()
 {
-	unique_ptr<ifstream> Data(new ifstream);
+	unique_ptr<ifstream> Data = make_unique<ifstream>();
 	Data->open("./Config.json");
 	*Data >> ConfigData;
 	Data->close();

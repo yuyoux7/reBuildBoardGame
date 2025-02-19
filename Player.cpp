@@ -6,7 +6,7 @@ Player::Player()
 
 string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
-	unique_ptr<AppDataRegister> tool(new AppDataRegister);
+	unique_ptr<AppDataRegister> tool = make_unique<AppDataRegister>();
 	string rc{}, fcc{};
 	if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
 	{
@@ -606,7 +606,7 @@ void Player::CardUsing(PlayerData* player, int CardID)
 				if (FlashI != nullptr)
 				{
 					player->Card.ID = FlashI;
-					player->Card.ID[0] = t + 1;
+					player->Card.ID[0] = static_cast<unsigned int>(t + 1);
 					player->Card.ID[t - 1] = CardID;
 				}
 				t = sizeof(player->Card.Type);
@@ -614,7 +614,7 @@ void Player::CardUsing(PlayerData* player, int CardID)
 				if (FlashT != nullptr)
 				{
 					player->Card.Type = FlashT;
-					player->Card.Type[0] = t + 1;
+					player->Card.Type[0] = static_cast<unsigned short>(t + 1);
 					player->Card.Type[t - 1] = 0;
 				}
 			}
