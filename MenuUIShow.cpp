@@ -1,10 +1,10 @@
 #include "MenuUIShow.h"
 
-WinUIClass* UI = new WinUIClass;
-AppDataProcess* AppData = new AppDataProcess;
-ButtonClass* Button = new ButtonClass;
-Player::PlayerData* player = new Player::PlayerData;
-Player* PlayCtrlTool = new Player;
+unique_ptr<WinUIClass> UI = make_unique<WinUIClass>();
+unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
+unique_ptr<ButtonClass> Button = make_unique<ButtonClass>();
+unique_ptr<Player::PlayerData> player = make_unique<Player::PlayerData>();
+unique_ptr<Player> PlayCtrlTool = make_unique<Player>();
 Log_T TL;
 AppDataProcess::Link LinkToken;
 int rd = static_cast<int>(time(NULL));
@@ -248,6 +248,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 	AppData->LinkIMG(&LinkToken);
 	UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 	UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
+	PlayerDataDisplay();
 	FlushBatchDraw();
 	UI->SetClass();
 	while (1) 
@@ -264,45 +265,54 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			}
 			if (Button->ButtonProcess("Race_God"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_God_Put");
 			}
 			if (Button->ButtonProcess("Race_Monster"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_Monster_Put");
 			}
 			if (Button->ButtonProcess("Race_OutPeople"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_OutPeople_Put");
 			}
 			if (Button->ButtonProcess("Race_ThinkingPeople"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_ThinkingPeople_Put");
 			}
 			if (Button->ButtonProcess("Race_Elf"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_Elf_Put");
 			}
 			if (Button->ButtonProcess("Race_Bug"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_Bug_Put");
 			}
 			if (Button->ButtonProcess("Race_NoSaveMonster"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_NoSaveMonster_Put");
 			}
 			if (Button->ButtonProcess("Rand"))
 			{
 				UI->SetClass("Name");
+				AppData->setClass("Name");
 				FlashPlayerData.Name[0] = ((rand() % 40) + 1);
 				FlashPlayerData.Name[1] = ((rand() % 40) + 1);
 				LinkToken.LinkSourceLocal = 0;
+				LinkToken.LinkID = "NameLink";
 				AppData->LinkIMG(&LinkToken);
 				if (FlashPlayerData.Name[0] < 10)
 				{
@@ -327,6 +337,8 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
+			std::thread PDL(&MenuUIShow::PlayerDataDisplay, this);
+			PDL.join();
 		}
 		FlushBatchDraw();
 		Sleep(1);
@@ -408,13 +420,134 @@ void MenuUIShow::LogMix(Log_T *T)
 	TL.LogPath = T->LogPath;
 }
 
+void MenuUIShow::PlayerDataDisplay()
+{
+	FlushBatchDraw();
+	if (player->ID > -1)
+	{
+		AppData->setClass("Number");
+		UI->SetClass("Number");
+		LinkToken.LinkID = "NumberLink";
+		string Fstr = static_cast<string>(TimeToString(player->Value.Anchored));
+		for (int i = 0;i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "AnchoredValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE *fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+		Fstr = static_cast<string>(TimeToString(player->Value.Effect));
+		for (int i = 0; i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "EffectValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE* fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+		Fstr = static_cast<string>(TimeToString(player->Value.Exist));
+		for (int i = 0; i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "ExistValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE* fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+		Fstr = static_cast<string>(TimeToString(player->Value.Intellect));
+		for (int i = 0; i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "IntellectValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE* fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+		Fstr = static_cast<string>(TimeToString(player->Value.Observatuon));
+		for (int i = 0; i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "ObservatuonValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE* fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+		Fstr = static_cast<string>(TimeToString(player->Value.Understand));
+		for (int i = 0; i < Fstr.size(); i++)
+		{
+			string ffstr = "Number";
+			ffstr += Fstr[i];
+			for (auto i = 0; i < 6; i++)
+			{
+				LinkToken.LinkSourceLocal = i;
+				AppData->LinkIMG(&LinkToken);
+				if (LinkToken.LinkSource == "UnderstandValueBox")
+				{
+					break;
+				}
+			}
+			IMAGE* fimg = new IMAGE;
+			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
+			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
+			delete fimg;
+		}
+	}
+}
+
 MenuUIShow::~MenuUIShow()
 {
 	UI->WinUIUnRegister();
-	free(player);
-	delete AppData;
-	delete UI;
-	delete Button;
 }
 
 void MenuUIShow::exit(int i, string ET)

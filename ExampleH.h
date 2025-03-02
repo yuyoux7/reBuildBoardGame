@@ -8,6 +8,9 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <math.h>
+#include <time.h>
+#include <memory>
+#include <thread>
 using std::string;
 using nlohmann::json;
 using std::ifstream;
