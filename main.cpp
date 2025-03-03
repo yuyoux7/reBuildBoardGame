@@ -1,6 +1,7 @@
 #include "MenuUIShow.h"
 int main(void)
 {
+	int err = _mkdir("./Log");
 	Log_T *LT = new Log_T;
 	Log_t L(LT);
 	bool GameRun = true;

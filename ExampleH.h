@@ -11,6 +11,7 @@
 #include <time.h>
 #include <memory>
 #include <thread>
+#include <direct.h>
 using std::string;
 using nlohmann::json;
 using std::ifstream;
