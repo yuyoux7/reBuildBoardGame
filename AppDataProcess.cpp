@@ -217,7 +217,6 @@ void AppDataProcess::LinkIMG(Link* ID)
 					ID->DisplayWidth = static_cast<int>(DisplayWidth(ID->LinkSource) * fdp);
 					ID->DisplayHeight = static_cast<int>(DisplayHeight(ID->LinkSource) * fdp);
 					setClass(ID->LinkClass);
-					fdp = GetDisplayProportion(ID->LinkID, ID->LinkSourceLocal);
 					ID->DisplayWidth += static_cast<int>(DisplayWidth(ID->LinkID, ID->LinkSourceLocal) * fdp);
 					ID->DisplayHeight += static_cast<int>(DisplayHeight(ID->LinkID, ID->LinkSourceLocal) * fdp);
 				}
