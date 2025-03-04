@@ -260,7 +260,8 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			Button->ButtonInput(UI->DispatchMSG());
 			if (Button->ButtonProcess("Race_People"))
 			{
-				UI->PutIMG(PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::People));
+				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::People);
+				UI->PutIMG(str);
 				UI->PutIMG("Race_People_Put");
 			}
 			if (Button->ButtonProcess("Race_God"))
@@ -337,8 +338,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
-			std::thread PDL(&MenuUIShow::PlayerDataDisplay, this);
-			PDL.join();
+			PlayerDataDisplay();
 		}
 		FlushBatchDraw();
 		Sleep(1);
@@ -422,126 +422,104 @@ void MenuUIShow::LogMix(Log_T *T)
 
 void MenuUIShow::PlayerDataDisplay()
 {
-	FlushBatchDraw();
 	if (player->ID > -1)
 	{
 		AppData->setClass("Number");
 		UI->SetClass("Number");
 		LinkToken.LinkID = "NumberLink";
 		string Fstr = static_cast<string>(TimeToString(player->Value.Anchored));
+		IMAGE* fimg = new IMAGE;
+		int flist[6]{};
+		for (auto j = 0; j < 6; j++)
+		{
+			LinkToken.LinkSourceLocal = j;
+			AppData->LinkIMG(&LinkToken);
+			if (LinkToken.LinkSource == "AnchoredValueBox")
+			{
+				flist[0] = j;
+			}
+			if (LinkToken.LinkSource == "EffectValueBox")
+			{
+				flist[1] = j;
+			}
+			if (LinkToken.LinkSource == "ExistValueBox")
+			{
+				flist[2] = j;
+			}
+			if (LinkToken.LinkSource == "IntellectValueBox")
+			{
+				flist[3] = j;
+			}
+			if (LinkToken.LinkSource == "ObservatuonValueBox")
+			{
+				flist[4] = j;
+			}
+			if (LinkToken.LinkSource == "UnderstandValueBox")
+			{
+				flist[5] = j;
+			}
+		}
 		for (int i = 0;i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "AnchoredValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE *fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[0];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
+			
 		}
 		Fstr = static_cast<string>(TimeToString(player->Value.Effect));
 		for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "EffectValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE* fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[1];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
 		}
 		Fstr = static_cast<string>(TimeToString(player->Value.Exist));
 		for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "ExistValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE* fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[2];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
 		}
 		Fstr = static_cast<string>(TimeToString(player->Value.Intellect));
 		for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "IntellectValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE* fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[3];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
 		}
 		Fstr = static_cast<string>(TimeToString(player->Value.Observatuon));
 		for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "ObservatuonValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE* fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[4];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
 		}
 		Fstr = static_cast<string>(TimeToString(player->Value.Understand));
 		for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
-			for (auto i = 0; i < 6; i++)
-			{
-				LinkToken.LinkSourceLocal = i;
-				AppData->LinkIMG(&LinkToken);
-				if (LinkToken.LinkSource == "UnderstandValueBox")
-				{
-					break;
-				}
-			}
-			IMAGE* fimg = new IMAGE;
+			LinkToken.LinkSourceLocal = flist[5];
+			AppData->LinkIMG(&LinkToken);
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
-			delete fimg;
 		}
+		delete fimg;
 	}
 }
 

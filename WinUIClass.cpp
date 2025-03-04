@@ -68,11 +68,12 @@ bool WinUIClass::LoadIMG(string ID, double dp, IMAGE* img)
 	return WINDOWUISTATE;
 }
 
-bool WinUIClass::PutIMG(string ID)
+void WinUIClass::PutIMG(string ID)
 {
 	if (WINDOWUISTATE)
 	{
 		unique_ptr<AppDataProcess> AppDataImage = make_unique<AppDataProcess>();
+		//AppDataProcess* AppDataImage = new AppDataProcess();
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID);
@@ -86,22 +87,20 @@ bool WinUIClass::PutIMG(string ID)
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 		LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 		delete FlashData;
+		//delete AppDataImage;
 	}
-	return WINDOWUISTATE;
 }
 
-bool WinUIClass::PutIMG(int Width, int Height, IMAGE* img)
+void WinUIClass::PutIMG(int Width, int Height, IMAGE* img)
 {
 	if (WINDOWUISTATE)
 	{
-		if (img == nullptr)
+		if (img != nullptr)
 		{
-			return false;
+			::putimage(static_cast<int>(Width * WindowZoomRatio), static_cast<int>(Height * WindowZoomRatio), img);
+			LogWrite("Put Image" + (string)" [" + TimeToString(static_cast<time_t>(Width * WindowZoomRatio)) + (string)", " + TimeToString(static_cast<time_t>(Height * WindowZoomRatio)) + (string)"] ");
 		}
-		::putimage(static_cast<int>(Width * WindowZoomRatio), static_cast<int>(Height * WindowZoomRatio), img);
-		LogWrite("Put Image" + (string)" [" + TimeToString(static_cast<time_t>(Width * WindowZoomRatio)) + (string)", " + TimeToString(static_cast<time_t>(Height * WindowZoomRatio)) + (string)"] ");
 	}
-	return WINDOWUISTATE;
 }
 
 double WinUIClass::GetWindowZoomRatio(void) const

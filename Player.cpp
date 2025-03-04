@@ -8,12 +8,13 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
 	unique_ptr<AppDataRegister> tool = make_unique<AppDataRegister>();
 	string rc{}, fcc{};
-	if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue") != NULL)
+	json fjson = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue");
+	if (fjson != NULL)
 	{
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Exist"))
+		if (fjson.contains("Exist"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"].is_number())
-				player->Value.Exist = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Exist"];
+			if (fjson["Exist"].is_number())
+				player->Value.Exist = fjson["Exist"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -36,10 +37,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Exist = 0;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Intellect"))
+		if (fjson.contains("Intellect"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"].is_number())
-				player->Value.Intellect = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Intellect"];
+			if (fjson["Intellect"].is_number())
+				player->Value.Intellect = fjson["Intellect"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -62,10 +63,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Intellect = 100;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Anchored"))
+		if (fjson.contains("Anchored"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"].is_number())
-				player->Value.Anchored = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Anchored"];
+			if (fjson["Anchored"].is_number())
+				player->Value.Anchored = fjson["Anchored"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -88,10 +89,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Anchored = 100;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Effect"))
+		if (fjson.contains("Effect"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"].is_number())
-				player->Value.Effect = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Effect"]; 
+			if (fjson["Effect"].is_number())
+				player->Value.Effect = fjson["Effect"]; 
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -114,10 +115,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Effect = 0;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Understand"))
+		if (fjson.contains("Understand"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"].is_number())
-				player->Value.Understand = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Understand"];
+			if (fjson["Understand"].is_number())
+				player->Value.Understand = fjson["Understand"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -140,10 +141,10 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				player->Value.Understand = 0;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue").contains("Observatuon"))
+		if (fjson.contains("Observatuon"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"].is_number())
-				player->Value.Observatuon = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue")["Observatuon"];
+			if (fjson["Observatuon"].is_number())
+				player->Value.Observatuon = fjson["Observatuon"];
 			else {
 				string T;
 				ifstream Login("./Log/ELF.err");
@@ -173,73 +174,99 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 		exit(-1);
 	}
 	switch (player->Race)
-	{
-	case Player::People:
-		rc = "People";
-		break;
-	case Player::God:
-		rc = "God";
-		break;
-	case Player::Mosnster:
-		rc = "Monster";
-		break;
-	case Player::OutPeople:
-		rc = "OutPeople";
-		break;
-	case Player::ThinkingPeople:
-		rc = "ThinkingPeople";
-		break;
-	case Player::Elf:
-		rc = "Elf";
-		break;
-	case Player::Bug:
-		rc = "Bug";
-		break;
-	case Player::NoSaveMonster:
-		rc = "NoSaveMonster";
-		break;
-	default:
-		break;
-	}
-	switch (Race)
-	{
-	case Player::People:
-		fcc = "Human";
-		break;
-	case Player::God:
-		fcc = "God";
-		break;
-	case Player::Mosnster:
-		fcc = "Monster";
-		break;
-	case Player::OutPeople:
-		fcc = "OutPeople";
-		break;
-	case Player::ThinkingPeople:
-		fcc = "ThinkingPeople";
-		break;
-	case Player::Elf:
-		fcc = "Elf";
-		break;
-	case Player::Bug:
-		fcc = "Bug";
-		break;
-	case Player::NoSaveMonster:
-		fcc = "NoSaveMonster";
-		break;
-	default:
-		break;
-	}
-	if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue").contains(fcc))
-	{
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Exist"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"] == "*0")
+		case Player::People:
+			rc = "People";
+			break;
+		case Player::God:
+			rc = "God";
+			break;
+		case Player::Mosnster:
+			rc = "Monster";
+			break;
+		case Player::OutPeople:
+			rc = "OutPeople";
+			break;
+		case Player::ThinkingPeople:
+			rc = "ThinkingPeople";
+			break;
+		case Player::Elf:
+			rc = "Elf";
+			break;
+		case Player::Bug:
+			rc = "Bug";
+			break;
+		case Player::NoSaveMonster:
+			rc = "NoSaveMonster";
+			break;
+		default:
+			break;
+		}
+	switch (Race)
+		{
+		case Player::People:
+			fcc = "Human";
+			break;
+		case Player::God:
+			fcc = "God";
+			break;
+		case Player::Mosnster:
+			fcc = "Monster";
+			break;
+		case Player::OutPeople:
+			fcc = "OutPeople";
+			break;
+		case Player::ThinkingPeople:
+			fcc = "ThinkingPeople";
+			break;
+		case Player::Elf:
+			fcc = "Elf";
+			break;
+		case Player::Bug:
+			fcc = "Bug";
+			break;
+		case Player::NoSaveMonster:
+			fcc = "NoSaveMonster";
+			break;
+		default:
+			break;
+		}
+	player->Race = Race;
+	fjson = tool->AppDataSent(TYPE_DFT, "RaceBasicValue");
+	if (fjson.contains(fcc) != NULL)
+	{
+		if (fjson[fcc].contains("Exist"))
+		{
+			if (fjson[fcc]["Exist"].is_number())
+				player->Value.Exist += fjson[fcc]["Exist"];
+			else if (fjson[fcc]["Exist"].is_string())
 			{
-				player->Value.Exist = 0;
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Exist"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Exist"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Exist"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Exist"])[0])
+				{
+				case '*':
+					player->Value.Exist *= fint;
+					break;
+				case '/':
+					player->Value.Exist /= fint;
+					break;
+				case '+':
+					player->Value.Exist += fint;
+					break;
+				case '-':
+					player->Value.Exist -= fint;
+					break;
+				case '=':
+					player->Value.Exist = fint;
+					break;
+				default:
+					break;
+				}
 			}
-			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"].is_number())
-				player->Value.Exist += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Exist"];
 		}
 		else
 		{
@@ -291,14 +318,38 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Intellect"))
+		if (fjson[fcc].contains("Intellect"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"] == "=50")
+			if (fjson[fcc]["Intellect"].is_number())
+				player->Value.Intellect += fjson[fcc]["Intellect"];
+			else if (fjson[fcc]["Intellect"].is_string())
 			{
-				player->Value.Intellect = 50;
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Intellect"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Intellect"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Intellect"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Intellect"])[0])
+				{
+				case '*':
+					player->Value.Intellect *= fint;
+					break;
+				case '/':
+					player->Value.Intellect /= fint;
+					break;
+				case '+':
+					player->Value.Intellect += fint;
+					break;
+				case '-':
+					player->Value.Intellect -= fint;
+					break;
+				case '=':
+					player->Value.Intellect = fint;
+					break;
+				default:
+					break;
+				}
 			}
-			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"].is_number())
-				player->Value.Intellect += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Intellect"];
 		}
 		else
 		{
@@ -350,18 +401,38 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Anchored"))
+		if (fjson[fcc].contains("Anchored"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=50")
+			if (fjson[fcc]["Anchored"].is_number())
+				player->Value.Anchored += fjson[fcc]["Anchored"];
+			else if (fjson[fcc]["Anchor"].is_string())
 			{
-				player->Value.Anchored = 50;
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Anchored"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Anchored"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Anchored"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Anchored"])[0])
+				{
+				case '*':
+					player->Value.Anchored *= fint;
+					break;
+				case '/':
+					player->Value.Anchored /= fint;
+					break;
+				case '+':
+					player->Value.Anchored += fint;
+					break;
+				case '-':
+					player->Value.Anchored -= fint;
+					break;
+				case '=':
+					player->Value.Anchored = fint;
+					break;
+				default:
+					break;
+				}
 			}
-			else if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"] == "=75")
-			{
-				player->Value.Anchored = 75;
-			}
-			else if(tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"].is_number())
-				player->Value.Anchored += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Anchored"];
 		}
 		else
 		{
@@ -413,10 +484,38 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Effect"))
+		if (fjson[fcc].contains("Effect"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"].is_number())
-				player->Value.Effect += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Effect"];
+			if (fjson[fcc]["Effect"].is_number())
+				player->Value.Effect += fjson[fcc]["Effect"];
+			else if (fjson[fcc]["Effect"].is_string())
+			{
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Effect"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Effect"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Effect"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Effect"])[0])
+				{
+				case '*':
+					player->Value.Effect *= fint;
+					break;
+				case '/':
+					player->Value.Effect /= fint;
+					break;
+				case '+':
+					player->Value.Effect += fint;
+					break;
+				case '-':
+					player->Value.Effect -= fint;
+					break;
+				case '=':
+					player->Value.Effect = fint;
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		else
 		{
@@ -467,10 +566,38 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Understand"))
+		if (fjson[fcc].contains("Understand"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"].is_number())
-				player->Value.Understand += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Understand"];
+			if (fjson[fcc]["Understand"].is_number())
+				player->Value.Understand += fjson[fcc]["Understand"];
+			else if (fjson[fcc]["Understand"].is_string())
+			{
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Understand"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Understand"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Understand"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Understand"])[0])
+				{
+				case '*':
+					player->Value.Understand *= fint;
+					break;
+				case '/':
+					player->Value.Understand /= fint;
+					break;
+				case '+':
+					player->Value.Understand += fint;
+					break;
+				case '-':
+					player->Value.Understand -= fint;
+					break;
+				case '=':
+					player->Value.Understand = fint;
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		else
 		{
@@ -522,10 +649,38 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc].contains("Observatuon"))
+		if (fjson[fcc].contains("Observatuon"))
 		{
-			if (tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"].is_number())
-				player->Value.Observatuon += tool->AppDataSent(TYPE_DFT, "RaceBasicValue")[fcc]["Observatuon"];
+			if (fjson[fcc]["Observatuon"].is_number())
+				player->Value.Observatuon += fjson[fcc]["Observatuon"];
+			else if (fjson[fcc]["Observatuon"].is_string())
+			{
+				int fint = 0;
+				for (size_t i = 1; i < string(fjson[fcc]["Observatuon"]).size(); i++)
+				{
+					fint += static_cast<int>((string(fjson[fcc]["Observatuon"])[i]) ^ 48) * static_cast<int>(pow(10, string(fjson[fcc]["Observatuon"]).size() - i - 1));
+				}
+				switch (string(fjson[fcc]["Observatuon"])[0])
+				{
+				case '*':
+					player->Value.Observatuon *= fint;
+					break;
+				case '/':
+					player->Value.Observatuon /= fint;
+					break;
+				case '+':
+					player->Value.Observatuon += fint;
+					break;
+				case '-':
+					player->Value.Observatuon -= fint;
+					break;
+				case '=':
+					player->Value.Observatuon = fint;
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		else
 		{
@@ -577,7 +732,6 @@ string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 				break;
 			}
 		}
-		player->Race = Race;
 	}
 	else
 	{

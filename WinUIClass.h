@@ -11,8 +11,8 @@ public:
 	void SetClass(string Class = "ButtonFont");
 	void SetScenes(string Scenes);
 	bool LoadIMG(string ID, double dp = 1, IMAGE* img = nullptr);
-	bool PutIMG(string ID);
-	bool PutIMG(int Width, int Height,IMAGE* img = nullptr);
+	void PutIMG(string ID);
+	void PutIMG(int Width, int Height,IMAGE* img = nullptr);
 	double GetWindowZoomRatio(void) const;
 	void SetLog(Log_T *T);
 	void MixLog(Log_T* T);
