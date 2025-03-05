@@ -146,6 +146,10 @@ string AppDataProcess::GetPath(string ID)
 		ErrorLog(string(ID + "\" Path"));
 		exit(-1, string(ID + " Path Lost"));
 	}
+	if (FlashData->AppDataSent(TYPE_IMG, this->ClassType) == NULL)
+	{
+		exit(-1, string("Data " + TYPE_IMG + "Config Lost"));
+	}
 	ErrorLog(string(ID + "\""), ": error");
 	exit(-1, string(ID + " Lost"));
 }

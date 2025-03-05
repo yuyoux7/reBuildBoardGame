@@ -4,14 +4,23 @@ AppDataRegister::AppDataRegister()
 {
 	unique_ptr<ifstream> Data = make_unique<ifstream>();
 	Data->open("./Config.json");
-	*Data >> ConfigData;
-	Data->close();
+	if (Data->is_open())
+	{
+		*Data >> ConfigData;
+		Data->close();
+	}
 	Data->open("./ImageConfig.json");
-	*Data >> ImageData;
-	Data->close();
+	if (Data->is_open())
+	{
+		*Data >> ImageData;
+		Data->close();
+	}
 	Data->open("./DefaultConfig.json");
-	*Data >> DefaultData;
-	Data->close();
+	if (Data->is_open())
+	{
+		*Data >> DefaultData;
+		Data->close();
+	}
 }
 
 json AppDataRegister::AppDataSent(string type, string Class)

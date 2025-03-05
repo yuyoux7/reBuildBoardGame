@@ -14,8 +14,12 @@ MenuUIShow::MenuUIShow()
 	srand(rd);
 	UI->SetLog(&TL);
 	IMAGE imgg;
-	if (AppData->AppDataSent(TYPE_DFT, "MinPlayer") > AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
+	if (AppData->AppDataSent(TYPE_DFT, "MinPlayer") > AppData->AppDataSent(TYPE_DFT, "MaxPlayer") || AppData->AppDataSent(TYPE_DFT, "MinPlayer") < 1)
 	{
+		if (AppData->AppDataSent(TYPE_DFT, "MinPlayer") == NULL && AppData->AppDataSent(TYPE_DFT, "MaxPlayer") == NULL)
+		{
+			exit(-1, ("Data " + TYPE_DFT + (string)"Config Lost"));
+		}
 		exit(-2, "Player Count Break");
 	}
 	this->PlayrTotal = AppData->AppDataSent(TYPE_DFT, "MinPlayer");
