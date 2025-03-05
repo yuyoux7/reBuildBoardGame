@@ -417,18 +417,18 @@
 				},
 				"PlayerDataLoad": {
 					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox"],
-					"DisplayHeight": [0, 0, 0, 0, 0, 0],
-					"DisplayWidth": [0, 0, 0, 0, 0, 0]
+					"DisplayHeight": [15, 15, 15, 15, 15, 15],
+					"DisplayWidth": [230, 230, 230, 230, 230, 230]
 				},
 				"CardFunctionUsing": {
-					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
-					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
-					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
+					"BoxName": [ "ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox" ],
+					"DisplayHeight": [ 15, 15, 15, 15, 15, 15 ],
+					"DisplayWidth": [ 230, 230, 230, 230, 230, 230 ]
 				},
 				"Attack": {
-					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
-					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
-					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
+					"BoxName": [ "ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox" ],
+					"DisplayHeight": [ 15, 15, 15, 15, 15, 15 ],
+					"DisplayWidth": [ 230, 230, 230, 230, 230, 230 ]
 				}
 			}
 		}
@@ -2444,9 +2444,9 @@
 		"NameLink": {
 			"Scenes": {
 				"PlayerDataLoad": {
-					"BoxName": ["SetNameBox", "SetNameBox"],
-					"DisplayHeight": [0, 0],
-					"DisplayWidth": [0, 30]
+					"BoxName": [ "SetNameBox", "SetNameBox" ],
+					"DisplayHeight": [ 70, 70 ],
+					"DisplayWidth": [ 15, 90 ]
 				},
 				"CardFunctionUsing": {
 					"BoxName": ["NameBox", "NameBox"],

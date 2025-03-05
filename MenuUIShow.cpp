@@ -3,7 +3,7 @@
 unique_ptr<WinUIClass> UI = make_unique<WinUIClass>();
 unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
 unique_ptr<ButtonClass> Button = make_unique<ButtonClass>();
-unique_ptr<Player::PlayerData> player = make_unique<Player::PlayerData>();
+Player::PlayerData* player = new Player::PlayerData;
 unique_ptr<Player> PlayCtrlTool = make_unique<Player>();
 Log_T TL;
 AppDataProcess::Link LinkToken;
@@ -338,6 +338,8 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
+			player = &FlashPlayerData;
+			FlushBatchDraw();
 			PlayerDataDisplay();
 		}
 		FlushBatchDraw();
@@ -422,15 +424,20 @@ void MenuUIShow::LogMix(Log_T *T)
 
 void MenuUIShow::PlayerDataDisplay()
 {
-	if (player->ID > -1)
-	{
-		AppData->setClass("Number");
-		UI->SetClass("Number");
-		LinkToken.LinkID = "NumberLink";
-		string Fstr = static_cast<string>(TimeToString(player->Value.Anchored));
-		IMAGE* fimg = new IMAGE;
-		int flist[6]{};
-		for (auto j = 0; j < 6; j++)
+	UI->SetClass("Box");
+	UI->PutIMG("ExistValueBox");
+	UI->PutIMG("IntellectValueBox");
+	UI->PutIMG("AnchoredValueBox");
+	UI->PutIMG("EffectValueBox");
+	UI->PutIMG("UnderstandValueBox");
+	UI->PutIMG("ObservatuonValueBox");
+	AppData->setClass("Number");
+	UI->SetClass("Number");
+	LinkToken.LinkID = "NumberLink";
+	string Fstr = static_cast<string>(TimeToString(player->Value.Anchored));
+	IMAGE* fimg = new IMAGE;
+	int flist[6]{};
+	for (auto j = 0; j < 6; j++)
 		{
 			LinkToken.LinkSourceLocal = j;
 			AppData->LinkIMG(&LinkToken);
@@ -459,7 +466,7 @@ void MenuUIShow::PlayerDataDisplay()
 				flist[5] = j;
 			}
 		}
-		for (int i = 0;i < Fstr.size(); i++)
+	for (int i = 0;i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -469,8 +476,8 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 			
 		}
-		Fstr = static_cast<string>(TimeToString(player->Value.Effect));
-		for (int i = 0; i < Fstr.size(); i++)
+	Fstr = static_cast<string>(TimeToString(player->Value.Effect));
+	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -479,8 +486,8 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
-		Fstr = static_cast<string>(TimeToString(player->Value.Exist));
-		for (int i = 0; i < Fstr.size(); i++)
+	Fstr = static_cast<string>(TimeToString(player->Value.Exist));
+	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -489,8 +496,8 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
-		Fstr = static_cast<string>(TimeToString(player->Value.Intellect));
-		for (int i = 0; i < Fstr.size(); i++)
+	Fstr = static_cast<string>(TimeToString(player->Value.Intellect));
+	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -499,8 +506,8 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
-		Fstr = static_cast<string>(TimeToString(player->Value.Observatuon));
-		for (int i = 0; i < Fstr.size(); i++)
+	Fstr = static_cast<string>(TimeToString(player->Value.Observatuon));
+	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -509,8 +516,8 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
-		Fstr = static_cast<string>(TimeToString(player->Value.Understand));
-		for (int i = 0; i < Fstr.size(); i++)
+	Fstr = static_cast<string>(TimeToString(player->Value.Understand));
+	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
 			ffstr += Fstr[i];
@@ -519,13 +526,13 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->LoadIMG(ffstr, AppData->GetDisplayProportion(ffstr), fimg);
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
-		delete fimg;
-	}
+	delete fimg;
 }
 
 MenuUIShow::~MenuUIShow()
 {
 	UI->WinUIUnRegister();
+	delete player;
 }
 
 void MenuUIShow::exit(int i, string ET)

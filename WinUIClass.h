@@ -16,13 +16,14 @@ public:
 	double GetWindowZoomRatio(void) const;
 	void SetLog(Log_T *T);
 	void MixLog(Log_T* T);
+	void clear(void);
 private:
 	HWND WinUIhWnd{};
-	bool WINDOWUISTATE{};
 	double WindowZoomRatio{};	//simple with 1080p(FULL HDMI)
 	string ClassType{};
 	string ScenesT{};
 	Log_T* WTL{};
+	bool WINDOWUISTATE{};
 	void LogWrite(string T);
 };
 

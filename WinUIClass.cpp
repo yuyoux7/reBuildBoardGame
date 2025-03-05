@@ -123,6 +123,11 @@ void WinUIClass::MixLog(Log_T* T)
 	}
 }
 
+void WinUIClass::clear(void)
+{
+	::cleardevice();
+}
+
 void WinUIClass::LogWrite(string T)
 {
 	if (WTL->LogPath != "")

@@ -13,6 +13,9 @@
 #include <thread>
 #include <direct.h>
 using std::string;
+#define TYPE_IMG (string)"Image"
+#define TYPE_CFG (string)"Config"
+#define TYPE_DFT (string)"Default"
 using nlohmann::json;
 using std::ifstream;
 using std::ofstream;
