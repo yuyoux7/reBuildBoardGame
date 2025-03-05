@@ -79,7 +79,7 @@ MenuUIShow::MenuUIShow()
 		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
 	FlushBatchDraw();
-	while (true)
+	while (UI->WinUISave())
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
 		{
@@ -251,7 +251,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 	PlayerDataDisplay();
 	FlushBatchDraw();
 	UI->SetClass();
-	while (1) 
+	while (UI->WinUISave())
 	{
 		if (UI->DispatchMSG().message == 0x00000201)
 		{
@@ -531,7 +531,6 @@ void MenuUIShow::PlayerDataDisplay()
 
 MenuUIShow::~MenuUIShow()
 {
-	UI->WinUIUnRegister();
 	delete player;
 }
 

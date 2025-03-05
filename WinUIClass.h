@@ -6,7 +6,6 @@ class WinUIClass : public WinUIExport
 {
 public:
 	BOOL WinUICreat(unsigned int Width, unsigned int Height, unsigned int CmdShow = 0);
-	void WinUIUnRegister(void);
 	void WinUITitleSet(const string title);
 	void SetClass(string Class = "ButtonFont");
 	void SetScenes(string Scenes);
@@ -17,6 +16,7 @@ public:
 	void SetLog(Log_T *T);
 	void MixLog(Log_T* T);
 	void clear(void);
+	bool WinUISave(void);
 private:
 	HWND WinUIhWnd{};
 	double WindowZoomRatio{};	//simple with 1080p(FULL HDMI)
@@ -25,5 +25,6 @@ private:
 	Log_T* WTL{};
 	bool WINDOWUISTATE{};
 	void LogWrite(string T);
+	void WinUIUnRegister(void);
 };
 

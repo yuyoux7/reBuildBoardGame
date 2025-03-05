@@ -128,6 +128,16 @@ void WinUIClass::clear(void)
 	::cleardevice();
 }
 
+bool WinUIClass::WinUISave(void)
+{
+	if (!ShowWindow(WinUIhWnd, 5) || !WINDOWUISTATE)
+	{
+		WinUIUnRegister();
+		exit(0);
+	}
+	return WINDOWUISTATE;
+}
+
 void WinUIClass::LogWrite(string T)
 {
 	if (WTL->LogPath != "")
