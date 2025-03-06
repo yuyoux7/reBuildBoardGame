@@ -5,7 +5,7 @@ Log_t Log_O;
 
 BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned int CmdShow)
 {
-		WinUIhWnd = ::initgraph(Width, Height, 1);
+		WinUIhWnd = ::initgraph(Width, Height, CmdShow);
 		WindowZoomRatio = ((double)((double)(Width / (double)1920) + (double)(Height / (double)1080)) / 2);
 		LogWrite("WindowZoomRatio: " + TimeToString(static_cast<time_t>(this->WindowZoomRatio)) + (string)"." + TimeToString(static_cast<time_t>(this->WindowZoomRatio * 10000)));
 		WINDOWUISTATE = true;
