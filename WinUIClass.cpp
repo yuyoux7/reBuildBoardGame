@@ -5,7 +5,7 @@ Log_t Log_O;
 
 BOOL WinUIClass::WinUICreat(unsigned int Width, unsigned int Height, unsigned int CmdShow)
 {
-		WinUIhWnd = ::initgraph(Width, Height, CmdShow);
+		WinUIhWnd = ::initgraph(Width, Height, 1);
 		WindowZoomRatio = ((double)((double)(Width / (double)1920) + (double)(Height / (double)1080)) / 2);
 		LogWrite("WindowZoomRatio: " + TimeToString(static_cast<time_t>(this->WindowZoomRatio)) + (string)"." + TimeToString(static_cast<time_t>(this->WindowZoomRatio * 10000)));
 		WINDOWUISTATE = true;
@@ -16,7 +16,6 @@ void WinUIClass::WinUIUnRegister(void)
 {
 	if (WINDOWUISTATE)
 	{
-		::closegraph();
 		WINDOWUISTATE = false;
 		LogWrite("WindowClose");
 	}
@@ -73,7 +72,6 @@ void WinUIClass::PutIMG(string ID)
 	if (WINDOWUISTATE)
 	{
 		unique_ptr<AppDataProcess> AppDataImage = make_unique<AppDataProcess>();
-		//AppDataProcess* AppDataImage = new AppDataProcess();
 		AppDataImage->setClass(this->ClassType);
 		AppDataImage->setScenes(this->ScenesT);
 		int ImageWidth = AppDataImage->GetImageWidth(ID);
@@ -87,7 +85,6 @@ void WinUIClass::PutIMG(string ID)
 		::putimage(ImageShowLocalWidth, ImageShowLocalHeight, FlashData);
 		LogWrite("Put Image: " + ID + (string)" [" + TimeToString(ImageShowLocalWidth) + (string)", " + TimeToString(ImageShowLocalHeight) + (string)"] ");
 		delete FlashData;
-		//delete AppDataImage;
 	}
 }
 
@@ -130,10 +127,12 @@ void WinUIClass::clear(void)
 
 bool WinUIClass::WinUISave(void)
 {
-	if (!ShowWindow(WinUIhWnd, 5) || !WINDOWUISTATE)
+	if (WINDOWUISTATE)
 	{
-		WinUIUnRegister();
-		exit(0);
+		if (!ShowWindow(WinUIhWnd, 5))
+		{
+			WinUIUnRegister();
+		}
 	}
 	return WINDOWUISTATE;
 }

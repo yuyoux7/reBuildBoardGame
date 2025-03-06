@@ -11,6 +11,7 @@
 #include <time.h>
 #include <memory>
 #include <thread>
+#include <set>
 #include <direct.h>
 using std::string;
 #define TYPE_IMG (string)"Image"

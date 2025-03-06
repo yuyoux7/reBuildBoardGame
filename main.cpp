@@ -6,15 +6,7 @@ int main(void)
 	Log_t L(LT);
 	bool GameRun = true;
 	unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
-	if (AppData->AppDataSent(TYPE_CFG, "WindowSize") != NULL)
-	{
-		L.LoadLog(LT, "DataReadSuccess");
-	}
-	else
-	{
-		MessageBoxA(NULL, string("Data " + TYPE_CFG + " Lost").c_str(), NULL, MB_OK | MB_ICONERROR);
-		exit(-1);
-	}
+	L.LoadLog(LT, "DataReadSuccess");
 	int GameRound = AppData->GetGameRound();
 	unique_ptr<MenuUIShow> Display(new MenuUIShow);
 	Display->LogMix(LT);
@@ -59,5 +51,6 @@ int main(void)
 		Sleep(1);
 	}
 	free(Player_Data);
+	L.LoadLog(LT, "FreeAll");
 	delete LT;
 };

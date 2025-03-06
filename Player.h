@@ -15,8 +15,8 @@ public:
 	}PlayerValue;
 	typedef struct _tagc
 	{
-		unsigned short* Type = nullptr;
-		unsigned int* ID = nullptr;
+		std::vector<unsigned short> Type{};
+		std::vector<unsigned int> ID{};
 	}PlayerCard;
 	typedef struct _tag
 	{
@@ -44,5 +44,6 @@ public:
 	~Player();
 private:
 	void CardUsing(PlayerData *player, int CardID = 0);
+	unsigned short GetCardType(int CardID = 0);
 };
 

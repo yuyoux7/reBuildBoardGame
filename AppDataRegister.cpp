@@ -27,18 +27,24 @@ json AppDataRegister::AppDataSent(string type, string Class)
 {
 	if (type == TYPE_CFG)
 	{
-		if(ConfigData.contains(Class))
-		return ConfigData[Class];
+		if (ConfigData.contains(Class))
+			return ConfigData[Class];
+		else
+			MessageBox(NULL, "Data Config Lost", NULL, MB_OK | MB_ICONERROR);
 	}
 	else if (type == TYPE_IMG)
 	{
 		if (ImageData.contains(Class))
-		return ImageData[Class];
+			return ImageData[Class];
+		else
+			MessageBox(NULL, "Data ImageConfig Lost", NULL, MB_OK | MB_ICONERROR);
 	}
 	else if (type == TYPE_DFT)
 	{
 		if (DefaultData.contains(Class))
-		return DefaultData[Class];
+			return DefaultData[Class];
+		else
+			MessageBox(NULL, "Data DefaultConfig Lost", NULL, MB_OK | MB_ICONERROR);
 	}
 	return NULL;
 }

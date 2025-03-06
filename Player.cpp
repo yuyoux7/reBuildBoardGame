@@ -749,45 +749,22 @@ void Player::CardUsing(PlayerData* player, int CardID)
 {
 	if (CardID != NULL)
 	{
-		if (player->Card.Type != nullptr && player->Card.ID != nullptr)
+		unique_ptr<AppDataRegister> AppData = make_unique<AppDataRegister>();
+		if (AppData->AppDataSent(TYPE_DFT, "CardValue").contains(TimeToString(CardID)))
 		{
-			if (player->Card.Type[0] == player->Card.ID[0])
-			{
-				size_t t = player->Card.ID[0];
-				unsigned short* FlashT;
-				unsigned int* FlashI;
-				FlashI = (unsigned int*)realloc(player->Card.ID, (sizeof(unsigned int*) * (t + 1)));
-				if (FlashI != nullptr)
-				{
-					player->Card.ID = FlashI;
-					player->Card.ID[0] = static_cast<unsigned int>(t + 1);
-					player->Card.ID[t - 1] = CardID;
-				}
-				t = sizeof(player->Card.Type);
-				FlashT = (unsigned short*)realloc(player->Card.Type, (sizeof(unsigned short*) * (t + 1)));
-				if (FlashT != nullptr)
-				{
-					player->Card.Type = FlashT;
-					player->Card.Type[0] = static_cast<unsigned short>(t + 1);
-					player->Card.Type[t - 1] = 0;
-				}
-			}
-		}
-		else
-		{
-			player->Card.ID = (unsigned int*)malloc(sizeof(unsigned int*) * 2);
-			if(player->Card.ID != nullptr)
-			{
-				player->Card.ID[0] = 1;
-				player->Card.ID[1] = CardID;
-			}
-			player->Card.Type = (unsigned short*)malloc(sizeof(unsigned short*) * 2);
-			if (player->Card.Type != nullptr)
-			{
-				player->Card.Type[0] = 1;
-				player->Card.Type[1] = 0;
-			}
+			player->Card.ID.push_back(CardID);
+			player->Card.Type.push_back(GetCardType(CardID));
 		}
 	}
+}
+
+unsigned short Player::GetCardType(int CardID)
+{
+	unique_ptr<AppDataRegister> AppData = make_unique<AppDataRegister>();
+	if (AppData->AppDataSent(TYPE_DFT, "CardValue")[TimeToString(CardID)].is_array())
+	{
+		return AppData->AppDataSent(TYPE_DFT, "CardValue")[TimeToString(CardID)][0];
+	};
+	return 0;
 }
 
