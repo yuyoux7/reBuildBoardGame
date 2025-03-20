@@ -120,7 +120,7 @@ MenuUIShow::MenuUIShow()
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
 			}
-			if (Button->ButtonProcess("AddPlayerCount"))
+			else if (Button->ButtonProcess("AddPlayerCount"))
 			{
 				if (this->PlayrTotal < AppData->AppDataSent(TYPE_DFT, "MaxPlayer"))
 				{
@@ -155,7 +155,7 @@ MenuUIShow::MenuUIShow()
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
 			}
-			if (Button->ButtonProcess("Start"))
+			else if (Button->ButtonProcess("Start"))
 			{
 				UI->SetClass();
 				UI->MixLog(&TL);
@@ -211,6 +211,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 		UI->PutIMG("Race_Bug");
 		UI->PutIMG("Race_NoSaveMonster");
 		UI->PutIMG("Rand");
+		UI->PutIMG("Next");
 	}
 	FlashPlayerData.Name[0] = ((rand() % 40) + 1);
 	FlashPlayerData.Name[1] = ((rand() % 40) + 1);
@@ -261,49 +262,49 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->PutIMG(str);
 				UI->PutIMG("Race_People_Put");
 			}
-			if (Button->ButtonProcess("Race_God"))
+			else if (Button->ButtonProcess("Race_God"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::God);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_God_Put");
 			}
-			if (Button->ButtonProcess("Race_Monster"))
+			else if (Button->ButtonProcess("Race_Monster"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Mosnster);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_Monster_Put");
 			}
-			if (Button->ButtonProcess("Race_OutPeople"))
+			else if (Button->ButtonProcess("Race_OutPeople"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::OutPeople);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_OutPeople_Put");
 			}
-			if (Button->ButtonProcess("Race_ThinkingPeople"))
+			else if (Button->ButtonProcess("Race_ThinkingPeople"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::ThinkingPeople);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_ThinkingPeople_Put");
 			}
-			if (Button->ButtonProcess("Race_Elf"))
+			else if (Button->ButtonProcess("Race_Elf"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Elf);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_Elf_Put");
 			}
-			if (Button->ButtonProcess("Race_Bug"))
+			else if (Button->ButtonProcess("Race_Bug"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::Bug);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_Bug_Put");
 			}
-			if (Button->ButtonProcess("Race_NoSaveMonster"))
+			else if (Button->ButtonProcess("Race_NoSaveMonster"))
 			{
 				string str = PlayCtrlTool->SetPlayerRace(&FlashPlayerData, Player::NoSaveMonster);
 				UI->PutIMG(str);
 				UI->PutIMG("Race_NoSaveMonster_Put");
 			}
-			if (Button->ButtonProcess("Rand"))
+			else if (Button->ButtonProcess("Rand"))
 			{
 				UI->SetClass("Name");
 				AppData->setClass("Name");
@@ -335,6 +336,11 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				UI->LoadIMG(Name_t, AppData->GetDisplayProportion(Name_t), &FlashIMG);
 				UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Adj_t)), LinkToken.DisplayHeight, &FlashIMG);
 			}
+			else if (Button->ButtonProcess("Next"))
+			{
+				if (FlashPlayerData.Race != NULL)
+					break;
+			}
 			player = &FlashPlayerData;
 			FlushBatchDraw();
 			PlayerDataDisplay();
@@ -347,6 +353,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 
 void MenuUIShow::ScenesGameRotateDisplay(void)
 {
+	BeginBatchDraw();
 	UI->SetScenes("GameRotateDisplay");
 	UI->SetClass("BackGround");
 	UI->PutIMG("OtherBG");
@@ -355,6 +362,7 @@ void MenuUIShow::ScenesGameRotateDisplay(void)
 	UI->PutIMG("PlayerOrder");
 	UI->SetClass("Box");
 	UI->PutIMG("NowRoundBox");
+	EndBatchDraw();
 	while (UI->WinUISave()) { Sleep(1); };
 }
 
@@ -424,7 +432,8 @@ void MenuUIShow::PlayerDataDisplay()
 	string Fstr = static_cast<string>(TimeToString(player->Value.Anchored));
 	IMAGE* fimg = new IMAGE;
 	int flist[6]{};
-	for (auto j = 0; j < 6; j++)
+    #pragma omp parallel for
+		for (auto j = 0; j < 6; j++)
 		{
 			LinkToken.LinkSourceLocal = j;
 			AppData->LinkIMG(&LinkToken);
@@ -453,6 +462,7 @@ void MenuUIShow::PlayerDataDisplay()
 				flist[5] = j;
 			}
 		}
+	#pragma omp parallel for
 	for (int i = 0;i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
@@ -464,6 +474,7 @@ void MenuUIShow::PlayerDataDisplay()
 			
 		}
 	Fstr = static_cast<string>(TimeToString(player->Value.Effect));
+	#pragma omp parallel for
 	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
@@ -474,6 +485,7 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
 	Fstr = static_cast<string>(TimeToString(player->Value.Exist));
+	#pragma omp parallel for
 	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
@@ -484,6 +496,7 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
 	Fstr = static_cast<string>(TimeToString(player->Value.Intellect));
+	#pragma omp parallel for
 	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
@@ -494,6 +507,7 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
 	Fstr = static_cast<string>(TimeToString(player->Value.Observatuon));
+	#pragma omp parallel for
 	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";
@@ -504,6 +518,7 @@ void MenuUIShow::PlayerDataDisplay()
 			UI->PutIMG(LinkToken.DisplayWidth + (AppData->GetImageWidth(ffstr) * i), LinkToken.DisplayHeight, fimg);
 		}
 	Fstr = static_cast<string>(TimeToString(player->Value.Understand));
+	#pragma omp parallel for
 	for (int i = 0; i < Fstr.size(); i++)
 		{
 			string ffstr = "Number";

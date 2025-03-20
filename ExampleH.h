@@ -22,4 +22,5 @@ using std::ifstream;
 using std::ofstream;
 using std::unique_ptr;
 using std::make_unique;
+using std::thread;
 string TimeToString(time_t t);

@@ -421,14 +421,14 @@
 					"DisplayWidth": [230, 230, 230, 230, 230, 230]
 				},
 				"CardFunctionUsing": {
-					"BoxName": [ "ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox" ],
-					"DisplayHeight": [ 15, 15, 15, 15, 15, 15 ],
-					"DisplayWidth": [ 230, 230, 230, 230, 230, 230 ]
+					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
+					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
+					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
 				},
 				"Attack": {
-					"BoxName": [ "ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox" ],
-					"DisplayHeight": [ 15, 15, 15, 15, 15, 15 ],
-					"DisplayWidth": [ 230, 230, 230, 230, 230, 230 ]
+					"BoxName": ["ExistValueBox", "IntellectValueBox", "AnchoredValueBox", "EffectValueBox", "UnderstandValueBox", "ObservatuonValueBox", "NowRoundBox"],
+					"DisplayHeight": [0, 0, 0, 0, 0, 0, 0],
+					"DisplayWidth": [0, 0, 0, 0, 0, 0, 0]
 				}
 			}
 		}
@@ -2444,9 +2444,9 @@
 		"NameLink": {
 			"Scenes": {
 				"PlayerDataLoad": {
-					"BoxName": [ "SetNameBox", "SetNameBox" ],
-					"DisplayHeight": [ 70, 70 ],
-					"DisplayWidth": [ 15, 90 ]
+					"BoxName": ["SetNameBox", "SetNameBox"],
+					"DisplayHeight": [70, 70],
+					"DisplayWidth": [15, 90]
 				},
 				"CardFunctionUsing": {
 					"BoxName": ["NameBox", "NameBox"],
@@ -2768,7 +2768,7 @@
 			"Scenes": {
 				"Home": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 780,
+					"DisplayHeight": 800,
 					"DisplayWidth": 702
 				}
 			},
@@ -2782,7 +2782,7 @@
 			"Scenes": {
 				"Home":	{
 					"DisplayProportion": 1,
-					"DisplayHeight": 950,
+					"DisplayHeight": 765,
 					"DisplayWidth": 500
 				}
 			},
@@ -3058,7 +3058,18 @@
 			}
 		},
 		"Next": {
-
+			"Path": "./Image/Scenes/PlayerDataLoad/next.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": 1,
+					"DisplayHeight": 1010,
+					"DisplayWidth": 1570
+				}
+			},
+			"Button": {
+				"Type": "button",
+				"ButtonID": 0
+			}
 		}
 	}
 }

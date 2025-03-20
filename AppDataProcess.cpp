@@ -47,7 +47,7 @@ int AppDataProcess::DisplayWidth(string ID, int ArrayLocal)
 					}
 					else if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"].is_array()) 
 					{
-						if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal].is_number() && JsonArraySize(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]) >= ArrayLocal)
+						if (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal].is_number() && (Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"]).size() >= ArrayLocal)
 						{
 							return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayWidth"][ArrayLocal]);
 						}
@@ -100,7 +100,7 @@ int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 					}
 					else if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"].is_array())
 					{
-						if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal].is_number() && JsonArraySize(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]) >= ArrayLocal)
+						if (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal].is_number() && (Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"]).size() >= ArrayLocal)
 						{
 							return (int)(Data[ID]["Scenes"][this->ScenesT]["DisplayHeight"][ArrayLocal]);
 						}
@@ -200,7 +200,7 @@ void AppDataProcess::LinkIMG(Link* ID)
 					if (ID->LinkSourceLocal == 0 && !Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"].is_array())
 						ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"];
 					else if (Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"].is_array()) {
-						if (JsonArraySize(Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"]) >= ID->LinkSourceLocal)
+						if ((Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"]).size() >= ID->LinkSourceLocal)
 							ID->LinkSource = Data[ID->LinkID]["Scenes"][this->ScenesT]["BoxName"][ID->LinkSourceLocal];
 						else
 						{
@@ -246,7 +246,7 @@ void AppDataProcess::ErrorLog(string ELT, string LV)
 		{
 			Login.get(c);
 			T += c;
-		}
+	}
 	}
 	if (T.size() == 0)
 		T[0] = ' ';
@@ -282,19 +282,8 @@ void AppDataProcess::ErrorLog(string ELT, string LV)
 	errLog.close();
 }
 
-size_t AppDataProcess::JsonArraySize(json j)
-{
-	auto sz = 0;
-	for (auto& i : j)
-	{
-		sz++;
-	}
-	return size_t(sz);
-}
-
 void AppDataProcess::exit(int i, string ET)
 {
 	MessageBoxA(NULL, ET.c_str(), NULL, MB_OK | MB_ICONERROR);
 	::exit(i);
 }
-
