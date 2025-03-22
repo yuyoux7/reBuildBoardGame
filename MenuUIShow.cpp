@@ -343,7 +343,9 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			}
 			player = &FlashPlayerData;
 			FlushBatchDraw();
+			//clock_t t = clock();
 			PlayerDataDisplay();
+			//std::cout << clock() - t << std::endl;
 		}
 		EndBatchDraw();
 		Sleep(1);
@@ -433,35 +435,37 @@ void MenuUIShow::PlayerDataDisplay()
 	IMAGE* fimg = new IMAGE;
 	int flist[6]{};
     #pragma omp parallel for
-		for (auto j = 0; j < 6; j++)
+	for (auto j = 0; j < 6; j++)
+	{
+		LinkToken.LinkSourceLocal = j;
+		
+		AppData->LinkIMG(&LinkToken);
+		
+		if (LinkToken.LinkSource == "AnchoredValueBox")
 		{
-			LinkToken.LinkSourceLocal = j;
-			AppData->LinkIMG(&LinkToken);
-			if (LinkToken.LinkSource == "AnchoredValueBox")
-			{
-				flist[0] = j;
-			}
-			if (LinkToken.LinkSource == "EffectValueBox")
-			{
-				flist[1] = j;
-			}
-			if (LinkToken.LinkSource == "ExistValueBox")
-			{
-				flist[2] = j;
-			}
-			if (LinkToken.LinkSource == "IntellectValueBox")
-			{
-				flist[3] = j;
-			}
-			if (LinkToken.LinkSource == "ObservatuonValueBox")
-			{
-				flist[4] = j;
-			}
-			if (LinkToken.LinkSource == "UnderstandValueBox")
-			{
-				flist[5] = j;
-			}
+			flist[0] = j;
 		}
+		if (LinkToken.LinkSource == "EffectValueBox")
+		{
+			flist[1] = j;
+		}
+		if (LinkToken.LinkSource == "ExistValueBox")
+		{
+			flist[2] = j;
+		}
+		if (LinkToken.LinkSource == "IntellectValueBox")
+		{
+			flist[3] = j;
+		}
+		if (LinkToken.LinkSource == "ObservatuonValueBox")
+		{
+			flist[4] = j;
+		}
+		if (LinkToken.LinkSource == "UnderstandValueBox")
+		{
+			flist[5] = j;
+		}
+	}
 	#pragma omp parallel for
 	for (int i = 0;i < Fstr.size(); i++)
 		{

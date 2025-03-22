@@ -132,6 +132,7 @@ bool WinUIClass::WinUISave(void)
 		if (!ShowWindow(WinUIhWnd, 5))
 		{
 			WinUIUnRegister();
+			Log_O.LoadLog(WTL, "", true);
 		}
 	}
 	return WINDOWUISTATE;

@@ -15,8 +15,11 @@ class Log_t
 public:
 	Log_t();
 	Log_t(Log_T *T);
-	void LoadLog(Log_T *T, string LogT);
+	void LoadLog(Log_T *T, string LogT, bool off = false);
+	void OWrite(Log_T* T);
 	~Log_t();
 private:
+	void getLog(Log_T* T);
+	time_t ttlf{};
 };
 

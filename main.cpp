@@ -51,6 +51,6 @@ int main(void)
 		Sleep(1);
 	}
 	free(Player_Data);
-	L.LoadLog(LT, "FreeAll");
+	L.LoadLog(LT, "FreeAll", true);
 	delete LT;
 };
