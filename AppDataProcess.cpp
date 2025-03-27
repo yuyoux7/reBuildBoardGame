@@ -1,5 +1,7 @@
 #include "AppDataProcess.h"
 
+unique_ptr<AppDataRegister> FlashData = make_unique<AppDataRegister>();
+
 void AppDataProcess::setClass(string Class)
 {
 	this->ClassType = Class;
@@ -30,9 +32,7 @@ int AppDataProcess::GetImageHeight(string ID)
 
 int AppDataProcess::DisplayWidth(string ID, int ArrayLocal)
 {
-	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
-	delete FlashData;
 	if (Data.contains(ID))
 	{
 		if (Data[ID].contains("Scenes")) 
@@ -83,9 +83,7 @@ int AppDataProcess::DisplayWidth(string ID, int ArrayLocal)
 
 int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 {
-	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
-	delete FlashData;
 	if (Data.contains(ID))
 	{
 		if (Data[ID].contains("Scenes"))
@@ -136,7 +134,6 @@ int AppDataProcess::DisplayHeight(string ID, int ArrayLocal)
 
 string AppDataProcess::GetPath(string ID)
 {
-	unique_ptr<AppDataRegister> FlashData = make_unique<AppDataRegister>();
 	if (FlashData->AppDataSent(TYPE_IMG, this->ClassType).contains(ID))
 	{
 		if (FlashData->AppDataSent(TYPE_IMG, this->ClassType)[ID].contains("Path"))
@@ -152,15 +149,12 @@ string AppDataProcess::GetPath(string ID)
 
 int AppDataProcess::GetGameRound()
 {
-	unique_ptr<AppDataRegister> FlashData = make_unique<AppDataRegister>();
 	return FlashData->AppDataSent(TYPE_DFT, "GameRound");
 }
 
 double AppDataProcess::GetDisplayProportion(string ID, int ArrayLocal)
 {
-	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
-	delete FlashData;
 	if (Data.contains(ID))
 	{
 		if (Data[ID].contains("Scenes"))
@@ -184,9 +178,7 @@ double AppDataProcess::GetDisplayProportion(string ID, int ArrayLocal)
 
 void AppDataProcess::LinkIMG(Link* ID)
 {
-	AppDataRegister* FlashData = new AppDataRegister;
 	json Data = FlashData->AppDataSent(TYPE_IMG, this->ClassType);
-	delete FlashData;
 	if (Data.contains(ID->LinkID))
 	{
 		if (Data[ID->LinkID].contains("Scenes"))

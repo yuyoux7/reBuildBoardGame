@@ -6,7 +6,7 @@ Player::Player()
 
 string Player::SetPlayerRace(PlayerData* player, unsigned short Race)
 {
-	unique_ptr<AppDataRegister> tool = make_unique<AppDataRegister>();
+	unique_ptr<AppDataProcess> tool = make_unique<AppDataProcess>();
 	string rc{}, fcc{};
 	json fjson = tool->AppDataSent(TYPE_DFT, "PlayerBasicValue");
 	if (fjson != NULL)
@@ -749,7 +749,7 @@ void Player::CardUsing(PlayerData* player, int CardID)
 {
 	if (CardID != NULL)
 	{
-		unique_ptr<AppDataRegister> AppData = make_unique<AppDataRegister>();
+		unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
 		if (AppData->AppDataSent(TYPE_DFT, "CardValue").contains(TimeToString(CardID)))
 		{
 			player->Card.ID.push_back(CardID);
@@ -760,7 +760,7 @@ void Player::CardUsing(PlayerData* player, int CardID)
 
 unsigned short Player::GetCardType(int CardID)
 {
-	unique_ptr<AppDataRegister> AppData = make_unique<AppDataRegister>();
+	unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
 	if (AppData->AppDataSent(TYPE_DFT, "CardValue")[TimeToString(CardID)].is_array())
 	{
 		return AppData->AppDataSent(TYPE_DFT, "CardValue")[TimeToString(CardID)][0];
