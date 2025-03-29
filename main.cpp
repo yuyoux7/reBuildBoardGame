@@ -1,4 +1,5 @@
 #include "MenuUIShow.h"
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup") 
 int main(void)
 {
 	int err = _mkdir("./Log");
@@ -8,7 +9,7 @@ int main(void)
 	unique_ptr<AppDataProcess> AppData = make_unique<AppDataProcess>();
 	L.LoadLog(LT, "DataReadSuccess");
 	int GameRound = AppData->GetGameRound();
-	unique_ptr<MenuUIShow> Display(new MenuUIShow);
+	unique_ptr<MenuUIShow> Display = make_unique<MenuUIShow>();
 	Display->LogMix(LT);
 	ofstream f(LT->LogPath);
 	if (f.is_open())
@@ -21,36 +22,39 @@ int main(void)
 	Player::PlayerData* Player_Data = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * (static_cast<unsigned long long>(PlayerTotal) + 3));
 	if (Player_Data != nullptr)
 	{
+		Player_Data[0] = {};
 		for (auto i = 1; i <= PlayerTotal; i++)
 		{
 			Player_Data[i] = Display->ScenesPlayerDataLoad();
 			Player_Data[i].ID = i;
 		}
-	}
-	L.LoadLog(LT, "TurnNextScenes");
-	for (auto i = 0; GameRun; i++)
-	{
-		Display->ScenesGameRotateDisplay();
 		L.LoadLog(LT, "TurnNextScenes");
-		Display->ScenesCardFunctionUsing();
-		L.LoadLog(LT, "TurnNextScenes");
-		Display->ScenesAttack();
-		if (i == PlayerTotal)
+		for (auto i = 1; GameRun; i++)
 		{
-			i = 0;
-			GameRound--;
-			if (GameRound == -1)
+			Display->CatchPlayerData(&Player_Data[i]);
+			Display->ScenesGameRotateDisplay();
+			L.LoadLog(LT, "TurnNextScenes");
+			Display->ScenesCardFunctionUsing();
+			L.LoadLog(LT, "TurnNextScenes");
+			Display->ScenesAttack();
+			if (i == PlayerTotal)
 			{
-				GameRun = false;
+				i = 1;
+				GameRound--;
+				if (GameRound == -1)
+				{
+					GameRun = false;
+				}
+				else
+				{
+					L.LoadLog(LT, "NextRound");
+				}
 			}
-			else
-			{
-				L.LoadLog(LT, "NextRound");
-			}
+			Sleep(1);
 		}
-		Sleep(1);
 	}
 	free(Player_Data);
 	L.LoadLog(LT, "FreeAll", true);
 	delete LT;
+	exit(0);
 };

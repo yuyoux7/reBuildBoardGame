@@ -343,9 +343,7 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			}
 			player = &FlashPlayerData;
 			FlushBatchDraw();
-			//clock_t t = clock();
 			PlayerDataDisplay();
-			//std::cout << clock() - t << std::endl;
 		}
 		EndBatchDraw();
 		Sleep(1);
@@ -364,6 +362,7 @@ void MenuUIShow::ScenesGameRotateDisplay(void)
 	UI->PutIMG("PlayerOrder");
 	UI->SetClass("Box");
 	UI->PutIMG("NowRoundBox");
+	Button->SetScenes("GameRotateDisplay");
 	EndBatchDraw();
 	while (UI->WinUISave()) { Sleep(1); };
 }
@@ -417,6 +416,11 @@ void MenuUIShow::LogMix(Log_T *T)
 	T->Text += TL.Text;
 	TL.Text = T->Text;
 	TL.LogPath = T->LogPath;
+}
+
+void MenuUIShow::CatchPlayerData(Player::PlayerData* SourcePlayerData)
+{
+	player = SourcePlayerData;
 }
 
 void MenuUIShow::PlayerDataDisplay()

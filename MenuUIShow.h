@@ -15,6 +15,7 @@ public:
 	void ScenesAttack(void);
 	int GetPlayerTotal(void) const;
 	void LogMix(Log_T *T);
+	void CatchPlayerData(Player::PlayerData* SourcePlayerData);
 	~MenuUIShow();
 private:
 	int PlayrTotal{};
