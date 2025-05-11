@@ -185,6 +185,7 @@ MenuUIShow::MenuUIShow()
 Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 {
 	Player::PlayerData FlashPlayerData;
+	IMAGE FlashIMG{};
 	UI->SetLog(&TL); 
 	{
 		UI->SetScenes("PlayerDataLoad");
@@ -192,6 +193,8 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 		UI->PutIMG("OtherBG");
 		UI->SetClass("Box");
 		Button->SetScenes("PlayerDataLoad");
+		AppData->setClass("Box");
+		AppData->setScenes("PlayerDataLoad");
 		UI->PutIMG("SetNameBox");
 		UI->PutIMG("ExistValueBox");
 		UI->PutIMG("IntellectValueBox");
@@ -201,6 +204,14 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 		UI->PutIMG("ObservatuonValueBox");
 		UI->PutIMG("FourDiceValueBox");
 		UI->PutIMG("SixDiceValueBox");
+		UI->LoadIMG("DiceValueBoxsLink", AppData->GetDisplayProportion("DiceValueBoxsLink"), &FlashIMG);
+		LinkToken.LinkID = "DiceValueBoxsLink";
+		LinkToken.LinkSourceLocal = 0;
+		AppData->LinkIMG(&LinkToken);
+		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &FlashIMG);
+		LinkToken.LinkSourceLocal = 1;
+		AppData->LinkIMG(&LinkToken);
+		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &FlashIMG);
 		UI->SetClass();
 		UI->PutIMG("Race_People");
 		UI->PutIMG("Race_God");
@@ -217,11 +228,9 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 	FlashPlayerData.Name[1] = ((rand() % 40) + 1);
 	UI->SetClass("Name");
 	AppData->setClass("Name");
-	AppData->setScenes("PlayerDataLoad");
 	LinkToken.LinkID = "NameLink";
 	LinkToken.LinkSourceLocal = 0;
 	AppData->LinkIMG(&LinkToken);
-	IMAGE FlashIMG{};
 	string Name_t{};
 	string Adj_t{};
 	if (FlashPlayerData.Name[0] < 10)
@@ -340,6 +349,10 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 			{
 				if (FlashPlayerData.Race != NULL)
 					break;
+			}
+			else if (Button->ButtonProcess(""))
+			{
+
 			}
 			player = &FlashPlayerData;
 			FlushBatchDraw();

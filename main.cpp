@@ -22,7 +22,6 @@ int main(void)
 	Player::PlayerData* Player_Data = (Player::PlayerData*)malloc(sizeof(Player::PlayerData) * (static_cast<unsigned long long>(PlayerTotal) + 3));
 	if (Player_Data != nullptr)
 	{
-		Player_Data[0] = {};
 		for (auto i = 1; i <= PlayerTotal; i++)
 		{
 			Player_Data[i] = Display->ScenesPlayerDataLoad();

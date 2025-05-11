@@ -27,7 +27,7 @@ private:
 	string ClassType{};
 	string ScenesT{};
 	void ErrorLog(string ELT, string LV = ": warning");
-	string ELPT;
+	string ELPT{};
 	void exit(int i, string ET = "");
 	bool ELS = false;
 };

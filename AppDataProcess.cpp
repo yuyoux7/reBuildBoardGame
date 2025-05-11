@@ -162,7 +162,10 @@ double AppDataProcess::GetDisplayProportion(string ID, int ArrayLocal)
 			if (Data[ID]["Scenes"].contains(this->ScenesT))
 			{
 				if (Data[ID]["Scenes"][this->ScenesT].contains("DisplayProportion"))
-					return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+					if (Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"].is_number())
+						return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"]);
+					else if (Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"].is_array())
+						return (double)(Data[ID]["Scenes"][this->ScenesT]["DisplayProportion"][ArrayLocal]);
 				ErrorLog(string(ID + "\" " + "DisplayProportion"));
 				return 1.0;
 			}

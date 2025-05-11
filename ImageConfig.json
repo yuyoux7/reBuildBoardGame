@@ -2498,7 +2498,7 @@
 			}
 		},
 		"ExistValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/exist.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/exist.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2518,7 +2518,7 @@
 			}
 		},
 		"IntellectValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/intellect.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/intellect.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2538,7 +2538,7 @@
 			}
 		},
 		"AnchoredValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/anchored.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/anchored.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2558,7 +2558,7 @@
 			}
 		},
 		"EffectValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/affect.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/affect.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2578,7 +2578,7 @@
 			}
 		},
 		"UnderstandValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/understand.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/understand.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2598,7 +2598,7 @@
 			}
 		},
 		"ObservatuonValueBox": {
-			"Path":"./Image/Scenes/CardFunctionUsing/observatuon.png",
+			"Path": "./Image/Scenes/CardFunctionUsing/observatuon.png",
 			"Scenes": {
 				"PlayerDataLoad": {
 					"DisplayProportion": 1,
@@ -2637,13 +2637,24 @@
 				}
 			}
 		},
+		"DiceValueBoxsLink": {
+			"Path": "./Image/Scenes/PlayerDataLoad/dicenumder.png",
+			"Scenes": {
+				"PlayerDataLoad": {
+					"DisplayProportion": [0.8, 0.8],
+					"BoxName": [ "FourDiceValueBox", "SixDiceValueBox" ],
+					"DisplayHeight": [ -20, -20 ],
+					"DisplayWidth": [ 170, 170 ]
+				}
+			}
+		},
 		"NowRoundBox": {
 			"Path": "./Image/Scenes/CardFunctionUsing/round.png",
 			"Scenes": {
 				"GameRotateDisplay": {
 					"DisplayProportion": 1,
-					"DisplayHeight": 0,
-					"DisplayWidth": 0
+					"DisplayHeight": 50,
+					"DisplayWidth": 1780
 				},
 				"CardFunctionUsing": {
 					"DisplayProportion": 1,
