@@ -350,9 +350,33 @@ Player::PlayerData MenuUIShow::ScenesPlayerDataLoad(void)
 				if (FlashPlayerData.Race != NULL)
 					break;
 			}
-			else if (Button->ButtonProcess(""))
+			else if (Button->ButtonProcess("FourDicePointUp"))
 			{
-
+				if (FlashPlayerData.Dice.Four < 4)
+				{
+					FlashPlayerData.Dice.Four += 1;
+				}
+			}
+			else if (Button->ButtonProcess("FourDicePointDown"))
+			{
+				if (FlashPlayerData.Dice.Four > 1)
+				{
+					FlashPlayerData.Dice.Four -= 1;
+				}
+			}
+			else if (Button->ButtonProcess("SixDicePointUp"))
+			{
+				if (FlashPlayerData.Dice.Six < 6)
+				{
+					FlashPlayerData.Dice.Six += 1;
+				}
+			}
+			else if (Button->ButtonProcess("SixDicePointDown"))
+			{
+				if (FlashPlayerData.Dice.Six > 1)
+				{
+					FlashPlayerData.Dice.Six -= 1;
+				}
 			}
 			player = &FlashPlayerData;
 			FlushBatchDraw();

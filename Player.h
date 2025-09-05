@@ -18,6 +18,11 @@ public:
 		std::vector<unsigned short> Type{};
 		std::vector<unsigned int> ID{};
 	}PlayerCard;
+	typedef struct _tagd
+	{
+		short Four = 1;
+		short Six = 1;
+	}PlayerDice;
 	typedef struct _tag
 	{
 		PlayerValue Value{};
@@ -27,6 +32,7 @@ public:
 		unsigned short Map{};
 		unsigned short AttackType{};
 		unsigned short Race{};
+		PlayerDice Dice{};
 	}PlayerData;
 	enum RaceList : unsigned short
 	{
