@@ -25,7 +25,7 @@ MenuUIShow::MenuUIShow()
 	UI->MixLog(&TL);
 	UI->WinUITitleSet("BoardGame");
 	UI->MixLog(&TL);
-	TL.Text += " " + (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
+	TL.Text += (TimeToString(time(NULL)) + ": " + "WindowCraetSuccess\n");
 	Button->SetWindowZoomRatio(this->WindowSet["Width"], this->WindowSet["Height"]);
 	UI->SetScenes("Home");
 	UI->MixLog(&TL);
@@ -60,7 +60,7 @@ MenuUIShow::MenuUIShow()
 		UI->MixLog(&TL);
 		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 		UI->MixLog(&TL);
-		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
+		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal / 10) ^ 48));
 		Number_t = ((std::string)"Number" + (char)((this->PlayrTotal % 10) ^ 48));
 		UI->LoadIMG(Number_t, (double)AppData->GetDisplayProportion(Number_t), &imgg);
 		UI->MixLog(&TL);
@@ -75,7 +75,7 @@ MenuUIShow::MenuUIShow()
 		UI->MixLog(&TL);
 		UI->PutIMG(LinkToken.DisplayWidth, LinkToken.DisplayHeight, &imgg);
 		UI->MixLog(&TL);
-		TL.Text += " " + (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
+		TL.Text += (TimeToString(time(NULL)) + ": " + "Default Player Count: " + (char)((this->PlayrTotal) ^ 48) + (string)"\n");
 	}
 	while (UI->WinUISave())
 	{
@@ -115,7 +115,7 @@ MenuUIShow::MenuUIShow()
 						UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Number_t)), LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 					}
-					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
+					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountLow" + (string)"\n");
 					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
@@ -150,7 +150,7 @@ MenuUIShow::MenuUIShow()
 						UI->PutIMG((LinkToken.DisplayWidth + AppData->GetImageWidth(Number_t)), LinkToken.DisplayHeight, &imgg);
 						UI->MixLog(&TL);
 					}
-					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
+					TL.Text += (TimeToString(time(NULL)) + ": " + "PlayerCountUp" + (string)"\n");
 					FlushBatchDraw();
 					while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				}
@@ -163,16 +163,16 @@ MenuUIShow::MenuUIShow()
 				UI->MixLog(&TL);
 				UI->PutIMG("Start_Put");
 				UI->MixLog(&TL);
-				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
+				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonPush" + (string)"\n");
 				FlushBatchDraw();
 				while (UI->DispatchMSG().message != 0x00000202) { Sleep(1); };
 				Button->ButtonInput(UI->DispatchMSG());
 				if (Button->ButtonProcess("Start"))
 				{
-					TL.Text += " " + (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
+					TL.Text += (TimeToString(time(NULL)) + ": " + "GamePlayerTotle: " + TimeToString(this->PlayrTotal) + (string)"\n");
 					break;
 				}
-				TL.Text += " " + (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
+				TL.Text += (TimeToString(time(NULL)) + ": " + "HomeStartButtonBack" + (string)"\n");
 				UI->PutIMG("Start");
 				UI->MixLog(&TL);
 			}

@@ -6,7 +6,7 @@ void Log_t::LoadLog(Log_T* T, string LogT, bool off)
 	{
 		getLog(T);
 	}
-	T->Text[T->Text.size() - 1] = ' ';
+	T->Text.pop_back();
 	if (T->player == nullptr)
 	{
 		T->Text += TimeToString(time(NULL)) + ": " + LogT + "\n";

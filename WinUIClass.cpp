@@ -146,6 +146,6 @@ void WinUIClass::LogWrite(string T)
 	}
 	else
 	{
-		WTL->Text += " " + TimeToString(time(NULL)) + ": " + T + "\n";
+		WTL->Text += TimeToString(time(NULL)) + ": " + T + "\n";
 	}
 }
